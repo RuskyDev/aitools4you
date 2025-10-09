@@ -5,6 +5,7 @@ import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import siteConfig from "@/config/site.config";
 import { usePathname } from "next/navigation";
+import VerticalAdComponent from "@/components/VerticalAdComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,11 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
         {!hideNavbarAndFooter && <Navbar navItems={siteConfig.navItems} />}
-        {children}
+        <div className="relative min-h-screen pb-[120px]">
+          <VerticalAdComponent position="left" src="/ads/left.jpg" />
+          <VerticalAdComponent position="right" src="/ads/right.jpg" />
+          {children}
+        </div>
         {!hideNavbarAndFooter && <Footer />}
       </body>
     </html>

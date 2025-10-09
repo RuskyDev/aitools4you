@@ -1,9 +1,9 @@
 const siteConfig = {
-  name: "Discover AI Tools",
+  name: "AI Tools 4 You",
   links: [
-    { label: "Instagram", href: "https://instagram.com/ruskydev", icon: "Instagram" },
-    { label: "Twitter", href: "https://twitter.com/ruskydev", icon: "Twitter" },
-    { label: "Email", href: "mailto:contact@rusky.xyz", icon: "Mail" },
+    { label: "Linkedin", href: "https://www.linkedin.com/company/ai-tools-4-you", icon: "Linkedin" },
+    { label: "Instagram", href: "https://instagram.com/aitools4you.official", icon: "Instagram" },
+    { label: "Email", href: "mailto:contact@aitools4you.xyz", icon: "Mail" },
   ],
   navItems: [
     { label: "Home", href: "/" },
@@ -15,7 +15,7 @@ const siteConfig = {
     { label: "Terms of Service", href: "/terms" },
     { label: "Contact", href: "/contact" },
   ],
-  domain: "discoveraitools.net",
+  domain: "aitools4you.xyz",
 };
 
 export default siteConfig;
