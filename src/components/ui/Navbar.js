@@ -2,9 +2,16 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Linkedin, Instagram, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import siteConfig from "@/config/site.config";
+
+const iconMap = {
+  Linkedin,
+  Instagram,
+  Mail,
+};
 
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,6 +24,7 @@ export default function Navbar({ navItems }) {
   }, [menuOpen]);
 
   const validItems = navItems.filter((item) => item && item.label && item.href);
+  const socialLinks = siteConfig.links || [];
 
   return (
     <>
@@ -32,9 +40,20 @@ export default function Navbar({ navItems }) {
               <Menu size={24} />
             </motion.button>
           </div>
-          <div className="text-2xl font-bold text-primary">
-            {siteConfig.name}
-          </div>
+
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={120}
+              height={40}
+              className="h-10 w-auto object-contain hidden md:block"
+              priority
+            />
+            <span className="text-2xl font-bold text-primary md:hidden">
+              AI TOOLS 4 YOU
+            </span>
+          </Link>
         </div>
 
         {validItems.length > 0 && (
@@ -51,6 +70,24 @@ export default function Navbar({ navItems }) {
             ))}
           </ul>
         )}
+
+        <div className="hidden md:flex items-center gap-4">
+          {socialLinks.map((link) => {
+            const Icon = iconMap[link.icon];
+            if (!Icon) return null;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition"
+              >
+                <Icon size={20} />
+              </Link>
+            );
+          })}
+        </div>
       </nav>
 
       <AnimatePresence>
@@ -97,6 +134,31 @@ export default function Navbar({ navItems }) {
                 </Link>
               </motion.div>
             ))}
+
+            <div className="flex gap-6 mt-6">
+              {socialLinks.map((link, i) => {
+                const Icon = iconMap[link.icon];
+                if (!Icon) return null;
+                return (
+                  <motion.div
+                    key={link.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.1 }}
+                  >
+                    <Link
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      <Icon size={28} />
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

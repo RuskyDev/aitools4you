@@ -190,21 +190,5 @@
     "iconUrl": "https://otter.ai/favicon.ico",
     "tags": ["Productivity AI"],
     "url": "https://otter.ai"
-  },
-  {
-    "id": 25,
-    "name": "Magical",
-    "description": "AI automation tool that helps you auto-fill forms, messages, and workflows across apps.",
-    "iconUrl": "https://www.getmagical.com/favicon.ico",
-    "tags": ["Automation AI"],
-    "url": "https://www.getmagical.com"
-  },
-  {
-    "id": 26,
-    "name": "Genei",
-    "description": "AI summarizer and note-taking assistant for students, researchers, and professionals.",
-    "iconUrl": "https://www.genei.io/favicon.ico",
-    "tags": ["Research AI"],
-    "url": "https://www.genei.io"
   }
 ]

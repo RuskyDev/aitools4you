@@ -1,17 +1,13 @@
 "use client";
-import { useState, useEffect } from "react";
 import * as Icons from "lucide-react";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("/tags.json")
-      .then((res) => res.json())
-      .then((data) => setCategories(data))
-      .catch(() => setCategories([]));
-  }, []);
+  const currentYear = new Date().getFullYear();
+  const copyright =
+    siteConfig.footer.copyrightStartYear === currentYear
+      ? currentYear
+      : `${siteConfig.footer.copyrightStartYear}–${currentYear}`;
 
   return (
     <footer className="bg-card/50 backdrop-blur-sm border-t border-border px-6 py-12">
@@ -22,8 +18,7 @@ export default function Footer() {
               {siteConfig.name}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Your ultimate destination for discovering and exploring the latest
-              AI tools and resources. Stay ahead in the AI revolution.
+              {siteConfig.description}
             </p>
             <div className="flex gap-4">
               {siteConfig.links.map((link) => {
@@ -60,33 +55,12 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-
-          <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">
-              Categories
-            </h4>
-            <ul className="space-y-2">
-              {categories.length > 0 ? (
-                categories.map((cat) => (
-                  <li key={cat.id}>
-                    <button className="text-muted-foreground hover:text-primary transition-colors">
-                      {cat.name}
-                    </button>
-                  </li>
-                ))
-              ) : (
-                <li className="text-muted-foreground/70">
-                  No categories available
-                </li>
-              )}
-            </ul>
-          </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © 2025 {siteConfig.name}. All rights reserved.
+              © {copyright} {siteConfig.name}. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               {siteConfig.legal.map((item) => (

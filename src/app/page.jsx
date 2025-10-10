@@ -10,7 +10,6 @@ import {
 
 const ITEMS_PER_PAGE = 9;
 
-import VerticalAdComponent from "@/components/VerticalAdComponent";
 import HorizontalAdComponent from "@/components/HorizontalAdComponent";
 
 const SkeletonCard = () => (
@@ -40,6 +39,7 @@ const SkeletonCard = () => (
 
 export default function Page() {
   const [tools, setTools] = useState([]);
+  const [tags, setTags] = useState(["All"]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
@@ -47,21 +47,32 @@ export default function Page() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/tools.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setTools(data);
+    Promise.all([
+      fetch("/tools.json").then((res) => res.json()),
+      fetch("/tags.json").then((res) => res.json()),
+    ])
+      .then(([toolsData, tagsData]) => {
+        const validTools = toolsData.filter((tool) =>
+          tool.tags.some((tag) => tagsData.includes(tag))
+        );
+        setTools(validTools);
+        setTags(["All", ...tagsData]);
         setLoading(false);
       })
       .catch(() => setLoading(false));
   }, []);
 
-  const filteredTools = tools.filter(
-    (tool) =>
+  const filteredTools = tools.filter((tool) => {
+    const matchesSearch =
       tool.name.toLowerCase().includes(search.toLowerCase()) ||
       tool.description.toLowerCase().includes(search.toLowerCase()) ||
-      tool.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()))
-  );
+      tool.tags.some((tag) => tag.toLowerCase().includes(search.toLowerCase()));
+
+    const matchesFilter =
+      filter === "All" || tool.tags.some((tag) => tag === filter);
+
+    return matchesSearch && matchesFilter;
+  });
 
   const totalPages = Math.ceil(filteredTools.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -73,38 +84,29 @@ export default function Page() {
     setCurrentPage(1);
   };
 
-  const handlePrevPage = () => {
-    setCurrentPage((prev) => Math.max(1, prev - 1));
-  };
-
-  const handleNextPage = () => {
+  const handlePrevPage = () => setCurrentPage((prev) => Math.max(1, prev - 1));
+  const handleNextPage = () =>
     setCurrentPage((prev) => Math.min(totalPages, prev + 1));
+
+  const handleTagChange = (tag) => {
+    router.push(`?tag=${encodeURIComponent(tag)}`);
+    setCurrentPage(1);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 relative">
-      {/* <VerticalAdComponent
-        position="left"
-        src="96640ea8bc7cf499664cf0203d498982.jpg"
-      />
-      <VerticalAdComponent
-        position="right"
-        src="96640ea8bc7cf499664cf0203d498982.jpg"
-      /> */}
-
-      {/* Top horizontal ad */}
-      <HorizontalAdComponent src="96640ea8bc7cf499664cf0203d498982.jpg" />
+      {/* <HorizontalAdComponent src="" /> */}
 
       <div className="max-w-[1200px] mx-auto px-4 py-8">
         <div className="flex flex-col items-center justify-start text-center">
           <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-foreground leading-tight">
-            Discover the Best <br />
+            Explore the Latest <br />
             <span className="text-primary">AI Tools</span>
           </h1>
           <p className="text-lg sm:text-xl mb-12 max-w-2xl text-muted-foreground">
-            Curated collection of powerful AI tools for developers, designers,
-            and creators. Build faster, create better, and stay ahead of the
-            curve.
+            Handpicked AI tools designed for developers, designers, and
+            creators. Work smarter, create faster, and stay ahead in the AI
+            revolution.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-2xl">
@@ -129,10 +131,14 @@ export default function Page() {
               />
               <select
                 value={filter}
-                onChange={(e) => setFilter(e.target.value)}
+                onChange={(e) => handleTagChange(e.target.value)}
                 className="w-full pl-10 pr-5 py-3 rounded-xl border border-border bg-input text-foreground shadow-md appearance-none focus:outline-none focus:ring-2 focus:ring-ring transition"
               >
-                <option value="All">All</option>
+                {tags.map((tag, i) => (
+                  <option key={i} value={tag}>
+                    {tag}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
@@ -143,9 +149,6 @@ export default function Page() {
         </div>
 
         <div>
-          <div className="col-span-full flex justify-center my-4 lg:hidden">
-            <HorizontalAdComponent src="96640ea8bc7cf499664cf0203d498982.jpg" />
-          </div>
           <h2 className="text-3xl font-bold text-center text-foreground mb-12">
             Featured AI Tools
           </h2>
@@ -202,10 +205,9 @@ export default function Page() {
                   </div>
                 ))}
 
-                {/* Ad after 3rd tool */}
-                <div className="col-span-full flex justify-center my-4 lg:hidden">
-                  <HorizontalAdComponent src="96640ea8bc7cf499664cf0203d498982.jpg" />
-                </div>
+                {/* <div className="col-span-full flex justify-center my-4 lg:hidden">
+                  <HorizontalAdComponent src="" />
+                </div> */}
 
                 {currentTools.slice(3).map((tool) => (
                   <div
@@ -250,10 +252,9 @@ export default function Page() {
                   </div>
                 ))}
 
-                {/* Ad after last tool (9th) */}
-                <div className="col-span-full flex justify-center my-4 lg:hidden ">
-                  <HorizontalAdComponent src="96640ea8bc7cf499664cf0203d498982.jpg" />
-                </div>
+                {/* <div className="col-span-full flex justify-center my-4 lg:hidden ">
+                  <HorizontalAdComponent src="" />
+                </div> */}
               </div>
 
               {filteredTools.length > 0 && (
