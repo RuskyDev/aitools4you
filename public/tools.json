@@ -43,7 +43,7 @@
     "id": 6,
     "name": "Perplexity",
     "description": "An AI-powered search engine and assistant that provides concise, cited answers with deep context.",
-    "iconUrl": "https://www.perplexity.ai/favicon.ico",
+    "iconUrl": "https://www.google.com/s2/favicons?sz=256&domain_url=https%3A%2F%2Fwww.perplexity.ai%2F",
     "tags": ["Search AI"],
     "url": "https://www.perplexity.ai"
   },

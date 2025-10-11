@@ -15,6 +15,14 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const GA_ID = "G-LB76TE1F7S";
 
+export const metadata = {
+  title: siteConfig.name || "Website",
+  description: siteConfig.description || "Discover the best AI tools for developers, designers, and creators to boost productivity and stay ahead in the AI era.",
+  icons: {
+    icon: "/favicon.ico",
+  }
+}
+
 export default function RootLayout({ children }) {
   const isProd = process.env.NODE_ENV !== "development";
 
@@ -41,8 +49,8 @@ export default function RootLayout({ children }) {
         <Navbar navItems={siteConfig.navItems} />
 
         <main className="relative min-h-screen pb-[120px]">
-          {/* <VerticalAdComponent position="left" src="/ads/left.jpg" />
-          <VerticalAdComponent position="right" src="/ads/right.jpg" /> */}
+          {/* <VerticalAdComponent position="left" src="null" />
+          <VerticalAdComponent position="right" src="null" /> */}
           {children}
         </main>
 

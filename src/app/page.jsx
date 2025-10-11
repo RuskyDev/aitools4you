@@ -11,31 +11,7 @@ import {
 const ITEMS_PER_PAGE = 9;
 
 import HorizontalAdComponent from "@/components/HorizontalAdComponent";
-
-const SkeletonCard = () => (
-  <div className="bg-card border border-border rounded-xl p-6 flex flex-col animate-pulse">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="bg-muted p-2 rounded-lg">
-        <div className="w-12 h-12 bg-muted rounded"></div>
-      </div>
-      <div className="h-6 bg-muted rounded w-32"></div>
-    </div>
-
-    <div className="flex flex-wrap gap-2 mb-4">
-      <div className="h-6 bg-muted rounded-full w-16"></div>
-      <div className="h-6 bg-muted rounded-full w-20"></div>
-      <div className="h-6 bg-muted rounded-full w-14"></div>
-    </div>
-
-    <div className="space-y-2 mb-6 flex-grow">
-      <div className="h-4 bg-muted rounded w-full"></div>
-      <div className="h-4 bg-muted rounded w-5/6"></div>
-      <div className="h-4 bg-muted rounded w-4/6"></div>
-    </div>
-
-    <div className="h-12 bg-muted rounded-lg"></div>
-  </div>
-);
+import SkeletonCard from "@/components/ui/SkeletonCard";
 
 export default function Page() {
   const [tools, setTools] = useState([]);
@@ -89,24 +65,24 @@ export default function Page() {
     setCurrentPage((prev) => Math.min(totalPages, prev + 1));
 
   const handleTagChange = (tag) => {
-    router.push(`?tag=${encodeURIComponent(tag)}`);
+    setFilter(tag);
     setCurrentPage(1);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 relative">
-      {/* <HorizontalAdComponent src="" /> */}
+      {/* <HorizontalAdComponent src="null" /> */}
 
       <div className="max-w-[1200px] mx-auto px-4 py-8">
         <div className="flex flex-col items-center justify-start text-center">
-          <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-foreground leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-foreground leading-snug sm:leading-tight">
             Explore the Latest <br />
             <span className="text-primary">AI Tools</span>
           </h1>
-          <p className="text-lg sm:text-xl mb-12 max-w-2xl text-muted-foreground">
-            Handpicked AI tools designed for developers, designers, and
-            creators. Work smarter, create faster, and stay ahead in the AI
-            revolution.
+          <p className="text-base sm:text-lg mb-10 max-w-xl text-muted-foreground">
+            Discover top AI tools built for developers, designers, and creators.
+            Boost productivity, speed up your workflow, and stay ahead in the AI
+            era.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-2xl">
@@ -206,7 +182,7 @@ export default function Page() {
                 ))}
 
                 {/* <div className="col-span-full flex justify-center my-4 lg:hidden">
-                  <HorizontalAdComponent src="" />
+                  <HorizontalAdComponent src="null" />
                 </div> */}
 
                 {currentTools.slice(3).map((tool) => (
@@ -253,7 +229,7 @@ export default function Page() {
                 ))}
 
                 {/* <div className="col-span-full flex justify-center my-4 lg:hidden ">
-                  <HorizontalAdComponent src="" />
+                  <HorizontalAdComponent src="null" />
                 </div> */}
               </div>
 

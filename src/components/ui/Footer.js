@@ -1,37 +1,40 @@
 "use client";
-import * as Icons from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail, Circle } from "lucide-react";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-  const copyright =
-    siteConfig.footer.copyrightStartYear === currentYear
-      ? currentYear
-      : `${siteConfig.footer.copyrightStartYear}–${currentYear}`;
+  const year = new Date().getFullYear();
+  const { name = "Website", socialMediaLinks = [], navigationBarItems = [] } = siteConfig;
+
+  const iconMap = {
+    Linkedin,
+    Instagram,
+    Facebook,
+    Mail,
+  };
 
   return (
     <footer className="bg-card/50 backdrop-blur-sm border-t border-border px-6 py-12">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              {siteConfig.name}
-            </h3>
+          <div className="md:col-span-2">
+            <h3 className="text-2xl font-bold text-foreground mb-4">{name}</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              {siteConfig.description}
+              Discover the best AI tools for developers, designers, and creators.
             </p>
+
             <div className="flex gap-4">
-              {siteConfig.links.map((link) => {
-                const Icon = Icons[link.icon] || Icons.Circle;
+              {socialMediaLinks.map(({ label, href, icon }) => {
+                const Icon = iconMap[icon] || Circle;
                 return (
                   <a
-                    key={link.label}
-                    href={link.href}
+                    key={label}
+                    href={href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors"
                   >
-                    <Icon className="text-muted-foreground" size={20} />
+                    <Icon size={20} className="text-muted-foreground" />
                   </a>
                 );
               })}
@@ -39,17 +42,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">
-              Quick Links
-            </h4>
+            <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {siteConfig.navItems.map((item) => (
-                <li key={item.label}>
+              {navigationBarItems.map(({ label, href }) => (
+                <li key={label}>
                   <a
-                    href={item.href}
+                    href={href}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {item.label}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -60,16 +61,19 @@ export default function Footer() {
         <div className="border-t border-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © {copyright} {siteConfig.name}. All rights reserved.
+              © {year} {name}. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              {siteConfig.legal.map((item) => (
+              {[
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/terms", label: "Terms of Service" },
+              ].map(({ href, label }) => (
                 <a
-                  key={item.label}
-                  href={item.href}
+                  key={label}
+                  href={href}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {item.label}
+                  {label}
                 </a>
               ))}
             </div>

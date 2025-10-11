@@ -5,12 +5,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "ui-avatars.com",
+        hostname: "**",
       },
       {
-        protocol: "https",
-        hostname: "placehold.co"
-      }
+        protocol: "http",
+        hostname: "**",
+      },
     ],
   },
 };
