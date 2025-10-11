@@ -1,5 +1,5 @@
 "use client";
-import { Linkedin, Instagram, Facebook, Mail, Circle } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Circle } from "lucide-react";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {

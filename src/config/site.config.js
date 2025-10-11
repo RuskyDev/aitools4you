@@ -6,8 +6,7 @@ const siteConfig = {
   socialMediaLinks: [
     { label: "Linkedin", href: "https://www.linkedin.com/company/ai-tools-4-you", icon: "Linkedin" },
     { label: "Instagram", href: "https://instagram.com/aitools4you.official", icon: "Instagram" },
-    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61581877957725", icon: "Facebook" },
-    { label: "Email", href: "mailto:contact@aitools4you.xyz", icon: "Mail" },
+    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61581877957725", icon: "Facebook" }
   ],
 
   navigationBarItems: [
