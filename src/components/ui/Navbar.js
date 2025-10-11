@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import siteConfig from "@/config/site.config";
 
-const iconMap = { Linkedin, Instagram, Mail, Facebook };
+const iconMap = { Linkedin, Instagram, Facebook };
 
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);

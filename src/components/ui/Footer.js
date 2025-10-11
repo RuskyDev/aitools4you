@@ -9,8 +9,7 @@ export default function Footer() {
   const iconMap = {
     Linkedin,
     Instagram,
-    Facebook,
-    Mail,
+    Facebook
   };
 
   return (
