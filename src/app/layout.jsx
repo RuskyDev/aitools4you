@@ -1,60 +1,22 @@
-"use client";
-
-import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
-
 import "@/styles/globals.css";
-
+import { Geist, Geist_Mono } from "next/font/google";
 import siteConfig from "@/config/site.config";
-
-import Footer from "@/components/ui/Footer";
-import Navbar from "@/components/ui/Navbar";
-import VerticalAdComponent from "@/components/VerticalAdComponent";
+import RootLayoutClient from "./layoutClient";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-const GA_ID = "G-LB76TE1F7S";
 
 export const metadata = {
   title: siteConfig.name || "Website",
-  description: siteConfig.description || "Discover the best AI tools for developers, designers, and creators to boost productivity and stay ahead in the AI era.",
-  icons: {
-    icon: "/favicon.ico",
-  }
-}
+  description: siteConfig.description || "Discover top AI tools for developers, designers, and creators.",
+  icons: { icon: "/favicon.ico" },
+};
 
 export default function RootLayout({ children }) {
-  const isProd = process.env.NODE_ENV !== "development";
-
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
-        suppressHydrationWarning
-      >
-        {isProd && (
-          <>
-            <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-            <Script id="google-analytics">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
-
-        <Navbar navItems={siteConfig.navItems} />
-
-        <main className="relative min-h-screen pb-[120px]">
-          {/* <VerticalAdComponent position="left" src="null" />
-          <VerticalAdComponent position="right" src="null" /> */}
-          {children}
-        </main>
-
-        <Footer />
+      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}>
+        <RootLayoutClient>{children}</RootLayoutClient>
       </body>
     </html>
   );
