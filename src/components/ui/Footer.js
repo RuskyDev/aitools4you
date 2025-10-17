@@ -4,13 +4,15 @@ import siteConfig from "@/config/site.config";
 
 export default function Footer() {
   const year = new Date().getFullYear();
-  const { name = "Website", socialMediaLinks = [], navigationBarItems = [] } = siteConfig;
+  const { name = "Website", socialMediaLinks = [], navigationBarItems = [], footerItems = [] } = siteConfig;
 
-  const iconMap = {
-    Linkedin,
-    Instagram,
-    Facebook
-  };
+  const iconMap = { Linkedin, Instagram, Facebook };
+
+  const groupedFooterItems = footerItems.reduce((acc, item) => {
+    if (!acc[item.category]) acc[item.category] = [];
+    acc[item.category].push(item);
+    return acc;
+  }, {});
 
   return (
     <footer className="bg-card/50 backdrop-blur-sm border-t border-border px-6 py-12">
@@ -19,9 +21,8 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-foreground mb-4">{name}</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Discover the best AI tools for developers, designers, and creators.
+              {siteConfig.description}
             </p>
-
             <div className="flex gap-4">
               {socialMediaLinks.map(({ label, href, icon }) => {
                 const Icon = iconMap[icon] || Circle;
@@ -55,6 +56,24 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {Object.entries(groupedFooterItems).map(([category, items]) => (
+            <div key={category}>
+              <h4 className="text-lg font-semibold text-foreground mb-4">{category}</h4>
+              <ul className="space-y-2">
+                {items.map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         <div className="border-t border-border mt-8 pt-8">

@@ -1,6 +1,6 @@
 const siteConfig = {
   name: "AI Tools 4 You",
-  description: "Discover the best AI tools for developers, designers, and creators to boost productivity and stay ahead in the AI era.",
+  description: "Discover the best AI tools for developers, designers, and creators.",
   domain: "aitools4you.xyz",
 
   socialMediaLinks: [
@@ -13,6 +13,10 @@ const siteConfig = {
     { label: "Home", href: "/" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
+  ],
+  footerItems: [
+    { category: "For Advertisers", label: "Advertise With Us", href: "/ads" },
+    { category: "For Advertisers", label: "Submit an Tool", href: "/submit-tool" }
   ]
 };
 

@@ -1,14 +1,40 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import siteConfig from "@/config/site.config";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ThankYouPage() {
+export default function PaymentSuccessPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [verified, setVerified] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
+    const sessionId = searchParams.get("session_id");
+    if (!sessionId) {
+      router.push("/");
+      return;
+    }
+
+    fetch(`/api/ads/billing/verify-session?session_id=${sessionId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.verified) {
+          setVerified(true);
+        } else {
+          router.push("/");
+        }
+      })
+      .catch(() => router.push("/"))
+      .finally(() => setLoading(false));
+
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  if (loading) return null;
+  if (!verified) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center">
@@ -32,7 +58,7 @@ export default function ThankYouPage() {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-5xl sm:text-6xl font-extrabold mb-6 text-foreground leading-tight"
         >
-          Thank <span className="text-primary">You!</span>
+          Payment <span className="text-primary">Successful!</span>
         </motion.h1>
 
         <motion.p
@@ -41,7 +67,8 @@ export default function ThankYouPage() {
           transition={{ delay: 0.4, duration: 0.6 }}
           className="text-lg sm:text-xl mb-12 max-w-2xl text-muted-foreground"
         >
-          Your message has been received. We appreciate you reaching out and will get back to you as soon as possible.
+          Thank you for your purchase! You’ll soon receive a reply from our team
+          within the next 24 hours.
         </motion.p>
 
         <motion.div

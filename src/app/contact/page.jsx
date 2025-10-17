@@ -19,7 +19,7 @@ async function handleSubmit(formData) {
   if (!valid) throw new Error("Invalid hCaptcha verification");
 
   const content = `📩 **New Message Received**\n**Name:** ${name}\n**Email:** ${email}\n**Message:** ${message}`;
-  await sendDiscordWebhook(content);
+  await sendDiscordWebhook(content, "1");
 
   redirect("/contact/thank-you");
 }

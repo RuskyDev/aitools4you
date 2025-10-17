@@ -1,20 +1,29 @@
 "use client";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
 import siteConfig from "@/config/site.config";
 
+const VerticalAdComponent = dynamic(() => import("@/components/VerticalAdComponent"), {
+  ssr: false,
+  loading: () => null,
+});
+
 const GA_ID = "G-LB76TE1F7S";
 
 export default function RootLayoutClient({ children }) {
-  const isProd = process.env.NODE_ENV !== "development";
+  const isProd = process.env.NODE_ENV === "production";
 
   return (
     <>
       {isProd && (
         <>
-          <Script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
-          <Script id="google-analytics">
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
@@ -24,10 +33,10 @@ export default function RootLayoutClient({ children }) {
           </Script>
         </>
       )}
-      <Navbar navItems={siteConfig.navItems} />
+      <Navbar navItems={siteConfig.navigationBarItems} />
       <main className="relative min-h-screen pb-[120px]">
-          {/* <VerticalAdComponent position="left" src="null" />
-          <VerticalAdComponent position="right" src="null" /> */}
+        <VerticalAdComponent position="left" src="Python in Action Project-Based Programming - Left And Right Side Ad-15-10-2025.gif" redirectTo={"https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814"} />
+        <VerticalAdComponent position="right" src="Python in Action Project-Based Programming - Left And Right Side Ad-15-10-2025.gif" redirectTo={"https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814"}/>
         {children}
       </main>
       <Footer />

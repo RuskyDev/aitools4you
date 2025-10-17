@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 
-export default function VerticalAdComponent({ position = "left", src }) {
+export default function VerticalAdComponent({ position = "left", src, redirectTo }) {
   const pathname = usePathname()
   const [offsetBottom, setOffsetBottom] = useState(0)
   const alignmentClass = position === "left" ? "left-4" : "right-4"
@@ -37,7 +37,12 @@ export default function VerticalAdComponent({ position = "left", src }) {
         transform: "translateY(-50%)",
       }}
     >
-      <div className="relative w-[160px] aspect-[160/600] bg-card border border-border rounded-lg overflow-hidden">
+      <div
+        className="relative w-[160px] aspect-[160/600] bg-card border border-border rounded-lg overflow-hidden cursor-pointer"
+        onClick={() => {
+          if (redirectTo) window.open(redirectTo, "_blank")
+        }}
+      >
         <img
           src={src}
           alt="Advertisement"
@@ -47,5 +52,3 @@ export default function VerticalAdComponent({ position = "left", src }) {
     </div>
   )
 }
-
-// 160 px wide × 600 px tall

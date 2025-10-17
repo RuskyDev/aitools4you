@@ -43,7 +43,7 @@ export default function Navbar({ navItems }) {
               className="h-10 w-auto object-contain hidden md:block"
               priority
             />
-            <span className="text-2xl font-bold text-primary md:hidden">
+            <span className="text-2xl font-bold text-primary pl-2">
               {siteName}
             </span>
           </Link>
