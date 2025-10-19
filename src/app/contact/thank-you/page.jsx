@@ -5,6 +5,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import siteConfig from "@/config/site.config";
 
+export const metadata = {
+  title: `${siteConfig.name} | Contact`,
+};
+
 export default function ThankYouPage() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });

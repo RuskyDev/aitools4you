@@ -2,6 +2,11 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import siteConfig from "@/config/site.config";
+
+export const metadata = {
+  title: `${siteConfig.name} | Ads`,
+};
 
 export default function AdsPage() {
   const [selectedImage, setSelectedImage] = useState(null)

@@ -7,6 +7,12 @@ import Input from "@/components/ui/Input";
 import Label from "@/components/ui/Label";
 import Button from "@/components/ui/Button";
 
+import siteConfig from "@/config/site.config";
+
+export const metadata = {
+  title: `${siteConfig.name} | Buy Ads`,
+};
+
 import {
   Loader2,
   ShoppingBag,

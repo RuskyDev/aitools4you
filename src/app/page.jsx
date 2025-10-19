@@ -15,6 +15,12 @@ const ITEMS_PER_PAGE = 9;
 import HorizontalAdComponent from "@/components/HorizontalAdComponent";
 import SkeletonCard from "@/components/ui/SkeletonCard";
 
+import siteConfig from "@/config/site.config";
+
+export const metadata = {
+  title: `${siteConfig.name} | Home`,
+};
+
 export default function Page() {
   const [tools, setTools] = useState([]);
   const [tags, setTags] = useState(["All"]);
