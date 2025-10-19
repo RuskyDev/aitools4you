@@ -21,6 +21,7 @@ export default function TermsPage() {
 
       <div className="px-6 py-16">
         <div className="max-w-5xl mx-auto space-y-12 text-foreground">
+
           <section>
             <h2 className="text-3xl font-bold mb-4">Use of Website</h2>
             <p className="text-muted-foreground">
@@ -32,6 +33,19 @@ export default function TermsPage() {
             <h2 className="text-3xl font-bold mb-4">User Submissions</h2>
             <p className="text-muted-foreground">
               When using our contact form, you may provide your name, email address, and message. By submitting this information, you grant us permission to contact you solely for the purpose of responding to your inquiry. We do not use your contact details for marketing or share them with third parties.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold mb-4">Advertiser Submissions & Ad Purchases</h2>
+            <p className="text-muted-foreground">
+              Advertisers may submit tools or purchase ad placements on our site. By submitting a tool or ad, you confirm that all information provided is accurate and that you have the right to submit the content.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              Payments for ads are securely processed via <span className="font-semibold">Stripe</span>. We do not store credit card information. Uploaded ad banners are stored in <span className="font-semibold">Supabase</span> and are used solely to display your advertisement. We reserve the right to reject submissions that do not meet our guidelines or standards.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              You are responsible for ensuring that submitted ads comply with all applicable laws and do not infringe on third-party rights. We are not liable for content submitted by advertisers.
             </p>
           </section>
 
@@ -74,14 +88,14 @@ export default function TermsPage() {
           <section>
             <h2 className="text-3xl font-bold mb-4">Limitation of Liability</h2>
             <p className="text-muted-foreground">
-              <span className="font-semibold">{siteConfig.name}</span> is not liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use this website or linked resources.
+              <span className="font-semibold">{siteConfig.name}</span> is not liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use this website, linked resources, or submitted ads.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Changes to Terms</h2>
             <p className="text-muted-foreground">
-              We may update these Terms of Service from time to time. Any updates will be reflected on this page with an updated effective date. Continued use of the website after changes means you accept the revised terms.
+              We may update these Terms of Service from time to time. Any updates will be reflected on this page with an updated effective date. Continued use of the website after changes means you accept the revised terms, including any advertiser-related terms.
             </p>
           </section>
 
@@ -97,9 +111,10 @@ export default function TermsPage() {
 
           <section className="pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground text-center">
-              Effective Date: October 10, {currentYear} – {currentYear + 1}
+              Effective Date: October 19, {currentYear} – {currentYear + 1}
             </p>
           </section>
+
         </div>
       </div>
     </div>

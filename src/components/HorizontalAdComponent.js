@@ -15,7 +15,7 @@ export default function HorizontalAdComponent({ src, redirectTo }) {
       >
         <img
           src={src}
-          alt="Advertisement"
+          alt="Ad"
           className="absolute inset-0 w-full h-full object-contain"
         />
       </div>

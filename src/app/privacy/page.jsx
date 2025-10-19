@@ -21,18 +21,20 @@ export default function PrivacyPage() {
 
       <div className="px-6 py-16">
         <div className="max-w-5xl mx-auto space-y-12 text-foreground">
+
           <section>
             <h2 className="text-3xl font-bold mb-4">Information We Collect</h2>
             <p className="text-muted-foreground mb-4">
-              We collect limited personal information only when you choose to contact us through our contact form. This may include:
+              We collect limited personal information only when you choose to contact us through our contact form or submit a tool/ad. This may include:
             </p>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
               <li>Your name</li>
               <li>Your email address</li>
-              <li>Your message or inquiry details</li>
+              <li>Product or service name and URL</li>
+              <li>Description of your product or advertisement</li>
             </ul>
             <p className="text-muted-foreground mt-4">
-              This information is used solely for responding to your inquiry or providing assistance. We do <span className="font-semibold">not</span> sell, rent, or share this information with any third parties.
+              This information is used solely to review submissions, respond to inquiries, and display purchased ads. We do <span className="font-semibold">not</span> sell, rent, or share this information with third parties.
             </p>
           </section>
 
@@ -66,30 +68,44 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-3xl font-bold mb-4">How We Use Your Information</h2>
             <p className="text-muted-foreground">
-              Information submitted through our contact form is used exclusively to:
+              Information submitted through our contact forms or advertiser forms is used exclusively to:
             </p>
             <ul className="list-disc pl-6 text-muted-foreground space-y-2">
               <li>Respond to your inquiries or messages</li>
+              <li>Review and process tool submissions</li>
+              <li>Display purchased advertisements</li>
               <li>Provide requested support or information</li>
               <li>Improve our communication and site experience</li>
             </ul>
             <p className="text-muted-foreground mt-4">
-              We retain messages only as long as necessary to handle your inquiry and then securely delete them.
+              We retain submissions only as long as necessary to review and display them, after which they are securely deleted if no longer needed.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold mb-4">Advertiser Submissions & Ad Purchases</h2>
+            <p className="text-muted-foreground">
+              When you submit a tool or purchase an advertisement, the information you provide—including your name, email, product details, and ad assets—is used to review your submission and display your ad.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              Payments are securely processed by <span className="font-semibold">Stripe</span>. We do not store credit card information directly. Any uploaded ad banners are stored in <span className="font-semibold">Supabase</span> and are only used to display your ad. Your data is never shared with third parties.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              Submissions are reviewed for originality and clarity. Ads or tools that are restricted, incomplete, or not aligned with our guidelines may not be accepted.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Third-Party Links</h2>
             <p className="text-muted-foreground">
-              Our site may contain links to external tools or services. We are{" "}
-              <span className="font-semibold">not responsible</span> for the privacy practices of those sites and recommend reviewing their respective privacy policies.
+              Our site may contain links to external tools or services. We are <span className="font-semibold">not responsible</span> for the privacy practices of those sites and recommend reviewing their respective privacy policies.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Data Security</h2>
             <p className="text-muted-foreground">
-              We take appropriate measures to ensure the security of any information submitted through our contact form. However, no online platform can guarantee absolute security.
+              We take appropriate measures to ensure the security of any information submitted through our contact form or advertiser form. However, no online platform can guarantee absolute security.
             </p>
           </section>
 
@@ -119,9 +135,10 @@ export default function PrivacyPage() {
 
           <section className="pt-8 border-t border-border">
             <p className="text-sm text-muted-foreground text-center">
-              Effective Date: October 10, {currentYear} – {currentYear + 1}
+              Effective Date: October 19, {currentYear} – {currentYear + 1}
             </p>
           </section>
+
         </div>
       </div>
     </div>

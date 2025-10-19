@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Loader2,
   ShoppingBag,
@@ -10,14 +10,16 @@ import {
   CheckSquare,
   FileWarning,
 } from "lucide-react";
-
 import { useSearchParams } from "next/navigation";
+import Input from "@/components/ui/Input";
+import Label from "@/components/ui/Label";
+import Button from "@/components/ui/Button";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const advertisingSections = [
   {
     title: "Featured Advertising Banner",
-    description:
-      "Premium placement at the top of key pages for maximum visibility and engagement.",
+    description: "Premium top-of-page placement for maximum visibility, engagement, and click-throughs. Your product gets noticed by more visitors.",
     price: "$80 / week",
   },
   {
@@ -35,18 +37,18 @@ const advertisingSections = [
 
 export default function BuyAdsPage() {
   const [selectedAd, setSelectedAd] = useState(advertisingSections[0].title);
-  const [hasArtwork, setHasArtwork] = useState("no");
+  const [adBannerDesign, setAdBannerDesign] = useState("design");
   const [imageFile, setImageFile] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState("");
   const searchParams = useSearchParams();
+  const hcaptchaRef = useRef(null);
 
   useEffect(() => {
     const adType = decodeURIComponent(searchParams.get("ad_type") || "");
-    if (adType) {
-      const match = advertisingSections.find((ad) => ad.title === adType);
-      if (match) setSelectedAd(match.title);
-    }
+    const match = advertisingSections.find((ad) => ad.title === adType);
+    if (match) setSelectedAd(match.title);
   }, [searchParams]);
 
   function handleFileChange(e) {
@@ -59,15 +61,36 @@ export default function BuyAdsPage() {
       setImageFile(null);
       return;
     }
-
-    if (file.size > 300 * 1024) {
-      setError("File must be less than 300 KB.");
+    if (file.size > 1024 * 1024) {
+      setError("File must be less than 1 MB.");
       setImageFile(null);
       return;
     }
 
-    setError("");
-    setImageFile(file);
+    const img = new Image();
+    img.onload = () => {
+      if (selectedAd === "Left & Right Side Advertising Banner") {
+        if (img.width !== 160 || img.height !== 600) {
+          setError("Left & Right Side Banner must be exactly 160×600 px.");
+          setImageFile(null);
+          return;
+        }
+      } else if (selectedAd === "Top Center Advertising Banner") {
+        if (img.width !== 728 || img.height !== 160) {
+          setError("Top Center Banner must be exactly 728×160 px.");
+          setImageFile(null);
+          return;
+        }
+      }
+
+      setError("");
+      setImageFile(file);
+    };
+    img.onerror = () => {
+      setError("Invalid image file.");
+      setImageFile(null);
+    };
+    img.src = URL.createObjectURL(file);
   }
 
   async function handleSubmit(e) {
@@ -75,17 +98,30 @@ export default function BuyAdsPage() {
     setLoading(true);
     setError("");
 
+    if (!captchaToken) {
+      setError("Please complete the hCaptcha challenge.");
+      setLoading(false);
+      return;
+    }
+
     try {
       const formData = new FormData(e.target);
       formData.set("adType", selectedAd);
-      formData.set("artworkOption", hasArtwork);
-      if (imageFile) formData.set("bannerUpload", imageFile);
+      formData.set("adBannerDesign", adBannerDesign);
+      formData.set("hCaptchaToken", captchaToken);
 
-      const res = await fetch("/api/ads/checkout", {
+      if (
+        adBannerDesign === "upload" &&
+        selectedAd !== "Featured Advertising Banner" &&
+        imageFile
+      ) {
+        formData.set("bannerUpload", imageFile);
+      }
+
+      const res = await fetch("/api/billing/checkout", {
         method: "POST",
         body: formData,
       });
-
       const data = await res.json();
 
       if (!res.ok) {
@@ -93,10 +129,8 @@ export default function BuyAdsPage() {
         setLoading(false);
         return;
       }
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
+      if (data.url) window.location.href = data.url;
+      else {
         setError("Failed to create checkout session.");
         setLoading(false);
       }
@@ -125,17 +159,20 @@ export default function BuyAdsPage() {
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label
-                htmlFor="adType"
-                className="block text-foreground font-semibold mb-2"
-              >
-                Select Ad Type
-              </label>
+              <Label htmlFor="adType">Select Ad Type</Label>
               <select
                 id="adType"
                 name="adType"
                 value={selectedAd}
-                onChange={(e) => setSelectedAd(e.target.value)}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  setSelectedAd(value);
+                  setImageFile(null);
+                  setError("");
+                  setAdBannerDesign(
+                    value === "Featured Advertising Banner" ? "none" : "design"
+                  );
+                }}
                 className="w-full px-4 py-3 rounded-xl border border-border bg-input text-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
               >
                 {advertisingSections.map((ad) => (
@@ -166,106 +203,50 @@ export default function BuyAdsPage() {
             </div>
 
             <div>
-              <label
-                htmlFor="name"
-                className="block text-foreground font-semibold mb-2"
-              >
-                Your Name
-              </label>
-              <div className="relative">
-                <User
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
-                  size={20}
-                />
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  maxLength={100}
-                  placeholder="Your name"
-                  className="w-full pl-12 pr-5 py-3 rounded-xl border border-border bg-input text-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
-                />
-              </div>
+              <Label htmlFor="name">Your Name</Label>
+              <Input
+                id="name"
+                name="name"
+                icon={User}
+                required
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                icon={Mail}
+                required
+                placeholder="your.email@example.com"
+              />
+            </div>
+            <div>
+              <Label htmlFor="productName">Product Name</Label>
+              <Input
+                id="productName"
+                name="productName"
+                icon={CheckSquare}
+                required
+                placeholder="Product name"
+              />
+            </div>
+            <div>
+              <Label htmlFor="productUrl">Product URL</Label>
+              <Input
+                id="productUrl"
+                name="productUrl"
+                type="url"
+                icon={Link2}
+                required
+                placeholder="https://example.com"
+              />
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-foreground font-semibold mb-2"
-              >
-                Email
-              </label>
-              <div className="relative">
-                <Mail
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
-                  size={20}
-                />
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  placeholder="your.email@example.com"
-                  className="w-full pl-12 pr-5 py-3 rounded-xl border border-border bg-input text-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="productName"
-                className="block text-foreground font-semibold mb-2"
-              >
-                Product Name
-              </label>
-              <div className="relative">
-                <CheckSquare
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
-                  size={20}
-                />
-                <input
-                  type="text"
-                  id="productName"
-                  name="productName"
-                  required
-                  maxLength={100}
-                  placeholder="Product name"
-                  className="w-full pl-12 pr-5 py-3 rounded-xl border border-border bg-input text-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="productUrl"
-                className="block text-foreground font-semibold mb-2"
-              >
-                Product URL
-              </label>
-              <div className="relative">
-                <Link2
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
-                  size={20}
-                />
-                <input
-                  type="url"
-                  id="productUrl"
-                  name="productUrl"
-                  required
-                  placeholder="https://example.com"
-                  className="w-full pl-12 pr-5 py-3 rounded-xl border border-border bg-input text-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label
-                htmlFor="productDescription"
-                className="block text-foreground font-semibold mb-2"
-              >
-                Product Description
-              </label>
+              <Label htmlFor="productDescription">Product Description</Label>
               <textarea
                 id="productDescription"
                 name="productDescription"
@@ -277,77 +258,74 @@ export default function BuyAdsPage() {
               />
             </div>
 
-            <div>
-              <label className="block text-foreground font-semibold mb-3">
-                Ad Banner Design
-              </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button
-                  type="button"
-                  onClick={() => setHasArtwork("yes")}
-                  className={`flex items-center gap-3 border rounded-xl p-4 transition-all ${
-                    hasArtwork === "yes"
-                      ? "border-primary bg-primary/10"
-                      : "border-border hover:border-primary/50"
-                  }`}
-                >
-                  <ImageIcon size={20} className="text-primary" />
-                  <span className="text-foreground font-medium">
-                    I’ll upload my own banner
-                  </span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setHasArtwork("no")}
-                  className={`flex items-center gap-3 border rounded-xl p-4 transition-all ${
-                    hasArtwork === "no"
-                      ? "border-primary bg-primary/10"
-                      : "border-border hover:border-primary/50"
-                  }`}
-                >
-                  <FileWarning size={20} className="text-primary" />
-                  <span className="text-foreground font-medium">
-                    I’d like you to design one
-                  </span>
-                </button>
-              </div>
-            </div>
-
-            {hasArtwork === "yes" && (
+            {selectedAd !== "Featured Advertising Banner" && (
               <div>
-                <label
-                  htmlFor="bannerUpload"
-                  className="block text-foreground font-semibold mb-2"
-                >
-                  Upload Your Banner Image (max 300 KB)
-                </label>
-                <input
-                  type="file"
-                  id="bannerUpload"
-                  name="bannerUpload"
-                  accept=".png,.jpg,.jpeg,.gif"
-                  onChange={handleFileChange}
-                  className="w-full px-4 py-3 border border-border bg-input rounded-xl text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-primary file:text-primary-foreground file:cursor-pointer file:hover:bg-primary/90"
-                />
-                {error && (
-                  <p className="text-red-500 text-sm mt-2 font-medium">
-                    {error}
-                  </p>
-                )}
-                {imageFile && (
-                  <p className="text-sm text-green-500 mt-2 font-medium">
-                    ✅ {imageFile.name} ({(imageFile.size / 1024).toFixed(1)}{" "}
-                    KB)
-                  </p>
-                )}
+                <Label>Ad Banner Design</Label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setAdBannerDesign("upload")}
+                    className={`flex items-center gap-3 border rounded-xl p-4 transition-all ${
+                      adBannerDesign === "upload"
+                        ? "border-primary bg-primary/10"
+                        : "border-border hover:border-primary/50"
+                    }`}
+                  >
+                    <ImageIcon size={20} className="text-primary" />
+                    <span className="text-foreground font-medium">
+                      I’ll upload my own banner
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setAdBannerDesign("design")}
+                    className={`flex items-center gap-3 border rounded-xl p-4 transition-all ${
+                      adBannerDesign === "design"
+                        ? "border-primary bg-primary/10"
+                        : "border-border hover:border-primary/50"
+                    }`}
+                  >
+                    <FileWarning size={20} className="text-primary" />
+                    <span className="text-foreground font-medium">
+                      I’d like you to design one
+                    </span>
+                  </button>
+                </div>
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-4 px-6 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-70"
-            >
+            {adBannerDesign === "upload" &&
+              selectedAd !== "Featured Advertising Banner" && (
+                <div>
+                  <Label htmlFor="bannerUpload">
+                    Upload Your Banner Image (max 300 KB)
+                  </Label>
+                  <input
+                    type="file"
+                    id="bannerUpload"
+                    name="bannerUpload"
+                    accept=".png,.jpg,.jpeg,.gif"
+                    onChange={handleFileChange}
+                    className="w-full px-4 py-3 border border-border bg-input rounded-xl text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-primary file:text-primary-foreground file:cursor-pointer file:hover:bg-primary/90"
+                  />
+                  {imageFile && (
+                    <p className="text-sm text-green-500 mt-2 font-medium">
+                      ✅ {imageFile.name} ({(imageFile.size / 1024).toFixed(1)}{" "}
+                      KB)
+                    </p>
+                  )}
+                </div>
+              )}
+
+            <div>
+              <HCaptcha
+                sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY}
+                onVerify={(token) => setCaptchaToken(token)}
+                ref={hcaptchaRef}
+              />
+            </div>
+
+            <Button type="submit" loading={loading}>
               {loading ? (
                 <>
                   <Loader2 className="animate-spin" size={18} />
@@ -359,7 +337,7 @@ export default function BuyAdsPage() {
                   <ShoppingBag size={18} />
                 </>
               )}
-            </button>
+            </Button>
             {error && (
               <p className="text-red-500 text-sm text-center font-medium">
                 {error}

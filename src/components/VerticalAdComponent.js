@@ -52,3 +52,5 @@ export default function VerticalAdComponent({ position = "left", src, redirectTo
     </div>
   )
 }
+
+// 160 px wide × 600 px tall
