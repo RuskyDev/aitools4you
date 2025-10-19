@@ -1,12 +1,20 @@
-export async function sendDiscordWebhook(content, webhookOption = "1") {
-  let url;
-  if (webhookOption === "1") url = process.env.DISCORD_WEBHOOK_URL_1;
-  else if (webhookOption === "2") url = process.env.DISCORD_WEBHOOK_URL_2;
-  else throw new Error("Invalid webhook option");
+export async function sendToWebhook(...lines) {
+  const webhookUrl = process.env.DISCORD_LIVE_LOGGING_WEBHOOK_URL
+  if (!webhookUrl) throw new Error("Missing DISCORD_LIVE_LOGGING_WEBHOOK_URL")
 
-  await fetch(url, {
+  const description = lines.filter(Boolean).join("\n")
+  if (!description) return
+
+  const res = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content }),
-  });
+    body: JSON.stringify({
+      embeds: [{ description }],
+    }),
+  })
+
+  if (!res.ok) {
+    const text = await res.text()
+    throw new Error(`Webhook failed: ${res.status} ${text}`)
+  }
 }
