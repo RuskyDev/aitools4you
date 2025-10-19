@@ -1,7 +1,7 @@
 const siteConfig = {
-  name: "AI Tools 4 You",
-  description: "Discover the best AI tools for developers, designers, and creators.",
-  domain: "aitools4you.xyz",
+  name: "Ai Tools 4 You",
+  description: "Discover the best Ai tools for developers, designers, and creators.",
+  domain: "aitools4you.ai",
 
   socialMediaLinks: [
     { label: "Linkedin", href: "https://www.linkedin.com/company/ai-tools-4-you", icon: "FaLinkedin" },
