@@ -12,19 +12,19 @@ export default function AdsPage() {
       title: "Featured Advertising Banner",
       description:
         "Premium placement at the top of key pages for maximum visibility and engagement. Perfect for brand awareness campaigns and featured product launches.",
-      image: "Featured_Advertising_Banner.jpg",
+      image: "/ads/Featured_Advertising_Banner.jpg",
     },
     {
       title: "Left & Right Side Advertising Banner",
       description:
         "Dual sidebar placement providing maximum visibility on both sides of the page. Ensures consistent exposure as users scroll.",
-      image: "Left_Right_Side_Advertising_Banner.jpg",
+      image: "/ads/Left_Right_Side_Advertising_Banner.jpg",
     },
     {
       title: "Top Center Advertising Banner",
       description:
         "Central positioning above main content for optimal focus. Best for time-sensitive offers and high-conversion marketing objectives.",
-      image: "Top_Center_Advertising_Banner.jpg",
+      image: "/ads/Top_Center_Advertising_Banner.jpg",
     },
   ]
 

@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Linkedin, Instagram, Facebook } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import siteConfig from "@/config/site.config";
 
-const iconMap = { Linkedin, Instagram, Facebook };
+const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord };
 
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);

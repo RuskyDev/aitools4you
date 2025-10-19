@@ -55,62 +55,62 @@ export default function Blogs() {
     // Simulating API call with mock data
     setTimeout(() => {
       const mockBlogs = [
-        {
-          id: 1,
-          icon: "Lightbulb",
-          name: "Getting Started with AI Development",
-          description:
-            "Learn the fundamentals of AI development and how to build your first intelligent application.",
-        },
-        {
-          id: 2,
-          icon: "Code",
-          name: "Best Practices for Prompt Engineering",
-          description:
-            "Master the art of crafting effective prompts to get the most out of AI language models.",
-        },
-        {
-          id: 3,
-          icon: "Rocket",
-          name: "Deploying AI Models to Production",
-          description:
-            "A comprehensive guide to taking your AI models from development to production environments.",
-        },
-        {
-          id: 4,
-          icon: "Brain",
-          name: "Understanding Neural Networks",
-          description:
-            "Deep dive into the architecture and mechanics of neural networks and deep learning.",
-        },
-        {
-          id: 5,
-          icon: "Zap",
-          name: "Optimizing AI Performance",
-          description:
-            "Tips and techniques for improving the speed and efficiency of your AI applications.",
-        },
-        {
-          id: 6,
-          icon: "Sparkles",
-          name: "Creative AI Use Cases",
-          description:
-            "Explore innovative ways businesses are leveraging AI to solve real-world problems.",
-        },
-        {
-          id: 7,
-          icon: "Target",
-          name: "AI Ethics and Responsible Development",
-          description:
-            "Understanding the ethical implications and best practices for responsible AI development.",
-        },
-        {
-          id: 8,
-          icon: "BookOpen",
-          name: "Machine Learning Fundamentals",
-          description:
-            "A beginner-friendly introduction to machine learning concepts and algorithms.",
-        },
+        // {
+        //   id: 1,
+        //   icon: "Lightbulb",
+        //   name: "Getting Started with AI Development",
+        //   description:
+        //     "Learn the fundamentals of AI development and how to build your first intelligent application.",
+        // },
+        // {
+        //   id: 2,
+        //   icon: "Code",
+        //   name: "Best Practices for Prompt Engineering",
+        //   description:
+        //     "Master the art of crafting effective prompts to get the most out of AI language models.",
+        // },
+        // {
+        //   id: 3,
+        //   icon: "Rocket",
+        //   name: "Deploying AI Models to Production",
+        //   description:
+        //     "A comprehensive guide to taking your AI models from development to production environments.",
+        // },
+        // {
+        //   id: 4,
+        //   icon: "Brain",
+        //   name: "Understanding Neural Networks",
+        //   description:
+        //     "Deep dive into the architecture and mechanics of neural networks and deep learning.",
+        // },
+        // {
+        //   id: 5,
+        //   icon: "Zap",
+        //   name: "Optimizing AI Performance",
+        //   description:
+        //     "Tips and techniques for improving the speed and efficiency of your AI applications.",
+        // },
+        // {
+        //   id: 6,
+        //   icon: "Sparkles",
+        //   name: "Creative AI Use Cases",
+        //   description:
+        //     "Explore innovative ways businesses are leveraging AI to solve real-world problems.",
+        // },
+        // {
+        //   id: 7,
+        //   icon: "Target",
+        //   name: "AI Ethics and Responsible Development",
+        //   description:
+        //     "Understanding the ethical implications and best practices for responsible AI development.",
+        // },
+        // {
+        //   id: 8,
+        //   icon: "BookOpen",
+        //   name: "Machine Learning Fundamentals",
+        //   description:
+        //     "A beginner-friendly introduction to machine learning concepts and algorithms.",
+        // },
       ];
       setBlogs(mockBlogs);
       setLoading(false);
@@ -241,7 +241,7 @@ export default function Blogs() {
               {filteredBlogs.length === 0 && (
                 <div className="text-center py-12">
                   <p className="text-muted-foreground text-lg">
-                    No blog posts found matching your search.
+                    No blogs found.
                   </p>
                 </div>
               )}

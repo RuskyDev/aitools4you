@@ -127,7 +127,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-background/80 relative">
       <HorizontalAdComponent
-        src="Top Side Ad-15-10-2025.gif"
+        src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top%20Side%20Ad-15-10-2025.gif"
         redirectTo={"https://astrad.io/"}
       />
 
@@ -299,7 +299,7 @@ export default function Page() {
                     {index === 2 && (
                       <div className="block sm:hidden">
                         <HorizontalAdComponent
-                          src="Top Side Ad-15-10-2025.gif"
+                          src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top%20Side%20Ad-15-10-2025.gif"
                           redirectTo="https://astrad.io/"
                         />
                       </div>
@@ -345,7 +345,7 @@ export default function Page() {
 
           <div className="block sm:hidden">
             <HorizontalAdComponent
-              src="Top Side Ad-15-10-2025.gif"
+              src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top%20Side%20Ad-15-10-2025.gif"
               redirectTo="https://astrad.io/"
             />
           </div>

@@ -35,8 +35,8 @@ export default function RootLayoutClient({ children }) {
       )}
       <Navbar navItems={siteConfig.navigationBarItems} />
       <main className="relative min-h-screen pb-[120px]">
-        <VerticalAdComponent position="left" src="Python in Action Project-Based Programming - Left And Right Side Ad-15-10-2025.gif" redirectTo={"https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814"} />
-        <VerticalAdComponent position="right" src="Python in Action Project-Based Programming - Left And Right Side Ad-15-10-2025.gif" redirectTo={"https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814"}/>
+        <VerticalAdComponent position="left" src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Python%20in%20Action%20Project-Based%20Programming%20-%20Left%20And%20Right%20Side%20Ad-15-10-2025.gif" redirectTo={"https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814"} />
+        <VerticalAdComponent position="right" src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Python%20in%20Action%20Project-Based%20Programming%20-%20Left%20And%20Right%20Side%20Ad-15-10-2025.gif" redirectTo={"https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814"}/>
         {children}
       </main>
       <Footer />

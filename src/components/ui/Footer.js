@@ -1,12 +1,12 @@
 "use client";
-import { Linkedin, Instagram, Facebook, Circle } from "lucide-react";
+import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord } from "react-icons/fa";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {
   const year = new Date().getFullYear();
   const { name = "Website", socialMediaLinks = [], navigationBarItems = [], footerItems = [] } = siteConfig;
 
-  const iconMap = { Linkedin, Instagram, Facebook };
+  const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord };
 
   const groupedFooterItems = footerItems.reduce((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
