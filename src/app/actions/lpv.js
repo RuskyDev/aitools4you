@@ -1,6 +1,6 @@
 "use server"
 import { headers } from "next/headers"
-import { sendToWebhook } from "@/lib/sendToWebhook"
+import { sendToWebhook } from "@/utils/discord/DiscordWebhook"
 
 export async function logPageView(pathname, userTime, timeZone) {
   const hdrs = headers()

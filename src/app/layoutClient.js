@@ -6,7 +6,7 @@ import Script from "next/script"
 import Navbar from "@/components/ui/Navbar"
 import Footer from "@/components/ui/Footer"
 import siteConfig from "@/config/site.config"
-import { lpv } from "@/api/lpv"
+import { logPageView } from "@/app/actions/lpv"
 
 const VerticalAdComponent = dynamic(() => import("@/components/VerticalAdComponent"), {
   ssr: false,
@@ -23,7 +23,7 @@ export default function RootLayoutClient({ children }) {
     if (!isProd) return
     const userTime = new Date().toLocaleString()
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-    lpv(pathname, userTime, timeZone)
+    logPageView(pathname, userTime, timeZone)
   }, [pathname, isProd])
 
   return (
