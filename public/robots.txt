@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.aitools4you.xyz/sitemap.xml
+Sitemap: https://www.aitools4you.ai/sitemap.xml
