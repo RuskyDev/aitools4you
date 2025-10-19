@@ -3,16 +3,16 @@ import { useEffect, useState } from "react";
 import { CheckCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 export default function PaymentSuccessPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [verified, setVerified] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const sid = searchParams.get("sid");
+    const params = new URLSearchParams(window.location.search);
+    const sid = params.get("sid");
     if (!sid) {
       router.push("/");
       return;
@@ -31,7 +31,7 @@ export default function PaymentSuccessPage() {
       .finally(() => setLoading(false));
 
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [router]);
 
   if (loading) return null;
   if (!verified) return null;

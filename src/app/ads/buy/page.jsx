@@ -1,5 +1,12 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+
+import Input from "@/components/ui/Input";
+import Label from "@/components/ui/Label";
+import Button from "@/components/ui/Button";
+
 import {
   Loader2,
   ShoppingBag,
@@ -10,16 +17,12 @@ import {
   CheckSquare,
   FileWarning,
 } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import Input from "@/components/ui/Input";
-import Label from "@/components/ui/Label";
-import Button from "@/components/ui/Button";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const advertisingSections = [
   {
     title: "Featured Advertising Banner",
-    description: "Premium top-of-page placement for maximum visibility, engagement, and click-throughs. Your product gets noticed by more visitors.",
+    description:
+      "Premium top-of-page placement for maximum visibility, engagement, and click-throughs. Your product gets noticed by more visitors.",
     price: "$80 / week",
   },
   {
@@ -42,14 +45,14 @@ export default function BuyAdsPage() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [captchaToken, setCaptchaToken] = useState("");
-  const searchParams = useSearchParams();
   const hcaptchaRef = useRef(null);
 
   useEffect(() => {
-    const adType = decodeURIComponent(searchParams.get("ad_type") || "");
+    const params = new URLSearchParams(window.location.search);
+    const adType = decodeURIComponent(params.get("ad_type") || "");
     const match = advertisingSections.find((ad) => ad.title === adType);
     if (match) setSelectedAd(match.title);
-  }, [searchParams]);
+  }, []);
 
   function handleFileChange(e) {
     const file = e.target.files[0];
