@@ -9,9 +9,9 @@ import Button from "@/components/ui/Button";
 
 import siteConfig from "@/config/site.config";
 
-export const metadata = {
-  title: `${siteConfig.name} | Buy Ads`,
-};
+// export const metadata = {
+//   title: `${siteConfig.name} | Buy Ads`,
+// };
 
 import {
   Loader2,

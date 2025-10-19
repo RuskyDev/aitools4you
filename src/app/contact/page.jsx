@@ -4,9 +4,9 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { Send, Mail, User, MessageSquare, Loader2 } from "lucide-react";
 import siteConfig from "@/config/site.config";
 
-export const metadata = {
-  title: `${siteConfig.name} | Contact`,
-};
+// export const metadata = {
+//   title: `${siteConfig.name} | Contact`,
+// };
 
 function SubmitButton({ pending }) {
   return (

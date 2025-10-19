@@ -16,9 +16,9 @@ import {
 import Link from "next/link";
 import siteConfig from "@/config/site.config";
 
-export const metadata = {
-  title: `${siteConfig.name} | Blog`,
-};
+// export const metadata = {
+//   title: `${siteConfig.name} | Blog`,
+// };
 
 
 const ITEMS_PER_PAGE = 5;

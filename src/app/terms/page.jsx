@@ -1,9 +1,9 @@
 "use client";
 import siteConfig from "@/config/site.config";
 
-export const metadata = {
-  title: `${siteConfig.name} | Terms`,
-};
+// export const metadata = {
+//   title: `${siteConfig.name} | Terms`,
+// };
 
 export default function TermsPage() {
   const currentYear = new Date().getFullYear();

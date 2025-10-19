@@ -1,9 +1,9 @@
 "use client";
 import siteConfig from "@/config/site.config";
 
-export const metadata = {
-  title: `${siteConfig.name} | Privacy`,
-};
+// export const metadata = {
+//   title: `${siteConfig.name} | Privacy`,
+// };
 
 export default function PrivacyPage() {
   const currentYear = new Date().getFullYear();
