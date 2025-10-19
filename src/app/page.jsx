@@ -17,9 +17,9 @@ import SkeletonCard from "@/components/ui/SkeletonCard";
 
 import siteConfig from "@/config/site.config";
 
-export const metadata = {
-  title: `${siteConfig.name} | Home`,
-};
+// export const metadata = {
+//   title: `${siteConfig.name} | Home`,
+// };
 
 export default function Page() {
   const [tools, setTools] = useState([]);
