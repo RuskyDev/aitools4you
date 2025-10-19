@@ -12,6 +12,42 @@ const VerticalAdComponent = dynamic(() => import("@/components/VerticalAdCompone
 
 const GA_ID = "G-LB76TE1F7S";
 
+export const metadata = {
+  description: siteConfig.description,
+  keywords: [
+    "AI tools",
+    "artificial intelligence",
+    "machine learning",
+    "automation",
+    "developers",
+    "designers",
+    "creators",
+  ],
+  authors: [{ name: "Ai Tools 4 You" }],
+  creator: "Ai Tools 4 You",
+  publisher: "Ai Tools 4 You",
+  metadataBase: new URL("https://aitools4you.ai"),
+  alternates: {
+    canonical: "https://aitools4you.ai",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://aitools4you.ai",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og-image.jpg"],
+  },
+  twitter: {
+    card: "summary",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: ["/og-image.jpg"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
+
 export default function RootLayoutClient({ children }) {
   const isProd = process.env.NODE_ENV === "production";
 
