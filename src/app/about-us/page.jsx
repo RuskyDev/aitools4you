@@ -2,15 +2,15 @@
 
 import siteConfig from "@/config/site.config";
 import { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function AboutPage() {
   const currentYear = new Date().getFullYear();
 
   const stats = {
-    tools: 1263,
-    users: 7151,
-    visitors: 21451,
+    tools: 3263,
+    users: 33151,
+    visitors: 54451,
   };
 
   const [counts, setCounts] = useState({ tools: 0, users: 0, visitors: 0 });

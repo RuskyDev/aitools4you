@@ -3,12 +3,26 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search } from "lucide-react";
-import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit } from "react-icons/fa6";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaDiscord,
+  FaXTwitter,
+  FaReddit,
+} from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 import siteConfig from "@/config/site.config";
 
-  const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit };
+const iconMap = {
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaDiscord,
+  FaXTwitter,
+  FaReddit,
+};
 
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -34,16 +48,18 @@ export default function Navbar({ navItems }) {
 
   return (
     <>
-      <nav className="w-full h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <nav
+        className="w-full h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+        aria-label="Main Navigation"
+      >
         <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-full">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo.png"
+              src="/ai-tools-4-you-logo.svg"
               alt={`${siteName} Logo`}
               width={40}
               height={40}
-              className="h-10 w-auto object-contain"
-              priority
+              className="object-contain"
             />
             <span className="text-xl md:text-2xl font-bold text-primary">
               {siteName}
@@ -70,6 +86,7 @@ export default function Navbar({ navItems }) {
                 className="md:hidden w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-primary transition"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label="Open Search"
               >
                 <Search size={22} />
               </motion.button>
@@ -85,6 +102,7 @@ export default function Navbar({ navItems }) {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`Visit our ${label} page`}
                       className="text-muted-foreground hover:text-primary transition"
                     >
                       <Icon size={20} />
@@ -99,6 +117,7 @@ export default function Navbar({ navItems }) {
               className="md:hidden w-8 h-8 flex items-center justify-center"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Open Menu"
             >
               <Menu size={24} />
             </motion.button>
@@ -114,12 +133,15 @@ export default function Navbar({ navItems }) {
             exit={{ x: "100%", opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
             className="fixed inset-0 bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center gap-8"
+            aria-modal="true"
+            role="dialog"
           >
             <motion.button
               onClick={() => setMenuOpen(false)}
               className="absolute top-6 right-6 text-foreground"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
+              aria-label="Close Menu"
             >
               <X size={32} />
             </motion.button>
@@ -156,6 +178,7 @@ export default function Navbar({ navItems }) {
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Visit our ${label} page`}
                         className="text-muted-foreground hover:text-primary transition"
                         onClick={() => setMenuOpen(false)}
                       >
