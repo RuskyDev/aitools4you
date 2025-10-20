@@ -14,12 +14,6 @@ import {
   Target,
 } from "lucide-react";
 import Link from "next/link";
-import siteConfig from "@/config/site.config";
-
-// export const metadata = {
-//   title: `${siteConfig.name} | Blog`,
-// };
-
 
 const ITEMS_PER_PAGE = 5;
 
@@ -174,7 +168,7 @@ export default function Blogs() {
         </div>
       </div>
 
-      <div className="w-full px-6">
+      <div className="w-full my-12">
         <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       </div>
 

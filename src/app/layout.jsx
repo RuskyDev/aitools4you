@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import siteConfig from "@/config/site.config";
-import RootLayoutClient from "./layoutClient";
+import RootLayoutClient from "./LayoutClient";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });

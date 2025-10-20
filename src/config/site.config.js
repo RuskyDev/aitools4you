@@ -16,6 +16,7 @@ const siteConfig = {
   navigationBarItems: [
     { label: "Home", href: "/" },
     { label: "Blog", href: "/blog" },
+    { label: "About Us", href: "/about-us" },
     { label: "Contact", href: "/contact" },
   ],
   footerItems: [
