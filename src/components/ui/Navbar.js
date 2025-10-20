@@ -1,16 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord } from "react-icons/fa";
+import { Menu, X, Search } from "lucide-react";
+import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 import siteConfig from "@/config/site.config";
 
-const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord };
+  const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit };
 
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
   const siteName = siteConfig.name || "Website";
   const validItems = (navItems || siteConfig.navigationBarItems || []).filter(
     (i) => i?.label && i?.href
@@ -22,36 +24,33 @@ export default function Navbar({ navItems }) {
     return () => (document.body.style.overflow = "");
   }, [menuOpen]);
 
+  const handleSearchClick = () => {
+    const el = document.getElementById("search-input");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.focus({ preventScroll: true });
+    }
+  };
+
   return (
     <>
-      <nav className="w-full h-16 px-6 flex items-center justify-between sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="flex items-center gap-3">
-          <motion.button
-            onClick={() => setMenuOpen(true)}
-            className="md:hidden w-6 h-6 flex items-center justify-center"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-          >
-            <Menu size={24} />
-          </motion.button>
-
-          <Link href="/" className="flex items-center">
+      <nav className="w-full h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-full">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/logo.png"
               alt={`${siteName} Logo`}
-              width={120}
+              width={40}
               height={40}
-              className="h-10 w-auto object-contain hidden md:block"
+              className="h-10 w-auto object-contain"
               priority
             />
-            <span className="text-2xl font-bold text-primary pl-2">
+            <span className="text-xl md:text-2xl font-bold text-primary">
               {siteName}
             </span>
           </Link>
-        </div>
 
-        {validItems.length > 0 && (
-          <ul className="hidden md:flex gap-8 text-muted-foreground absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <ul className="hidden md:flex gap-10 text-muted-foreground">
             {validItems.map(({ label, href }) => (
               <li key={label}>
                 <Link
@@ -63,25 +62,47 @@ export default function Navbar({ navItems }) {
               </li>
             ))}
           </ul>
-        )}
 
-        <div className="hidden md:flex items-center gap-4">
-          {socialLinks.map(({ label, href, icon }) => {
-            const Icon = iconMap[icon];
-            return (
-              Icon && (
-                <Link
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition"
-                >
-                  <Icon size={20} />
-                </Link>
-              )
-            );
-          })}
+          <div className="flex items-center gap-5">
+            {pathname === "/" && (
+              <motion.button
+                onClick={handleSearchClick}
+                className="md:hidden w-8 h-8 flex items-center justify-center text-muted-foreground hover:text-primary transition"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <Search size={22} />
+              </motion.button>
+            )}
+
+            <div className="hidden md:flex gap-5">
+              {socialLinks.map(({ label, href, icon }) => {
+                const Icon = iconMap[icon];
+                return (
+                  Icon && (
+                    <Link
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-primary transition"
+                    >
+                      <Icon size={20} />
+                    </Link>
+                  )
+                );
+              })}
+            </div>
+
+            <motion.button
+              onClick={() => setMenuOpen(true)}
+              className="md:hidden w-8 h-8 flex items-center justify-center"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <Menu size={24} />
+            </motion.button>
+          </div>
         </div>
       </nav>
 

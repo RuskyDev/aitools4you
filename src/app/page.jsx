@@ -15,12 +15,6 @@ const ITEMS_PER_PAGE = 9;
 import HorizontalAdComponent from "@/components/HorizontalAdComponent";
 import SkeletonCard from "@/components/ui/SkeletonCard";
 
-import siteConfig from "@/config/site.config";
-
-// export const metadata = {
-//   title: `${siteConfig.name} | Home`,
-// };
-
 export default function Page() {
   const [tools, setTools] = useState([]);
   const [tags, setTags] = useState(["All"]);
@@ -141,7 +135,7 @@ export default function Page() {
         <div className="flex flex-col items-center justify-start text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-foreground leading-snug sm:leading-tight">
             Explore the Latest <br />
-            <span className="text-primary">AI Tools</span>
+            <span className="text-primary">Ai Tools</span>
           </h1>
           <p className="text-base sm:text-lg mb-10 max-w-xl text-muted-foreground">
             Discover top AI tools built for developers, designers, and creators.
@@ -222,6 +216,7 @@ export default function Page() {
                   size={20}
                 />
                 <input
+                  id="search-input"
                   type="text"
                   placeholder="Search AI tools..."
                   value={search}

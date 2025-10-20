@@ -6,8 +6,11 @@ const siteConfig = {
   socialMediaLinks: [
     { label: "Linkedin", href: "https://www.linkedin.com/company/ai-tools-4-you", icon: "FaLinkedin" },
     { label: "Instagram", href: "https://instagram.com/aitools4you.official", icon: "FaInstagram" },
-    { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61581877957725", icon: "FaFacebook" },
+    { label: "Facebook", href: "https://www.facebook.com/aitools4you", icon: "FaFacebook" },
+    { label: "X", href: "https://x.com/aitools4youai", icon: "FaXTwitter" },
+    { label: "Reddit", href: "https://reddit.com/r/aitools4you", icon: "FaReddit" },
     { label: "Discord", href: "https://discord.gg/5wyRWYByFU", icon: "FaDiscord" }
+    
   ],
 
   navigationBarItems: [
