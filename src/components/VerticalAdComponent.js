@@ -47,14 +47,23 @@ export default function VerticalAdComponent({ position = "left", src, redirectTo
         className="relative w-[160px] aspect-[160/600] bg-card border border-border rounded-lg overflow-hidden cursor-pointer"
         onClick={() => redirectTo && window.open(redirectTo, "_blank")}
       >
-        <img
-          src={src}
-          alt="Advertisement"
-          className="absolute inset-0 w-full h-full object-contain"
-        />
+        {src.endsWith(".webm") ? (
+          <video
+            className="absolute inset-0 w-full h-full object-contain"
+            src={src}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+        ) : (
+          <img
+            src={src}
+            alt="Advertisement"
+            className="absolute inset-0 w-full h-full object-contain"
+          />
+        )}
       </div>
     </div>
   )
 }
-
-// 160 px wide × 600 px tall
