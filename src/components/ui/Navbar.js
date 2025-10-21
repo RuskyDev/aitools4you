@@ -27,6 +27,8 @@ const iconMap = {
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  if (pathname.startsWith("/admin")) return null;
+
   const siteName = siteConfig.name || "Website";
   const validItems = (navItems || siteConfig.navigationBarItems || []).filter(
     (i) => i?.label && i?.href

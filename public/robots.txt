@@ -1,4 +1,4 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
 
 Sitemap: https://www.aitools4you.ai/sitemap.xml
