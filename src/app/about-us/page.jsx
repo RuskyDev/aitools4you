@@ -115,8 +115,8 @@ export default function AboutPage() {
             </p>
           </section>
           <section>
-            <h2 className="text-3xl font-bold mb-4 text-justify">Who We Are</h2>
-            <p className="text-muted-foreground">
+            <h2 className="text-3xl font-bold mb-4">Who We Are</h2>
+            <p className="text-muted-foreground text-justify">
               It all started with a Gen Z vision, a spark to make AI knowledge
               accessible for everyone. At{" "}
               <span className="text-primary">{siteConfig.name}</span>, we're not
@@ -129,10 +129,10 @@ export default function AboutPage() {
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold mb-4 text-justify">
+            <h2 className="text-3xl font-bold mb-4">
               Our Mission
             </h2>
-            <p className="text-muted-foreground ">
+            <p className="text-muted-foreground text-justify">
               To make the power of AI accessible to everyone, bridging
               knowledge, tools, and innovation for creators, professionals, and
               learners alike. At{" "}

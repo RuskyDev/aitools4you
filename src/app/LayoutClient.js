@@ -70,7 +70,7 @@ export default function RootLayoutClient({ children }) {
   const breadcrumbs = breadcrumbMap[pathname] || breadcrumbMap["/"];
   const isProd = process.env.NODE_ENV === "production";
   const [showPopup, setShowPopup] = useState(false);
-  const [countdown, setCountdown] = useState(15);
+  const [countdown, setCountdown] = useState(5);
   const [buttonEnabled, setButtonEnabled] = useState(false);
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function RootLayoutClient({ children }) {
   useEffect(() => {
     if (showPopup) {
       document.body.style.overflow = "hidden";
-      setCountdown(15);
+      setCountdown(5);
       setButtonEnabled(false);
       const interval = setInterval(() => {
         setCountdown((prev) => {
