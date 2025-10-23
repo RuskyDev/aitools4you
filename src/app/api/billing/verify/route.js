@@ -1,4 +1,4 @@
-import { stripe } from "@/utils/stripe/stripe-client";
+import { stripe } from "@/utils/stripe/client";
 import { NextResponse } from "next/server";
 
 export async function GET(req) {

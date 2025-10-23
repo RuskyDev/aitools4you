@@ -5,13 +5,14 @@ import {
   ChevronLeft,
   ChevronRight,
   BookOpen,
-  Lightbulb,
+  BrainCircuit,
   Code,
   Zap,
   Rocket,
   Brain,
   Sparkles,
   Target,
+  Globe
 } from "lucide-react";
 import Link from "next/link";
 
@@ -19,13 +20,14 @@ const ITEMS_PER_PAGE = 5;
 
 const iconMap = {
   BookOpen,
-  Lightbulb,
+  BrainCircuit,
   Code,
   Zap,
   Rocket,
   Brain,
   Sparkles,
   Target,
+  Globe
 };
 
 const SkeletonCard = () => (
@@ -52,65 +54,32 @@ export default function Blogs() {
 
   useEffect(() => {
     setLoading(true);
-    // Simulating API call with mock data
     setTimeout(() => {
       const mockBlogs = [
-        // {
-        //   id: 1,
-        //   icon: "Lightbulb",
-        //   name: "Getting Started with AI Development",
-        //   description:
-        //     "Learn the fundamentals of AI development and how to build your first intelligent application.",
-        // },
-        // {
-        //   id: 2,
-        //   icon: "Code",
-        //   name: "Best Practices for Prompt Engineering",
-        //   description:
-        //     "Master the art of crafting effective prompts to get the most out of AI language models.",
-        // },
-        // {
-        //   id: 3,
-        //   icon: "Rocket",
-        //   name: "Deploying AI Models to Production",
-        //   description:
-        //     "A comprehensive guide to taking your AI models from development to production environments.",
-        // },
-        // {
-        //   id: 4,
-        //   icon: "Brain",
-        //   name: "Understanding Neural Networks",
-        //   description:
-        //     "Deep dive into the architecture and mechanics of neural networks and deep learning.",
-        // },
-        // {
-        //   id: 5,
-        //   icon: "Zap",
-        //   name: "Optimizing AI Performance",
-        //   description:
-        //     "Tips and techniques for improving the speed and efficiency of your AI applications.",
-        // },
-        // {
-        //   id: 6,
-        //   icon: "Sparkles",
-        //   name: "Creative AI Use Cases",
-        //   description:
-        //     "Explore innovative ways businesses are leveraging AI to solve real-world problems.",
-        // },
-        // {
-        //   id: 7,
-        //   icon: "Target",
-        //   name: "AI Ethics and Responsible Development",
-        //   description:
-        //     "Understanding the ethical implications and best practices for responsible AI development.",
-        // },
-        // {
-        //   id: 8,
-        //   icon: "BookOpen",
-        //   name: "Machine Learning Fundamentals",
-        //   description:
-        //     "A beginner-friendly introduction to machine learning concepts and algorithms.",
-        // },
+        {
+          id: 1,
+          icon: "BrainCircuit",
+          name: "Discover the Best AI Tools to Simplify Your Daily Tasks and Save Time",
+          description:
+            "Explore the top AI tools designed to boost productivity, automate tasks, and make everyday life easier. Learn how ChatGPT, Grammarly, Notion AI, and more can save you time and enhance your workflow.",
+          link: "/blog/discover-the-best-ai-tools-to-simplify-your-daily-tasks-and-save-time",
+        },
+        {
+          id: 2,
+          icon: "Globe",
+          name: "ChatGPT Atlas Review: The Future of Browsing Starts Here",
+          description:
+            "Dive into OpenAI’s groundbreaking AI-powered browser, ChatGPT Atlas. Discover how it transforms traditional browsing into a conversational, intelligent experience powered by ChatGPT.",
+          link: "/blog/chatgpt-atlas-review-the-future-of-browsing-starts-here",
+        },
+        {
+          id: 3,
+          icon: "Rocket",
+          name: "Bringing Your Apps to Life on the Samsung Galaxy XR – AI-Powered Strategies for 2025",
+          description:
+            "Learn how to adapt your apps for Samsung’s Galaxy XR with AI-powered tools. Explore strategies for building immersive, intelligent XR experiences for the next generation of devices.",
+          link: "/blog/bringing-your-apps-to-life-on-the-samsung-galaxy-xr-ai-powered-strategies-for-2025",
+        },
       ];
       setBlogs(mockBlogs);
       setLoading(false);
@@ -204,7 +173,7 @@ export default function Blogs() {
                       </div>
 
                       <Link
-                        href="/test"
+                        href={blog.link || "#"}
                         className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-6 rounded-lg transition-colors duration-200 whitespace-nowrap"
                       >
                         Read More

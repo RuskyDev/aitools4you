@@ -48,10 +48,30 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-    <url>
+  <url>
     <loc>https://www.aitools4you.ai/about-us</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://www.aitools4you.ai/blog/chatgpt-atlas-review-the-future-of-browsing-starts-here</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aitools4you.ai/blog/bringing-your-apps-to-life-on-the-samsung-galaxy-xr-ai-powered-strategies-for-2025</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.aitools4you.ai/blog/discover-the-best-ai-tools-to-simplify-your-daily-tasks-and-save-time</loc>
+    <lastmod>2025-10-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

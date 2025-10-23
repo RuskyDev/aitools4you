@@ -7,26 +7,24 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata = {
   title: "Ai Tools 4 You",
-  description: "Discover the latest Ai tools curated for you",
+  description: "Discover the latest AI tools curated for you",
   keywords: ["ai tool", "new ai tool", "list of ai tools"],
   authors: [{ name: "Ai Tools 4 You" }],
   creator: "Ai Tools 4 You",
   publisher: "Ai Tools 4 You",
   metadataBase: new URL("https://aitools4you.ai"),
-  alternates: {
-    canonical: "https://aitools4you.ai",
-  },
+  alternates: { canonical: "https://aitools4you.ai" },
   openGraph: {
     type: "website",
     url: "https://aitools4you.ai",
     title: "Ai Tools 4 You",
-    description: "Discover the latest Ai tools curated for you",
+    description: "Discover the latest AI tools curated for you",
     images: ["/og-image.jpg"],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Ai Tools 4 You",
-    description: "Discover the latest Ai tools curated for you",
+    description: "Discover the latest AI tools curated for you",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -35,17 +33,14 @@ export const metadata = {
       { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     other: [
       { rel: "manifest", url: "/site.webmanifest" },
       { rel: "manifest", url: "/web-app-manifest-192x192.png" },
       { rel: "manifest", url: "/web-app-manifest-512x512.png" },
     ],
-  }
+  },
 };
-
 
 export default function RootLayout({ children }) {
   return (

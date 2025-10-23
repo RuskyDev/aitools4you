@@ -9,7 +9,6 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-
 const ITEMS_PER_PAGE = 9;
 
 import HorizontalAdComponent from "@/components/HorizontalAdComponent";

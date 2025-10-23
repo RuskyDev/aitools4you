@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { stripe } from "@/utils/stripe/stripe-client";
+import { stripe } from "@/utils/stripe/client";
 import { sendEmail } from "@/utils/email/client";
 import { supabase } from "@/utils/supabase/client";
 

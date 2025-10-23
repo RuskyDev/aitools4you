@@ -10,8 +10,7 @@ export default function AdsPage() {
   const advertisingSections = [
     {
       title: "Featured Tool",
-      description:
-        "Premium placement at the top of key pages for maximum visibility and engagement. Perfect for brand awareness campaigns and featured product launches.",
+      description: "Premium placement at the top of key pages for maximum visibility and engagement. Perfect for brand awareness campaigns and featured product launches.",
       image: "/ads/Featured_Advertising_Banner.jpg",
     },
     {
@@ -21,7 +20,7 @@ export default function AdsPage() {
       image: "/ads/Left_Right_Side_Advertising_Banner.jpg",
     },
     {
-      title: "Top Center Advertising Banner",
+      title: "Top Center Banner",
       description:  
         "Central positioning above main content for optimal focus. Best for time-sensitive offers and high-conversion marketing objectives.",
       image: "/ads/Top_Center_Advertising_Banner.jpg",
@@ -72,39 +71,7 @@ export default function AdsPage() {
       <div className="w-full px-6 mb-10">
         <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
       </div>
-      {/* Ad Display System
-      <div className="px-6">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <h2 className="text-3xl font-bold mb-6">Ad Display System</h2>
 
-          <div className="text-lg text-muted-foreground mb-4 space-y-2">
-            <p>
-              Each banner ad displays for 5 seconds before rotating to the next
-              advertiser.
-            </p>
-            <p>
-              If no other ad is active, your banner will continue to display
-              without interruption.
-            </p>
-            <p>
-              Fixed (Non-Rotating) slots are exclusive placements that do not
-              rotate.
-            </p>
-            <p>These are limited slots, available only if space is open.</p>
-            <p>
-              To book or check availability, please email us at:{" "}
-              <a
-                className="text-primary font-semibold"
-                href="mailto:contact@aitools4you.ai"
-              >
-                contact@aitools4you.ai
-              </a>
-            </p>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Available Ad Slots & Sizes */}
       <div className="px-6">
         <div className="max-w-5xl mx-auto space-y-6">
           <h2 className="text-3xl font-bold mb-6 text-center">
@@ -129,7 +96,15 @@ export default function AdsPage() {
                 </td>
               </tr>
               <tr>
-                <td className="px-4 py-2 border">Left & Right Banner</td>
+                <td className="px-4 py-2 border">Featured Tool Banner</td>
+                <td className="px-4 py-2 border">728 x 160</td>
+                <td className="px-4 py-2 border">Rotating / Fixed</td>
+                <td className="px-4 py-2 border">
+                  High Visibility (Top of Page)
+                </td>
+              </tr>
+              <tr>
+                <td className="px-4 py-2 border">Left & Right Side Banners</td>
                 <td className="px-4 py-2 border">600 x 160</td>
                 <td className="px-4 py-2 border">Rotating / Fixed</td>
                 <td className="px-4 py-2 border">
@@ -141,14 +116,12 @@ export default function AdsPage() {
         </div>
       </div>
 
-      {/* Weekly Advertising Packages */}
       <div className="px-6">
         <div className="max-w-5xl mx-auto space-y-12">
           <h2 className="text-3xl font-bold mb-6 text-center">
             Weekly Advertising Packages
           </h2>
 
-          {/* Rotating Ads */}
           <h3 className="text-2xl font-semibold mb-2">Rotating Ads</h3>
           <h4 className="text-lg text-muted-foreground mb-4">
             Your ad will rotate with other advertisers every 5 seconds, giving
@@ -167,7 +140,7 @@ export default function AdsPage() {
               <tr>
                 <td className="px-4 py-2 border">Top Center Banner</td>
                 <td className="px-4 py-2 border">1 Week</td>
-                <td className="px-4 py-2 border font-bold">$15</td>
+                <td className="px-4 py-2 border font-bold">$80</td>
                 <td className="px-4 py-2 border">
                   Shared visibility with other advertisers
                 </td>
@@ -184,7 +157,7 @@ export default function AdsPage() {
               <tr>
                 <td className="px-4 py-2 border">Featured Tool</td>
                 <td className="px-4 py-2 border">1 Week</td>
-                <td className="px-4 py-2 border font-bold">$9</td>
+                <td className="px-4 py-2 border font-bold">$80</td>
                 <td className="px-4 py-2 border">
                   Shared visibility with other advertisers
                 </td>
@@ -192,7 +165,6 @@ export default function AdsPage() {
             </tbody>
           </table>
 
-          {/* Fixed Ads */}
           <h3 className="text-2xl font-semibold mb-2">Fixed Ads</h3>
           <h4 className="text-lg text-muted-foreground mb-4">
             Your ad will remain in the same position exclusively for the week,
@@ -211,7 +183,7 @@ export default function AdsPage() {
               <tr>
                 <td className="px-4 py-2 border">Top Center Banner</td>
                 <td className="px-4 py-2 border">1 Week</td>
-                <td className="px-4 py-2 border font-bold">$80</td>
+                <td className="px-4 py-2 border font-bold">$160</td>
                 <td className="px-4 py-2 border">
                   Exclusive — limited availability. Contact us at
                   contact@aitools4you.ai
@@ -220,7 +192,7 @@ export default function AdsPage() {
               <tr>
                 <td className="px-4 py-2 border">Featured Tool</td>
                 <td className="px-4 py-2 border">1 Week</td>
-                <td className="px-4 py-2 border font-bold">$80</td>
+                <td className="px-4 py-2 border font-bold">$160</td>
                 <td className="px-4 py-2 border">
                   Exclusive — limited availability. Contact us at
                   contact@aitools4you.ai
@@ -229,7 +201,7 @@ export default function AdsPage() {
               <tr>
                 <td className="px-4 py-2 border">Right & Left Side Banners</td>
                 <td className="px-4 py-2 border">1 Week</td>
-                <td className="px-4 py-2 border font-bold">$80</td>
+                <td className="px-4 py-2 border font-bold">$160</td>
                 <td className="px-4 py-2 border">
                   Exclusive — limited availability. Contact us at
                   contact@aitools4you.ai
@@ -240,7 +212,6 @@ export default function AdsPage() {
         </div>
       </div>
 
-      {/* Advertising Sections */}
       <div className="px-6 py-16">
         <div className="max-w-5xl mx-auto space-y-16 text-foreground">
           {advertisingSections.map((section, index) => (

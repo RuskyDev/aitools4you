@@ -1,15 +1,9 @@
-# IDE
-.vscode/*
-
 # Dependencies
 node_modules/
 
-# Build output
+# NextJS
 .next/
-build/
 
 # Environment files
 .env
 .env.*
-
-/src/app/admin/

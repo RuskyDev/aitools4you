@@ -1,5 +1,6 @@
 'use client'
-import { Calendar, Clock, User } from "lucide-react";
+import Image from 'next/image'
+import { Calendar, Clock, User } from 'lucide-react'
 
 export function BlogHeader({ title, author, date, readTime }) {
   return (
@@ -22,12 +23,12 @@ export function BlogHeader({ title, author, date, readTime }) {
         </div>
       </div>
     </header>
-  );
+  )
 }
 
 export function BlogTags({ tags }) {
   return (
-    <div className="mt-6 flex gap-3">
+    <div className="mt-6 flex gap-3 flex-wrap">
       {tags.map((tag, idx) => (
         <span
           key={idx}
@@ -37,27 +38,30 @@ export function BlogTags({ tags }) {
         </span>
       ))}
     </div>
-  );
+  )
 }
 
 export function Divider() {
   return (
     <div className="w-full my-12">
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
     </div>
-  );
+  )
 }
 
-export function BlogImage({ src, alt }) {
+export function BlogImage({ src, alt, width = 1200, height = 675 }) {
   return (
-    <div className="bg-card border border-border rounded-xl p-0 mb-8 w-full">
-      <img
+    <div className="bg-card border border-border rounded-xl overflow-hidden mb-8 w-full">
+      <Image
         src={src}
         alt={alt}
-        className="w-full h-auto object-cover rounded-t-xl"
+        width={width}
+        height={height}
+        className="w-full h-auto object-cover"
+        priority
       />
     </div>
-  );
+  )
 }
 
 export function BlogQuote({ text }) {
@@ -65,7 +69,7 @@ export function BlogQuote({ text }) {
     <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8">
       <p className="text-foreground italic">{text}</p>
     </div>
-  );
+  )
 }
 
 export function BlogContent({ children }) {
@@ -73,7 +77,7 @@ export function BlogContent({ children }) {
     <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
       {children}
     </div>
-  );
+  )
 }
 
 export function BlogSection({ title, children }) {
@@ -82,7 +86,7 @@ export function BlogSection({ title, children }) {
       <h2 className="text-3xl font-bold text-foreground mt-12 mb-4">{title}</h2>
       {children}
     </>
-  );
+  )
 }
 
 export function Bullet({ children }) {
@@ -91,7 +95,7 @@ export function Bullet({ children }) {
       <span className="text-primary font-bold">•</span>
       <span className="text-muted-foreground">{children}</span>
     </li>
-  );
+  )
 }
 
 export function AuthorCard({ name, role }) {
@@ -105,5 +109,5 @@ export function AuthorCard({ name, role }) {
         <p className="text-sm text-muted-foreground">{role}</p>
       </div>
     </div>
-  );
+  )
 }
