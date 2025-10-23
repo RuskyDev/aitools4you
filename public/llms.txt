@@ -1,13 +1,18 @@
-Ai Tools 4 You
-Discover the best Ai tools for developers, designers, and creators.
+# Ai Tools 4 You
+> Discover the best Ai tools for developers, designers, and creators.
 
-Main Pages
+## Main Pages
 - Ai Tools 4 You: https://aitools4you.ai/
 - Blog: https://aitools4you.ai/blog
 - About Us: https://aitools4you.ai/about-us
 - Contact: https://aitools4you.ai/contact
 
-Social Media
+## Blogs
+- [ChatGPT Atlas Review: The Future of Browsing Starts Here](https://aitools4you.ai/blog/chatgpt-atlas-review-the-future-of-browsing-starts-here)
+- [Bringing Your Apps to Life on the Samsung Galaxy XR: AI-Powered Strategies for 2025](https://aitools4you.ai/blog/bringing-your-apps-to-life-on-the-samsung-galaxy-xr-ai-powered-strategies-for-2025)
+- [Discover the Best AI Tools to Simplify Your Daily Tasks and Save Time](https://aitools4you.ai/blog/discover-the-best-ai-tools-to-simplify-your-daily-tasks-and-save-time)
+
+## Social Media
 - LinkedIn: https://www.linkedin.com/company/ai-tools-4-you
 - Instagram: https://instagram.com/aitools4you.official
 - Facebook: https://www.facebook.com/aitools4you
@@ -15,10 +20,10 @@ Social Media
 - Reddit: https://reddit.com/r/aitools4you
 - Discord: https://discord.gg/5wyRWYByFU
 
-Advertising
+## Advertising
 - Advertise With Us: https://aitools4you.ai/ads
 - Submit a Tool: https://aitools4you.ai/submit-tool
 
-Policies
+## Policies
 - Privacy Policy: https://aitools4you.ai/privacy
 - Terms of Service: https://aitools4you.ai/terms
