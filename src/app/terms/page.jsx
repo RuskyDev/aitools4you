@@ -11,7 +11,9 @@ export default function TermsPage() {
           Terms of Service
         </h1>
         <p className="text-lg sm:text-xl mb-12 max-w-3xl text-muted-foreground">
-          Welcome to <span className="font-semibold">{siteConfig.name}</span>. By using our website, you agree to comply with these terms and conditions. Please read them carefully.
+          Welcome to <span className="font-semibold">{siteConfig.name}</span>.
+          By using our website, you agree to comply with these terms and
+          conditions. Please read them carefully.
         </p>
       </div>
 
@@ -21,38 +23,100 @@ export default function TermsPage() {
 
       <div className="px-6 py-16">
         <div className="max-w-5xl mx-auto space-y-12 text-foreground">
-
           <section>
             <h2 className="text-3xl font-bold mb-4">Use of Website</h2>
             <p className="text-muted-foreground">
-              You may browse, search, and view AI tools listed on this website for personal or professional purposes. You may not use our website for any illegal, abusive, or unauthorized activities.
+              You may browse, search, and view AI tools listed on this website
+              for personal or professional purposes. You may not use our website
+              for any illegal, abusive, or unauthorized activities.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">User Submissions</h2>
             <p className="text-muted-foreground">
-              When using our contact form, you may provide your name, email address, and message. By submitting this information, you grant us permission to contact you solely for the purpose of responding to your inquiry. We do not use your contact details for marketing or share them with third parties.
+              When using our contact form, you may provide your name, email
+              address, and message. By submitting this information, you grant us
+              permission to contact you solely for the purpose of responding to
+              your inquiry. We do not use your contact details for marketing or
+              share them with third parties.
             </p>
           </section>
 
           <section>
-            <h2 className="text-3xl font-bold mb-4">Advertiser Submissions & Ad Purchases</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              Advertiser Submissions & Ad Purchases
+            </h2>
             <p className="text-muted-foreground">
-              Advertisers may submit tools or purchase ad placements on our site. By submitting a tool or ad, you confirm that all information provided is accurate and that you have the right to submit the content.
+              Advertisers may submit tools or purchase ad placements on our
+              site. By submitting a tool or ad, you confirm that all information
+              provided is accurate and that you have the right to submit the
+              content.
             </p>
             <p className="text-muted-foreground mt-4">
-              Payments for ads are securely processed via <span className="font-semibold">Stripe</span>. We do not store credit card information. Uploaded ad banners are stored in <span className="font-semibold">Supabase</span> and are used solely to display your advertisement. We reserve the right to reject submissions that do not meet our guidelines or standards.
+              Payments for ads are securely processed via{" "}
+              <span className="font-semibold">Stripe</span>. We do not store
+              credit card information. Uploaded ad banners are stored in{" "}
+              <span className="font-semibold">Supabase</span> and are used
+              solely to display your advertisement. We reserve the right to
+              reject submissions that do not meet our guidelines or standards.
             </p>
             <p className="text-muted-foreground mt-4">
-              You are responsible for ensuring that submitted ads comply with all applicable laws and do not infringe on third-party rights. We are not liable for content submitted by advertisers.
+              You are responsible for ensuring that submitted ads comply with
+              all applicable laws and do not infringe on third-party rights. We
+              are not liable for content submitted by advertisers.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-3xl font-bold mb-4">Refund Policy</h2>
+            <p className="text-muted-foreground">
+              All advertising purchases made on{" "}
+              <span className="font-semibold">{siteConfig.name}</span> —
+              including rotating ads, fixed ads, and featured tool placements —
+              are considered final once the campaign is approved and scheduled
+              for display. These purchases reserve exclusive ad space for the
+              specified duration and cannot be refunded after activation.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              Refunds may be granted only under the following conditions:
+            </p>
+            <ul className="list-disc list-inside text-muted-foreground mt-2 space-y-2">
+              <li>Duplicate or accidental payments.</li>
+              <li>
+                Technical errors that prevent your ad from being displayed as
+                purchased.
+              </li>
+              <li>
+                Ad rejection prior to publication (for content that does not
+                meet our guidelines).
+              </li>
+            </ul>
+            <p className="text-muted-foreground mt-4">
+              If a refund is approved, it will be processed to your original
+              payment method within 5–10 business days. Requests for refunds
+              must be submitted within 7 days of the original purchase.
+            </p>
+            <p className="text-muted-foreground mt-4">
+              To request a refund or report a payment issue, please contact us
+              at{" "}
+              <a
+                href="mailto:contact@aitools4you.ai"
+                className="text-primary font-semibold underline"
+              >
+                contact@aitools4you.ai
+              </a>
+              .
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Analytics and Cookies</h2>
             <p className="text-muted-foreground">
-              Our website uses Google Analytics to understand how visitors interact with our site. By using our website, you acknowledge that Google may collect anonymized data through cookies in accordance with its{" "}
+              Our website uses Google Analytics to understand how visitors
+              interact with our site. By using our website, you acknowledge that
+              Google may collect anonymized data through cookies in accordance
+              with its{" "}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
@@ -60,42 +124,58 @@ export default function TermsPage() {
                 className="text-primary font-semibold underline"
               >
                 Privacy Policy
-              </a>.
+              </a>
+              .
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Intellectual Property</h2>
             <p className="text-muted-foreground">
-              All content, design, and branding on this website are the property of <span className="font-semibold">{siteConfig.name}</span> unless otherwise stated. You may not reproduce, redistribute, or modify our content without prior written consent.
+              All content, design, and branding on this website are the property
+              of <span className="font-semibold">{siteConfig.name}</span> unless
+              otherwise stated. You may not reproduce, redistribute, or modify
+              our content without prior written consent.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Third-Party Links</h2>
             <p className="text-muted-foreground">
-              Our website may contain links to external AI tools or services. We are not responsible for the content, accuracy, or privacy practices of these third-party websites. Accessing them is at your own risk.
+              Our website may contain links to external AI tools or services. We
+              are not responsible for the content, accuracy, or privacy
+              practices of these third-party websites. Accessing them is at your
+              own risk.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">No Warranty</h2>
             <p className="text-muted-foreground">
-              The information and tools listed on this website are provided “as is.” We make no guarantees about accuracy, reliability, or suitability for any purpose. Use of the website and its resources is at your own discretion and risk.
+              The information and tools listed on this website are provided “as
+              is.” We make no guarantees about accuracy, reliability, or
+              suitability for any purpose. Use of the website and its resources
+              is at your own discretion and risk.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Limitation of Liability</h2>
             <p className="text-muted-foreground">
-              <span className="font-semibold">{siteConfig.name}</span> is not liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use this website, linked resources, or submitted ads.
+              <span className="font-semibold">{siteConfig.name}</span> is not
+              liable for any direct, indirect, incidental, or consequential
+              damages resulting from the use or inability to use this website,
+              linked resources, or submitted ads.
             </p>
           </section>
 
           <section>
             <h2 className="text-3xl font-bold mb-4">Changes to Terms</h2>
             <p className="text-muted-foreground">
-              We may update these Terms of Service from time to time. Any updates will be reflected on this page with an updated effective date. Continued use of the website after changes means you accept the revised terms, including any advertiser-related terms.
+              We may update these Terms of Service from time to time. Any
+              updates will be reflected on this page with an updated effective
+              date. Continued use of the website after changes means you accept
+              the revised terms, including any advertiser-related terms.
             </p>
           </section>
 
@@ -103,9 +183,13 @@ export default function TermsPage() {
             <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
             <p className="text-muted-foreground">
               If you have questions about these terms, please reach out via our{" "}
-              <a href="/contact" className="text-primary font-semibold underline">
+              <a
+                href="/contact"
+                className="text-primary font-semibold underline"
+              >
                 Contact page
-              </a>.
+              </a>
+              .
             </p>
           </section>
 
@@ -114,7 +198,6 @@ export default function TermsPage() {
               Effective Date: October 19, {currentYear} – {currentYear + 1}
             </p>
           </section>
-
         </div>
       </div>
     </div>
