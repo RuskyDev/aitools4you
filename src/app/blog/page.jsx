@@ -6,8 +6,10 @@ import { compileMDX } from "next-mdx-remote/rsc";
 
 export const revalidate = 60;
 
-export default async function Blogs({ searchParams }) {
+export default async function Blogs({ searchParams: maybeSearchParams }) {
+  const searchParams = await maybeSearchParams;
   const page = parseInt(searchParams?.page || "1", 10);
+
   const blogsPerPage = 9;
   const baseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   let blogs = [];
@@ -26,7 +28,9 @@ export default async function Blogs({ searchParams }) {
         .map(async (file) => {
           const slug = file.name.replace(".mdx", "");
           const filePath = `posts/${file.name}`;
-          const { data } = await supabase.storage.from("Blogs").download(filePath);
+          const { data } = await supabase.storage
+            .from("Blogs")
+            .download(filePath);
           if (!data) return null;
 
           const text = await data.text();
@@ -73,7 +77,8 @@ export default async function Blogs({ searchParams }) {
           <span className="text-primary">Latest Blogs</span>
         </h1>
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-          Stay updated with the latest insights, tutorials, and trends in AI development.
+          Stay updated with the latest insights, tutorials, and trends in AI
+          development.
         </p>
       </div>
 

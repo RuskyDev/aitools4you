@@ -6,7 +6,8 @@ import * as blogComponents from "../components";
 import Link from "next/link";
 import siteConfig from "@/config/site.config";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params: maybeParams }) {
+  const params = await maybeParams;
   const { slug } = params;
   const filePath = `posts/${slug}.mdx`;
   const { data } = await supabase.storage.from("Blogs").download(filePath);
@@ -57,7 +58,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function BlogPage({ params }) {
+export default async function BlogPage({ params: maybeParams }) {
+  const params = await maybeParams;
   const { slug } = params;
   const filePath = `posts/${slug}.mdx`;
   const { data, error } = await supabase.storage

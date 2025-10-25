@@ -144,7 +144,7 @@ export default function Page() {
         </div>
 
         <div className="w-full my-12">
-          <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+          <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
         </div>
 
         <div>
