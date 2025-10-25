@@ -1,6 +1,6 @@
 {
-  "name": "Ai Tools 4 You",
-  "short_name": "Ai Tools 4 You",
+  "name": "AI Tools 4 You",
+  "short_name": "AI Tools 4 You",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "standalone"
 }

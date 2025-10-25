@@ -1,8 +1,8 @@
-# Ai Tools 4 You
+# AI Tools 4 You
 > Discover the best Ai tools for developers, designers, and creators, Currently offering **3,263 AI tools** to explore and use.
 
 ## Main Pages
-- Ai Tools 4 You: https://aitools4you.ai/
+- AI Tools 4 You: https://aitools4you.ai/
 - Blog: https://aitools4you.ai/blog
 - About Us: https://aitools4you.ai/about-us
 - Contact: https://aitools4you.ai/contact
@@ -11,6 +11,10 @@
 - [ChatGPT Atlas Review: The Future of Browsing Starts Here](https://aitools4you.ai/blog/chatgpt-atlas-review-the-future-of-browsing-starts-here)
 - [Bringing Your Apps to Life on the Samsung Galaxy XR: AI-Powered Strategies for 2025](https://aitools4you.ai/blog/bringing-your-apps-to-life-on-the-samsung-galaxy-xr-ai-powered-strategies-for-2025)
 - [Discover the Best AI Tools to Simplify Your Daily Tasks and Save Time](https://aitools4you.ai/blog/discover-the-best-ai-tools-to-simplify-your-daily-tasks-and-save-time)
+- [Turbo AI – Notetaker: Transform Your Learning Workflow with Smart AI Note-Taking](https://aitools4you.ai/blog/transform-your-learning-workflow-with-smart-ai-note-taking-why-choose-turbo-ai-note-take)
+- [HONOR Robot Phone: AI-Powered Smartphone Redefining the Future of Mobile Tech](https://aitools4you.ai/blog/honor-robot-phone-ai-powered-smartphone-redefining-the-future-of-mobile-tech)
+- [Step-by-Step Guide: How to Use ChatGPT App Integrations Like Spotify, Figma, and Canva](https://aitools4you.ai/blog/step-by-step-guide-how-to-use-chatgpt-app-integrations-like-spotify-figma-and-canva)
+- [AI Is Fueling the New Era of Browser Wars (Your Guide to Smarter, Safer Browsing)](https://aitools4you.ai/blog/ai-is-fueling-the-new-era-of-browser-wars-your-guide-to-smarter-safer-browsing)
 
 ## Social Media
 - LinkedIn: https://www.linkedin.com/company/ai-tools-4-you
