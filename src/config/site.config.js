@@ -1,5 +1,5 @@
 const siteConfig = {
-  name: "Ai Tools 4 You",
+  name: "AI Tools 4 You",
   description: "Discover the best Ai tools for developers, designers, and creators.",
   domain: "aitools4you.ai",
 

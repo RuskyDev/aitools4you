@@ -8,14 +8,14 @@ export function BlogHeader({ title, author, date, readTime }) {
       <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-6 leading-tight">
         {title}
       </h1>
-      <div className="flex flex-wrap items-center gap-6 text-muted-foreground">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-6 text-muted-foreground" aria-label="Article metadata">
+        <div className="flex items-center gap-2" itemProp="author" itemScope itemType="https://schema.org/Person">
           <User size={18} />
-          <span>{author}</span>
+          <span itemProp="name">{author}</span>
         </div>
         <div className="flex items-center gap-2">
           <Calendar size={18} />
-          <span>{date}</span>
+          <time dateTime={date}>{date}</time>
         </div>
         <div className="flex items-center gap-2">
           <Clock size={18} />
@@ -28,22 +28,21 @@ export function BlogHeader({ title, author, date, readTime }) {
 
 export function BlogTags({ tags }) {
   return (
-    <div className="mt-6 flex gap-3 flex-wrap">
+    <ul className="mt-6 flex gap-3 flex-wrap" aria-label="Tags">
       {tags.map((tag, idx) => (
-        <span
-          key={idx}
-          className="px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full"
-        >
-          {tag}
-        </span>
+        <li key={idx}>
+          <span className="px-4 py-2 bg-primary/10 text-primary text-sm font-medium rounded-full">
+            {tag}
+          </span>
+        </li>
       ))}
-    </div>
+    </ul>
   )
 }
 
 export function Divider() {
   return (
-    <div className="w-full my-12">
+    <div className="w-full my-12" role="separator">
       <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
     </div>
   )
@@ -51,7 +50,7 @@ export function Divider() {
 
 export function BlogImage({ src, alt, width = 1200, height = 675 }) {
   return (
-    <div className="bg-card border border-border rounded-xl overflow-hidden mb-8 w-full">
+    <figure className="bg-card border border-border rounded-xl overflow-hidden mb-8 w-full">
       <Image
         src={src}
         alt={alt}
@@ -60,32 +59,32 @@ export function BlogImage({ src, alt, width = 1200, height = 675 }) {
         className="w-full h-auto object-cover"
         priority
       />
-    </div>
+    </figure>
   )
 }
 
 export function BlogQuote({ text }) {
   return (
-    <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8">
+    <blockquote className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg my-8">
       <p className="text-foreground italic">{text}</p>
-    </div>
+    </blockquote>
   )
 }
 
 export function BlogContent({ children }) {
   return (
-    <div className="prose prose-lg max-w-none text-muted-foreground space-y-6">
+    <article className="prose prose-lg max-w-none text-muted-foreground space-y-6" itemScope itemType="https://schema.org/Article">
       {children}
-    </div>
+    </article>
   )
 }
 
 export function BlogSection({ title, children }) {
   return (
-    <>
-      <h2 className="text-3xl font-bold text-foreground mt-12 mb-4">{title}</h2>
+    <section className="mt-12">
+      <h2 className="text-3xl font-bold text-foreground mb-4">{title}</h2>
       {children}
-    </>
+    </section>
   )
 }
 
@@ -100,14 +99,14 @@ export function Bullet({ children }) {
 
 export function AuthorCard({ name, role }) {
   return (
-    <div className="flex items-center gap-4">
+    <aside className="flex items-center gap-4 mt-12" itemProp="author" itemScope itemType="https://schema.org/Person">
       <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
         <User className="text-primary" size={24} />
       </div>
       <div>
-        <p className="font-bold text-foreground">{name}</p>
+        <p className="font-bold text-foreground" itemProp="name">{name}</p>
         <p className="text-sm text-muted-foreground">{role}</p>
       </div>
-    </div>
+    </aside>
   )
 }

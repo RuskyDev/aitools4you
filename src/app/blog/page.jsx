@@ -1,138 +1,92 @@
-"use client";
-import { useState, useEffect } from "react";
-import {
-  Search,
-  ChevronLeft,
-  ChevronRight,
-  BookOpen,
-  BrainCircuit,
-  Code,
-  Zap,
-  Rocket,
-  Brain,
-  Sparkles,
-  Target,
-  Globe
-} from "lucide-react";
+import Image from "next/image";
+import { Calendar, Clock, User, Search } from "lucide-react";
 import Link from "next/link";
+import { supabase } from "@/utils/supabase/client";
+import { compileMDX } from "next-mdx-remote/rsc";
 
-const ITEMS_PER_PAGE = 5;
+export const revalidate = 60;
 
-const iconMap = {
-  BookOpen,
-  BrainCircuit,
-  Code,
-  Zap,
-  Rocket,
-  Brain,
-  Sparkles,
-  Target,
-  Globe
-};
+export default async function Blogs({ searchParams }) {
+  const page = parseInt(searchParams?.page || "1", 10);
+  const blogsPerPage = 9;
+  const baseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  let blogs = [];
 
-const SkeletonCard = () => (
-  <div className="bg-card border border-border rounded-xl p-6 flex items-center gap-6 animate-pulse">
-    <div className="bg-muted p-4 rounded-lg">
-      <div className="w-8 h-8 bg-muted rounded"></div>
-    </div>
-    <div className="flex-1 space-y-3">
-      <div className="h-6 bg-muted rounded w-48"></div>
-      <div className="space-y-2">
-        <div className="h-4 bg-muted rounded w-full"></div>
-        <div className="h-4 bg-muted rounded w-3/4"></div>
-      </div>
-    </div>
-    <div className="h-10 bg-muted rounded-lg w-24"></div>
-  </div>
-);
+  try {
+    const { data: files, error } = await supabase.storage
+      .from("Blogs")
+      .list("posts", { limit: 100 });
 
-export default function Blogs() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+    if (error) throw error;
+    if (!files?.length) return renderEmpty();
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      const mockBlogs = [
-        {
-          id: 1,
-          icon: "BrainCircuit",
-          name: "Discover the Best AI Tools to Simplify Your Daily Tasks and Save Time",
-          description:
-            "Explore the top AI tools designed to boost productivity, automate tasks, and make everyday life easier. Learn how ChatGPT, Grammarly, Notion AI, and more can save you time and enhance your workflow.",
-          link: "/blog/discover-the-best-ai-tools-to-simplify-your-daily-tasks-and-save-time",
-        },
-        {
-          id: 2,
-          icon: "Globe",
-          name: "ChatGPT Atlas Review: The Future of Browsing Starts Here",
-          description:
-            "Dive into OpenAI’s groundbreaking AI-powered browser, ChatGPT Atlas. Discover how it transforms traditional browsing into a conversational, intelligent experience powered by ChatGPT.",
-          link: "/blog/chatgpt-atlas-review-the-future-of-browsing-starts-here",
-        },
-        {
-          id: 3,
-          icon: "Rocket",
-          name: "Bringing Your Apps to Life on the Samsung Galaxy XR – AI-Powered Strategies for 2025",
-          description:
-            "Learn how to adapt your apps for Samsung’s Galaxy XR with AI-powered tools. Explore strategies for building immersive, intelligent XR experiences for the next generation of devices.",
-          link: "/blog/bringing-your-apps-to-life-on-the-samsung-galaxy-xr-ai-powered-strategies-for-2025",
-        },
-      ];
-      setBlogs(mockBlogs);
-      setLoading(false);
-    }, 1000);
-  }, []);
+    const blogList = await Promise.all(
+      files
+        .filter((f) => f.name.endsWith(".mdx"))
+        .map(async (file) => {
+          const slug = file.name.replace(".mdx", "");
+          const filePath = `posts/${file.name}`;
+          const { data } = await supabase.storage.from("Blogs").download(filePath);
+          if (!data) return null;
 
-  const filteredBlogs = blogs.filter(
-    (blog) =>
-      blog.name.toLowerCase().includes(search.toLowerCase()) ||
-      blog.description.toLowerCase().includes(search.toLowerCase())
-  );
+          const text = await data.text();
+          const { frontmatter } = await compileMDX({
+            source: text,
+            options: { parseFrontmatter: true },
+          });
 
-  const totalPages = Math.ceil(filteredBlogs.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentBlogs = filteredBlogs.slice(startIndex, endIndex);
+          let coverImage = frontmatter.image || "/default-image.png";
+          if (!coverImage.startsWith("http")) {
+            coverImage = `${baseUrl}/storage/v1/object/public/Blogs/images/${slug}/${coverImage}`;
+          }
 
-  const handleSearch = (value) => {
-    setSearch(value);
-    setCurrentPage(1);
-  };
+          return {
+            id: slug,
+            title: frontmatter.title,
+            author: frontmatter.author,
+            date: frontmatter.date,
+            readTime: frontmatter.readTime,
+            coverImage,
+            link: `/blog/${slug}`,
+          };
+        })
+    );
 
-  const handlePrevPage = () => {
-    setCurrentPage((prev) => Math.max(1, prev - 1));
-  };
+    blogs = blogList
+      .filter(Boolean)
+      .sort((a, b) => new Date(b.date) - new Date(a.date));
+  } catch (err) {
+    console.error("Error fetching blogs:", err);
+  }
 
-  const handleNextPage = () => {
-    setCurrentPage((prev) => Math.min(totalPages, prev + 1));
-  };
+  if (!blogs.length) return renderEmpty();
+
+  const totalPages = Math.ceil(blogs.length / blogsPerPage);
+  const startIndex = (page - 1) * blogsPerPage;
+  const paginatedBlogs = blogs.slice(startIndex, startIndex + blogsPerPage);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background/80">
-      <div className="flex flex-col items-center justify-start px-6 py-16 text-center">
-        <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-foreground leading-tight">
+    <div className="min-h-screen bg-gradient-to-b from-background to-background/80 px-6 py-16">
+      <div className="text-center mb-12">
+        <h1 className="text-5xl sm:text-6xl font-extrabold text-foreground mb-6 leading-tight">
           Read Our <br />
           <span className="text-primary">Latest Blogs</span>
         </h1>
-        <p className="text-lg sm:text-xl mb-12 max-w-2xl text-muted-foreground">
-          Stay updated with the latest insights, tutorials, and trends in AI
-          development. Learn from experts and grow your skills.
+        <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          Stay updated with the latest insights, tutorials, and trends in AI development.
         </p>
+      </div>
 
-        <div className="relative w-full max-w-2xl">
-          <Search
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
-            size={20}
-          />
+      <div className="flex justify-center mb-12">
+        <div className="relative w-full max-w-md">
           <input
             type="text"
-            placeholder="Search blog posts..."
-            value={search}
-            onChange={(e) => handleSearch(e.target.value)}
-            className="w-full pl-10 pr-5 py-3 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
+            placeholder="Search blogs..."
+            className="w-full bg-card border border-border rounded-lg py-3 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition-all"
+          />
+          <Search
+            size={18}
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
           />
         </div>
       </div>
@@ -141,83 +95,77 @@ export default function Blogs() {
         <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       </div>
 
-      <div className="px-6 py-16">
-        <div className="max-w-5xl mx-auto">
-          {loading ? (
-            <div className="space-y-6 mb-12">
-              {[...Array(ITEMS_PER_PAGE)].map((_, i) => (
-                <SkeletonCard key={i} />
-              ))}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        {paginatedBlogs.map((blog) => (
+          <Link
+            href={blog.link}
+            key={blog.id}
+            className="group relative bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg hover:border-primary/40 transition-all duration-300"
+          >
+            <div className="relative w-full h-56 overflow-hidden">
+              <Image
+                src={blog.coverImage}
+                alt={blog.title}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
+              />
             </div>
-          ) : (
-            <>
-              <div className="space-y-6 mb-12">
-                {currentBlogs.map((blog) => {
-                  const IconComponent = iconMap[blog.icon] || BookOpen;
-                  return (
-                    <div
-                      key={blog.id}
-                      className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col sm:flex-row items-start sm:items-center gap-6"
-                    >
-                      <div className="bg-primary/10 p-4 rounded-lg">
-                        <IconComponent className="w-8 h-8 text-primary" />
-                      </div>
 
-                      <div className="flex-1">
-                        <h3 className="text-xl font-bold text-card-foreground mb-2">
-                          {blog.name}
-                        </h3>
-                        <p className="text-muted-foreground">
-                          {blog.description}
-                        </p>
-                      </div>
+            <div className="p-5 flex flex-col space-y-3">
+              <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                {blog.title}
+              </h3>
 
-                      <Link
-                        href={blog.link || "#"}
-                        className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-6 rounded-lg transition-colors duration-200 whitespace-nowrap"
-                      >
-                        Read More
-                      </Link>
-                    </div>
-                  );
-                })}
+              <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                <div className="flex items-center gap-1.5">
+                  <User size={14} />
+                  <span>{blog.author}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Calendar size={14} />
+                  <span>{blog.date}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Clock size={14} />
+                  <span>{blog.readTime}</span>
+                </div>
               </div>
+            </div>
+          </Link>
+        ))}
+      </div>
 
-              {filteredBlogs.length > 0 && (
-                <div className="flex items-center justify-center gap-6">
-                  <button
-                    onClick={handlePrevPage}
-                    disabled={currentPage === 1}
-                    className="p-2 rounded-lg bg-card border border-border text-foreground hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-border transition-colors"
-                  >
-                    <ChevronLeft size={20} />
-                  </button>
-
-                  <span className="text-foreground font-medium">
-                    Page {currentPage} of {totalPages}
-                  </span>
-
-                  <button
-                    onClick={handleNextPage}
-                    disabled={currentPage === totalPages}
-                    className="p-2 rounded-lg bg-card border border-border text-foreground hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-border transition-colors"
-                  >
-                    <ChevronRight size={20} />
-                  </button>
-                </div>
-              )}
-
-              {filteredBlogs.length === 0 && (
-                <div className="text-center py-12">
-                  <p className="text-muted-foreground text-lg">
-                    No blogs found.
-                  </p>
-                </div>
-              )}
-            </>
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-4 mt-12">
+          {page > 1 && (
+            <Link
+              href={`?page=${page - 1}`}
+              className="px-4 py-2 border border-border rounded-lg text-sm hover:bg-primary/10 transition"
+            >
+              Previous
+            </Link>
+          )}
+          <span className="text-sm text-muted-foreground">
+            Page {page} of {totalPages}
+          </span>
+          {page < totalPages && (
+            <Link
+              href={`?page=${page + 1}`}
+              className="px-4 py-2 border border-border rounded-lg text-sm hover:bg-primary/10 transition"
+            >
+              Next
+            </Link>
           )}
         </div>
-      </div>
+      )}
+    </div>
+  );
+}
+
+function renderEmpty() {
+  return (
+    <div className="min-h-screen flex items-center justify-center text-muted-foreground">
+      <p>No blogs found.</p>
     </div>
   );
 }
