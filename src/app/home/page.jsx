@@ -124,7 +124,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background/80 relative">
+    <div className="min-h-screen bg-linear-to-b from-background to-background/80 relative">
       <HorizontalAdComponent
         src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top-Side-Ad-15-10-2025.webm"
         redirectTo={"https://astrad.io/"}
@@ -171,7 +171,7 @@ export default function Page() {
               {[...featuredTools, ...featuredTools].map((tool, index) => (
                 <div
                   key={`${tool.id}-${index}`}
-                  className="flex-shrink-0 w-[300px] h-[280px] bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
+                  className="shrink-0 w-[300px] h-[280px] bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="bg-primary/10 p-2 rounded-lg">
@@ -186,7 +186,7 @@ export default function Page() {
                     </h3>
                   </div>
 
-                  <p className="text-muted-foreground mb-4 line-clamp-3 flex-grow-0">
+                  <p className="text-muted-foreground mb-4 line-clamp-3 grow-0">
                     {tool.description}
                   </p>
 
@@ -204,7 +204,7 @@ export default function Page() {
 
           <div className="my-12"></div>
           <div className="w-full my-12">
-            <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+            <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
           </div>
 
           <div className="flex justify-center items-center w-full mt-6">
@@ -283,7 +283,7 @@ export default function Page() {
                         ))}
                       </div>
 
-                      <p className="text-muted-foreground mb-6 flex-grow">
+                      <p className="text-muted-foreground mb-6 grow">
                         {tool.description}
                       </p>
 
