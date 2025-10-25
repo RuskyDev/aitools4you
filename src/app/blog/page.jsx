@@ -112,7 +112,7 @@ export default async function Blogs({ searchParams: maybeSearchParams }) {
                 src={blog.coverImage}
                 alt={blog.title}
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-fill group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
