@@ -43,7 +43,7 @@ export function BlogTags({ tags }) {
 export function Divider() {
   return (
     <div className="w-full my-12" role="separator">
-      <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
     </div>
   )
 }
