@@ -16,17 +16,24 @@ export default function Footer() {
   if (pathname.startsWith("/admin")) return null;
 
   const year = new Date().getFullYear();
-  const { name = "Website", socialMediaLinks = [], navigationBarItems = [], footerItems = [] } = siteConfig;
+  const {
+    name = "Website",
+    socialMediaLinks = [],
+    navigationBarItems = [],
+    footerItems = [],
+  } = siteConfig;
 
   const iconMap = {
-    linkedin: FaLinkedin,
-    instagram: FaInstagram,
-    facebook: FaFacebook,
-    discord: FaDiscord,
-    twitter: FaXTwitter,
-    reddit: FaReddit,
-    youtube: FaYoutube,
+    falinkedin: FaLinkedin,
+    fainstagram: FaInstagram,
+    fafacebook: FaFacebook,
+    fadiscord: FaDiscord,
+    fax: FaXTwitter,
+    farediit: FaReddit,
+    fayoutube: FaYoutube,
   };
+
+  const Icon = iconMap[icon?.toLowerCase()];
 
   const groupedFooterItems = footerItems.reduce((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
@@ -40,7 +47,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-foreground mb-4">{name}</h3>
-            <p className="text-muted-foreground mb-6 max-w-md">{siteConfig.description}</p>
+            <p className="text-muted-foreground mb-6 max-w-md">
+              {siteConfig.description}
+            </p>
             <div className="flex gap-4">
               {socialMediaLinks.map(({ label, href, icon }) => {
                 const Icon = iconMap[icon?.toLowerCase()];
@@ -61,11 +70,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-4">Quick Links</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
               {navigationBarItems.map(({ label, href }) => (
                 <li key={label}>
-                  <a href={href} className="text-muted-foreground hover:text-primary transition-colors">
+                  <a
+                    href={href}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
                     {label}
                   </a>
                 </li>
@@ -75,11 +89,16 @@ export default function Footer() {
 
           {Object.entries(groupedFooterItems).map(([category, items]) => (
             <div key={category}>
-              <h4 className="text-lg font-semibold text-foreground mb-4">{category}</h4>
+              <h4 className="text-lg font-semibold text-foreground mb-4">
+                {category}
+              </h4>
               <ul className="space-y-2">
                 {items.map(({ label, href }) => (
                   <li key={label}>
-                    <a href={href} className="text-muted-foreground hover:text-primary transition-colors">
+                    <a
+                      href={href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
                       {label}
                     </a>
                   </li>
@@ -91,7 +110,9 @@ export default function Footer() {
 
         <div className="border-t border-border mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm">© {year} {name}. All rights reserved.</p>
+            <p className="text-muted-foreground text-sm">
+              © {year} {name}. All rights reserved.
+            </p>
             <div className="flex gap-6 text-sm">
               {[
                 { href: "/privacy", label: "Privacy Policy" },
