@@ -10,7 +10,7 @@ import {
   FaDiscord,
   FaXTwitter,
   FaReddit,
-  FaYoutube
+  FaYoutube,
 } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
@@ -56,7 +56,7 @@ export default function Navbar({ navItems }) {
         className="w-full h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
         aria-label="Main Navigation"
       >
-        <div className="max-w-screen-xl mx-auto px-6 flex items-center justify-between h-full">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-full">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/ai-tools-4-you-logo.svg"
