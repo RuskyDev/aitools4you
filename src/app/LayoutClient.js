@@ -108,44 +108,53 @@ function GTMScript() {
 
 
 function StructuredData({ breadcrumbs }) {
-  const schema = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        name: "AI Tools 4 You",
-        url: "https://aitools4you.ai",
-        logo: "https://aitools4you.ai/logo.png",
-        sameAs: [
-          "https://www.linkedin.com/company/ai-tools-4-you",
-          "https://instagram.com/aitools4you.official",
-          "https://www.facebook.com/aitools4you",
-          "https://x.com/aitools4youai",
-          "https://reddit.com/r/aitools4you",
-          "https://discord.gg/5wyRWYByFU",
-          "https://www.youtube.com/@aitools4youofficial"
-        ],
-      },
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: breadcrumbs.map((crumb, i) => ({
-          "@type": "ListItem",
-          position: i + 1,
-          name: crumb.name,
-          item: crumb.url,
-        })),
-      },
-    ],
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, i) => {
+      const item = {
+        "@type": "ListItem",
+        position: i + 1,
+        name: crumb.name
+      };
+      if (i < breadcrumbs.length - 1 && crumb.url) item.item = crumb.url;
+      return item;
+    })
+  };
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "AI Tools 4 You",
+    url: "https://www.aitools4you.ai",
+    logo: "https://www.aitools4you.ai/logo.png",
+    sameAs: [
+      "https://www.linkedin.com/company/ai-tools-4-you",
+      "https://instagram.com/aitools4you.official",
+      "https://www.facebook.com/aitools4you",
+      "https://x.com/aitools4youai",
+      "https://reddit.com/r/aitools4you",
+      "https://discord.gg/5wyRWYByFU",
+      "https://www.youtube.com/@aitools4youofficial"
+    ]
   };
 
   return (
-    <Script
-      id="structured-data"
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <Script
+        id="organization-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+    </>
   );
 }
+
 
 function Popup({ onClose }) {
   const [countdown, setCountdown] = useState(5);
