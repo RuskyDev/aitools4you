@@ -70,22 +70,22 @@ function GTMScript() {
 }
 
 function StructuredData() {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "AI Tools 4 You",
-    url: "https://www.aitools4you.ai",
-    logo: "https://www.aitools4you.ai/logo.png",
-    sameAs: [
-      "https://www.linkedin.com/company/ai-tools-4-you",
-      "https://instagram.com/aitools4you.official",
-      "https://www.facebook.com/aitools4you",
-      "https://x.com/aitools4youai",
-      "https://reddit.com/r/aitools4you",
-      "https://discord.gg/5wyRWYByFU",
-      "https://www.youtube.com/@aitools4youofficial"
-    ]
-  };
+  // const organizationSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "Organization",
+  //   name: "AI Tools 4 You",
+  //   url: "https://www.aitools4you.ai",
+  //   logo: "https://www.aitools4you.ai/logo.png",
+  //   sameAs: [
+  //     "https://www.linkedin.com/company/ai-tools-4-you",
+  //     "https://instagram.com/aitools4you.official",
+  //     "https://www.facebook.com/aitools4you",
+  //     "https://x.com/aitools4youai",
+  //     "https://reddit.com/r/aitools4you",
+  //     "https://discord.gg/5wyRWYByFU",
+  //     "https://www.youtube.com/@aitools4youofficial"
+  //   ]
+  // };
 
   const breadcrumbSchema = {
     "@context": "http://schema.org",
@@ -114,11 +114,11 @@ function StructuredData() {
 
   return (
     <>
-      <Script
+      {/* <Script
         id="organization-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
+      /> */}
       <Script
         id="breadcrumb-schema"
         type="application/ld+json"
