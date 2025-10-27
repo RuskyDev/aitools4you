@@ -1,6 +1,6 @@
 const siteConfig = {
   name: "AI Tools 4 You",
-  description: "Discover the best AI tools for developers, designers, and creators.",
+  description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
   domain: "aitools4you.ai",
 
   socialMediaLinks: [

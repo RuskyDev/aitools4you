@@ -113,7 +113,7 @@ function StructuredData({ breadcrumbs }) {
     "@graph": [
       {
         "@type": "Organization",
-        name: "Ai Tools 4 You",
+        name: "AI Tools 4 You",
         url: "https://aitools4you.ai",
         logo: "https://aitools4you.ai/logo.png",
         sameAs: [
@@ -123,6 +123,7 @@ function StructuredData({ breadcrumbs }) {
           "https://x.com/aitools4youai",
           "https://reddit.com/r/aitools4you",
           "https://discord.gg/5wyRWYByFU",
+          "https://www.youtube.com/@aitools4youofficial"
         ],
       },
       {

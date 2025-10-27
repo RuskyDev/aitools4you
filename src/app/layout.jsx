@@ -6,25 +6,25 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata = {
-  title: "Ai Tools 4 You",
-  description: "Discover the latest AI tools curated for you",
-  keywords: ["ai tool", "new ai tool", "list of ai tools"],
-  authors: [{ name: "Ai Tools 4 You" }],
-  creator: "Ai Tools 4 You",
-  publisher: "Ai Tools 4 You",
+  title: "AI Tools 4 You",
+  description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
+  keywords: ["ai tools", "new ai tools", "list of ai tools", "top ai tools"],
+  authors: [{ name: "AI Tools 4 You" }],
+  creator: "AI Tools 4 Yous",
+  publisher: "AI Tools 4 You",
   metadataBase: new URL("https://aitools4you.ai"),
   alternates: { canonical: "https://aitools4you.ai" },
   openGraph: {
     type: "website",
     url: "https://aitools4you.ai",
-    title: "Ai Tools 4 You",
-    description: "Discover the latest AI tools curated for you",
+    title: "AI Tools 4 You",
+    description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
     images: ["/og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ai Tools 4 You",
-    description: "Discover the latest AI tools curated for you",
+    title: "AI Tools 4 You",
+    description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
     images: ["/og-image.jpg"],
   },
   icons: {
