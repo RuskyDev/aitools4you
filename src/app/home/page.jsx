@@ -109,7 +109,7 @@ export default function Page() {
         <div className="flex flex-col items-center justify-start text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-foreground leading-snug sm:leading-tight">
             Explore the Latest <br />
-            <span className="text-primary">Ai Tools</span>
+            <span className="text-primary">AI Tools</span>
           </h1>
           <p className="text-base sm:text-lg mb-10 max-w-xl text-muted-foreground">
             Discover top AI tools built for developers, designers, and creators.
@@ -127,7 +127,7 @@ export default function Page() {
             Featured AI Tools
           </h2>
 
-          {/* Paid Featured AI Tools */}
+          {/* PAId Featured AI Tools */}
           <div className="relative overflow-hidden mb-12">
             <motion.div
               className="flex gap-6"
