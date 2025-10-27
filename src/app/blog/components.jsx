@@ -87,6 +87,35 @@ export function BlogSection({ title, children }) {
   )
 }
 
+export function BlogTable({ columns, data }) {
+  return (
+    <div className="overflow-x-auto my-8 rounded-xl border border-border bg-card">
+      <table className="w-full border-collapse text-left text-muted-foreground">
+        <thead className="bg-primary/5 text-foreground">
+          <tr>
+            {columns.map((col, idx) => (
+              <th key={idx} className="px-6 py-3 text-sm font-semibold uppercase tracking-wide border-b border-border">
+                {col}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, rIdx) => (
+            <tr key={rIdx} className="hover:bg-primary/5 transition-colors">
+              {row.map((cell, cIdx) => (
+                <td key={cIdx} className="px-6 py-4 border-b border-border text-foreground/90">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
 export function Bullet({ children }) {
   return (
     <li className="flex gap-3">
