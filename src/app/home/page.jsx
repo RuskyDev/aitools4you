@@ -9,7 +9,14 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-const ITEMS_PER_PAGE = 9;
+
+const getItemsPerPage = () => {
+  if (typeof window === "undefined") return 9;
+  const width = window.innerWidth;
+  if (width < 640) return 1;
+  if (width < 1024) return 10;
+  return 9;
+};
 
 import HorizontalAdComponent from "@/components/HorizontalAdComponent";
 import SkeletonCard from "@/components/ui/SkeletonCard";
@@ -21,6 +28,7 @@ export default function Page() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(getItemsPerPage());
 
   const [featuredTools, setFeaturedTools] = useState([
     {
@@ -49,6 +57,11 @@ export default function Page() {
     },
   ]);
 
+  useEffect(() => {
+    const handleResize = () => setItemsPerPage(getItemsPerPage());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -79,9 +92,9 @@ export default function Page() {
     return matchesSearch && matchesFilter;
   });
 
-  const totalPages = Math.ceil(filteredTools.length / ITEMS_PER_PAGE);
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const totalPages = Math.ceil(filteredTools.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
   const currentTools = filteredTools.slice(startIndex, endIndex);
 
   const handleSearch = (value) => {
@@ -224,7 +237,7 @@ export default function Page() {
           {/* Normal Featured AI Tools */}
           {loading ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              {[...Array(ITEMS_PER_PAGE)].map((_, i) => (
+              {[...Array(itemsPerPage)].map((_, i) => (
                 <SkeletonCard key={i} />
               ))}
             </div>
