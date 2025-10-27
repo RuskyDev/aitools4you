@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
@@ -261,11 +261,17 @@ export default function Page() {
                     <div className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="bg-primary/10 p-2 rounded-lg">
-                          <img
-                            src={tool.iconUrl}
-                            alt={`${tool.name} icon`}
-                            className="w-12 h-12 rounded"
-                          />
+                          {tool.iconUrl ? (
+                            <img
+                              src={tool.iconUrl}
+                              alt={`${tool.name} icon`}
+                              className="w-12 h-12 rounded"
+                            />
+                          ) : (
+                            <div className="w-12 h-12 rounded bg-primary/20 flex items-center justify-center text-primary font-bold text-lg uppercase">
+                              {tool.name.slice(0, 2)}
+                            </div>
+                          )}
                         </div>
                         <h3 className="text-xl font-bold text-card-foreground">
                           {tool.name}
