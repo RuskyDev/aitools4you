@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Search,
@@ -21,8 +21,6 @@ export default function Page() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-
-  const clientsCarouselRef = useRef(null);
 
   const [featuredTools, setFeaturedTools] = useState([
     {
@@ -52,7 +50,6 @@ export default function Page() {
   ]);
 
 
-
   useEffect(() => {
     setLoading(true);
     Promise.all([
@@ -68,22 +65,6 @@ export default function Page() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
-
-  useEffect(() => {
-    const clientsInterval = setInterval(() => {
-      if (clientsCarouselRef.current) {
-        clientsCarouselRef.current.scrollLeft += 1;
-        if (
-          clientsCarouselRef.current.scrollLeft >=
-          clientsCarouselRef.current.scrollWidth -
-            clientsCarouselRef.current.clientWidth
-        ) {
-          clientsCarouselRef.current.scrollLeft = 0;
-        }
-      }
-    }, 25);
-    return () => clearInterval(clientsInterval);
   }, []);
 
   const filteredTools = tools.filter((tool) => {

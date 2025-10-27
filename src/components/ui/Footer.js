@@ -1,6 +1,14 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit, FaYoutube } from "react-icons/fa6";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaDiscord,
+  FaXTwitter,
+  FaReddit,
+  FaYoutube,
+} from "react-icons/fa6";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {
@@ -9,7 +17,16 @@ export default function Footer() {
 
   const year = new Date().getFullYear();
   const { name = "Website", socialMediaLinks = [], navigationBarItems = [], footerItems = [] } = siteConfig;
-  const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit, FaYoutube };
+
+  const iconMap = {
+    linkedin: FaLinkedin,
+    instagram: FaInstagram,
+    facebook: FaFacebook,
+    discord: FaDiscord,
+    twitter: FaXTwitter,
+    reddit: FaReddit,
+    youtube: FaYoutube,
+  };
 
   const groupedFooterItems = footerItems.reduce((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
@@ -26,7 +43,8 @@ export default function Footer() {
             <p className="text-muted-foreground mb-6 max-w-md">{siteConfig.description}</p>
             <div className="flex gap-4">
               {socialMediaLinks.map(({ label, href, icon }) => {
-                const Icon = iconMap[icon];
+                const Icon = iconMap[icon?.toLowerCase()];
+                if (!Icon) return null;
                 return (
                   <a
                     key={label}

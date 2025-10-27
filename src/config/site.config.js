@@ -10,7 +10,7 @@ const siteConfig = {
     { label: "X", href: "https://x.com/aitools4youai", icon: "FaXTwitter" },
     { label: "Reddit", href: "https://reddit.com/r/aitools4you", icon: "FaReddit" },
     { label: "Discord", href: "https://discord.gg/5wyRWYByFU", icon: "FaDiscord" },
-    { label: "YouTube", href: "https://www.youtube.com/@aitools4youofficial", icon: "FaYouTube" }
+    { label: "YouTube", href: "https://www.youtube.com/@aitools4youofficial", icon: "FaYoutube" }
   ],
 
   navigationBarItems: [
