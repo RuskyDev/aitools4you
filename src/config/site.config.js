@@ -1,6 +1,6 @@
 const siteConfig = {
   name: "AI Tools 4 You",
-  description: "Discover the best Ai tools for developers, designers, and creators.",
+  description: "Discover the best AI tools for developers, designers, and creators.",
   domain: "aitools4you.ai",
 
   socialMediaLinks: [
@@ -10,7 +10,7 @@ const siteConfig = {
     { label: "X", href: "https://x.com/aitools4youai", icon: "FaXTwitter" },
     { label: "Reddit", href: "https://reddit.com/r/aitools4you", icon: "FaReddit" },
     { label: "Discord", href: "https://discord.gg/5wyRWYByFU", icon: "FaDiscord" },
-    // { label: "YouTube", href: "https://discord.gg/5wyRWYByFU", icon: "FaYouTube" }
+    { label: "YouTube", href: "https://www.youtube.com/@aitools4youofficial", icon: "FaYouTube" }
   ],
 
   navigationBarItems: [

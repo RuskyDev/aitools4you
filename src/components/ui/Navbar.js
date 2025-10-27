@@ -10,6 +10,7 @@ import {
   FaDiscord,
   FaXTwitter,
   FaReddit,
+  FaYoutube
 } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
@@ -22,6 +23,7 @@ const iconMap = {
   FaDiscord,
   FaXTwitter,
   FaReddit,
+  FaYoutube
 };
 
 export default function Navbar({ navItems }) {

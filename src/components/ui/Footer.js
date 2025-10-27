@@ -1,6 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit } from "react-icons/fa6";
+import { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit, FaYoutube } from "react-icons/fa6";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
 
   const year = new Date().getFullYear();
   const { name = "Website", socialMediaLinks = [], navigationBarItems = [], footerItems = [] } = siteConfig;
-  const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit };
+  const iconMap = { FaLinkedin, FaInstagram, FaFacebook, FaDiscord, FaXTwitter, FaReddit, FaYoutube };
 
   const groupedFooterItems = footerItems.reduce((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
