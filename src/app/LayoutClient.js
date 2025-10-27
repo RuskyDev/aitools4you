@@ -28,43 +28,6 @@ const ADS = [
   },
 ];
 
-const BREADCRUMBS = {
-  "/": [{ name: "Home", url: "https://www.aitools4you.ai/" }],
-  "/blog": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Blog", url: "https://www.aitools4you.ai/blog" },
-  ],
-  "/contact": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Contact", url: "https://www.aitools4you.ai/contact" },
-  ],
-  "/ads": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Ads", url: "https://www.aitools4you.ai/ads" },
-  ],
-  "/ads/buy": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Ads", url: "https://www.aitools4you.ai/ads" },
-    { name: "Buy Ads", url: "https://www.aitools4you.ai/ads/buy" },
-  ],
-  "/submit-tool": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Submit Tool", url: "https://www.aitools4you.ai/submit-tool" },
-  ],
-  "/terms": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Terms", url: "https://www.aitools4you.ai/terms" },
-  ],
-  "/privacy": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "Privacy", url: "https://www.aitools4you.ai/privacy" },
-  ],
-  "/about-us": [
-    { name: "Home", url: "https://www.aitools4you.ai/" },
-    { name: "About Us", url: "https://www.aitools4you.ai/about-us" },
-  ],
-};
-
 function AnalyticsScript() {
   const id = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
   if (!id || process.env.NODE_ENV !== "production") return null;
@@ -106,22 +69,7 @@ function GTMScript() {
   );
 }
 
-
-function StructuredData({ breadcrumbs }) {
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": breadcrumbs.map((crumb, i) => {
-      const item = {
-        "@type": "ListItem",
-        position: i + 1,
-        name: crumb.name
-      };
-      if (i < breadcrumbs.length - 1 && crumb.url) item.item = crumb.url;
-      return item;
-    })
-  };
-
+function StructuredData() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -136,6 +84,31 @@ function StructuredData({ breadcrumbs }) {
       "https://reddit.com/r/aitools4you",
       "https://discord.gg/5wyRWYByFU",
       "https://www.youtube.com/@aitools4youofficial"
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "AI Tools 4 You | Home",
+        item: "https://aitools4you.ai/"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "AI Tools 4 You | About",
+        item: "https://aitools4you.ai/about-us"
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "AI Tools 4 You | Blog",
+        item: "https://aitools4you.ai/blog"
+      }
     ]
   };
 
@@ -154,7 +127,6 @@ function StructuredData({ breadcrumbs }) {
     </>
   );
 }
-
 
 function Popup({ onClose }) {
   const [countdown, setCountdown] = useState(5);
@@ -207,7 +179,6 @@ function Popup({ onClose }) {
 
 export default function RootLayoutClient({ children }) {
   const pathname = usePathname();
-  const breadcrumbs = BREADCRUMBS[pathname] || BREADCRUMBS["/"];
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
@@ -227,7 +198,7 @@ export default function RootLayoutClient({ children }) {
       <GTMScript />
       <AnalyticsScript />
       <Navbar navItems={siteConfig.navigationBarItems} />
-      <StructuredData breadcrumbs={breadcrumbs} />
+      <StructuredData />
       <main>
         {ADS.map((ad) => (
           <VerticalAdComponent key={ad.position} {...ad} />
