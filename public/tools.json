@@ -87,7 +87,7 @@
     "id": 8,
     "name": "Lucent Chat",
     "description": "Create videos, images & marketing content with AI, all in one chat. Just describe what you need!",
-    "iconUrl": "https://lucentchat.com/assets/favicon-dark.svg",
+    "iconUrl": "https://lucentchat.com/assets/favicon-48x48.png",
     "tags": [
       "Ai Design",
       "Ai Video Editing",
@@ -1018,5 +1018,1205 @@
       "No-Code"
     ],
     "url": "https://www.cliptalk.pro?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 86,
+    "name": "Klap",
+    "description": "AI-powered tool: Converts YouTube videos into engaging short clips, perfectly formatted for TikTok & Reels.",
+    "iconUrl": "https://klap.app/favicon.ico",
+    "tags": [
+      "Ai Video Editing",
+      "Social Media",
+      "Video Clips"
+    ],
+    "url": "https://klap.app?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 87,
+    "name": "Grammarly",
+    "description": "Grammarly boosts writing with AI: refine tone, get suggestions, rewrite content, and streamline emails.",
+    "iconUrl": "https://static-web.grammarly.com/cms/master/public/favicon.ico",
+    "tags": [
+      "Ai Writing",
+      "Content Creation",
+      "Instant Feedback"
+    ],
+    "url": "https://www.grammarly.com/aff?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 88,
+    "name": "SocialBee",
+    "description": "AI-powered tool: Generates engaging social media posts, saving you time and boosting your online presence.",
+    "iconUrl": "",
+    "tags": [
+      "Social Media",
+      "Ai Writing",
+      "Content Creation"
+    ],
+    "url": "https://get.socialbee.io/aitools?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 89,
+    "name": "Apify",
+    "description": "**Get real-time data from any website effortlessly. Power your apps, research, and automations with Apify.**",
+    "iconUrl": "https://apify.com/favicon.ico",
+    "tags": [
+      "Web Automation",
+      "Data Extraction",
+      "Productivity"
+    ],
+    "url": "https://apify.com/use-cases/data-for-generative-ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 90,
+    "name": "VideoGen",
+    "description": "Create stunning social media videos instantly. AI-powered, easy to use, and packed with features.",
+    "iconUrl": "https://videogen.io/favicon.ico",
+    "tags": [
+      "Ai Video Editing",
+      "Social Media",
+      "Content Creation"
+    ],
+    "url": "https://videogen.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 91,
+    "name": "BASE44",
+    "description": "Create apps instantly: Just describe them. BASE44 builds everything – database, UI, and deployment – code-free.",
+    "iconUrl": "https://static.wixstatic.com/media/343a2a_bef5d76a91fb4663b4b3fb10d953548d%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/343a2a_bef5d76a91fb4663b4b3fb10d953548d%7Emv2.png",
+    "tags": [
+      "No-Code",
+      "Web Automation",
+      "Productivity"
+    ],
+    "url": "https://base44.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 92,
+    "name": "Lovable",
+    "description": "Create websites effortlessly: Just tell Lovable.dev what you want, no coding needed, for anyone.",
+    "iconUrl": "",
+    "tags": [
+      "No-Code",
+      "Web Design",
+      "Content Creation"
+    ],
+    "url": "https://lovable.dev?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 93,
+    "name": "StealthGPT",
+    "description": "Create original, undetectable AI content: essays, rephrasing, and more, guaranteed unique and evasion-proof.",
+    "iconUrl": "https://www.stealthgpt.ai/favicon.ico",
+    "tags": [
+      "Ai Writing",
+      "Content Creation",
+      "Ai Evasion"
+    ],
+    "url": "https://www.stealthgpt.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 94,
+    "name": "Mavic AI",
+    "description": "AI-powered brand marketer: Creates, schedules, and analyzes social media content, strategy to visuals, across all platforms.",
+    "iconUrl": "",
+    "tags": [
+      "Social Media",
+      "Content Creation",
+      "Marketing Ai"
+    ],
+    "url": "https://mavic.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 95,
+    "name": "RenderLion",
+    "description": "Create stunning, AI-powered video clips from your content. Perfect for any platform!",
+    "iconUrl": "https://www.renderlion.com/images/icon.svg",
+    "tags": [
+      "Ai Video Editing",
+      "Content Creation",
+      "Video Clips"
+    ],
+    "url": "https://www.renderlion.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 96,
+    "name": "i10x",
+    "description": "Access 30+ AI models and 500+ agents. One platform for teams, creators, and AI workflows.",
+    "iconUrl": "https://i10x.ai/favicon.ico",
+    "tags": [
+      "Content Creation",
+      "Ai Workflows",
+      "Productivity"
+    ],
+    "url": "https://i10x.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 97,
+    "name": "Hostinger Horizons",
+    "description": "Build web apps fast! Hostinger Horizons uses AI to create them from your words, with hosting and editing.",
+    "iconUrl": "https://www.hostg.xyz/favicon.ico",
+    "tags": [
+      "No-Code",
+      "Web Automation",
+      "Ai Design"
+    ],
+    "url": "https://www.hostg.xyz/aff_c?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 98,
+    "name": "JobWinner",
+    "description": "Get hired faster! JobWinner uses AI to create custom resumes, cover letters, and interview prep instantly.",
+    "iconUrl": "https://jobwinner.ai/wp-content/uploads/Logo-favicon-Jobwinner-300x300.png",
+    "tags": [
+      "Job Search",
+      "Ai Writing",
+      "Instant Feedback"
+    ],
+    "url": "https://jobwinner.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 99,
+    "name": "ProWritingAid",
+    "description": "Rewrite sentences with ProWritingAid's AI: enhance fluency, meet requirements, and add vibrant language.",
+    "iconUrl": "https://prowritingaid.com/favicon.ico?v=2",
+    "tags": [
+      "Ai Writing",
+      "Content Creation",
+      "Instant Feedback"
+    ],
+    "url": "https://prowritingaid.com/introducing-rephrase?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 100,
+    "name": "Galaxy AI",
+    "description": "Get everything AI: text, images, video, audio, code. One platform, $15/month, powered by leading AI models.",
+    "iconUrl": "https://galaxy.ai/favicon.ico",
+    "tags": [
+      "Content Creation",
+      "Ai Platform",
+      "All-In-One Ai"
+    ],
+    "url": "https://galaxy.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 101,
+    "name": "Viral Ai Video Maker",
+    "description": "Create viral TikTok/Reels videos instantly! AI-powered, HD, no editing needed. Credit-based pricing, no watermark.",
+    "iconUrl": "https://veo3video.me/favicon-32x32.png",
+    "tags": [
+      "Ai Video Editing",
+      "Video Ads",
+      "Social Media"
+    ],
+    "url": "https://veo3video.me?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 102,
+    "name": "HeyGen",
+    "description": "HeyGen: AI-powered video creation. Quickly generate professional, multilingual videos, including Sora2 scenes & UGC content.",
+    "iconUrl": "",
+    "tags": [
+      "Ai Video Editing",
+      "Video Creation",
+      "Ai Voices"
+    ],
+    "url": "https://heygen.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 103,
+    "name": "AdCreative.ai",
+    "description": "AI creates high-converting ads and social posts instantly. Get professional creatives in seconds!",
+    "iconUrl": "",
+    "tags": [
+      "Ai Design",
+      "Content Creation",
+      "Social Media"
+    ],
+    "url": "https://free-trial.adcreative.ai/copnki3b51lx?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 104,
+    "name": "Marky",
+    "description": "Marky: Your AI social media assistant. Creates, designs, and schedules posts to keep your business active effortlessly.",
+    "iconUrl": "https://cdn.prod.website-files.com/6620ab1b53aeaac4100ec06c/66220ad371267adf3eb8c544_Favicon.png",
+    "tags": [
+      "Social Media",
+      "Content Creation",
+      "Ai Design"
+    ],
+    "url": "https://www.mymarky.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 105,
+    "name": "isFake.ai",
+    "description": "Detects AI-generated content in text, images, video, and audio, offering confidence scores and explanations.",
+    "iconUrl": "https://isfake.ai/icons/apple-touch-icon.png",
+    "tags": [
+      "Ai Detection",
+      "Content Analysis",
+      "Ai Evasion"
+    ],
+    "url": "https://isfake.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 106,
+    "name": "HeadshotPro",
+    "description": "Get professional AI headshots fast. Affordable, customizable, and ready for your brand.",
+    "iconUrl": "https://www.headshotpro.com/favicon.ico",
+    "tags": [
+      "Image Generation",
+      "Ai Design",
+      "Productivity"
+    ],
+    "url": "https://www.headshotpro.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 107,
+    "name": "Quickads",
+    "description": "Generate ads instantly with AI! Millions of examples, image/video creation, and publishing for everyone.",
+    "iconUrl": "https://cdn.prod.website-files.com/64b11f315314a4ef84c12744/64c967a2e99b3d57b5a42161_32.png",
+    "tags": [
+      "Ai Writing",
+      "Video Ads",
+      "Content Creation"
+    ],
+    "url": "https://www.quickads.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 108,
+    "name": "Coach Call AI",
+    "description": "Get personalized coaching via WhatsApp & calls. This AI tool tracks progress and keeps you on track daily.",
+    "iconUrl": "https://coachcall.ai/favicon.ico",
+    "tags": [
+      "Ai Conversations",
+      "Productivity",
+      "Task Management"
+    ],
+    "url": "https://coachcall.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 109,
+    "name": "Frase",
+    "description": "AI-powered content marketing: research, write, optimize, and build templates for winning SEO results.",
+    "iconUrl": "https://www.frase.io/favicon-32x32.png",
+    "tags": [
+      "Ai Writing",
+      "Content Creation",
+      "Seo Tools"
+    ],
+    "url": "https://www.frase.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 110,
+    "name": "HypeAuditor",
+    "description": "Find influencers, analyze performance, and manage campaigns effortlessly with this AI-powered platform.",
+    "iconUrl": "https://hypeauditor.com/favicon.ico",
+    "tags": [
+      "Ai Research",
+      "Social Media",
+      "Marketing Ai"
+    ],
+    "url": "https://hypeauditor.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 111,
+    "name": "Pippit AI",
+    "description": "**Create stunning shoppable visuals (videos, photos, avatars) and manage them all in one place.**",
+    "iconUrl": "https://sf16-web-tos-buz.capcutstatic.com/obj/capcut-web-buz-sg/cc4b_web/logo-white-64.ico",
+    "tags": [
+      "Image Generation",
+      "Video Creation",
+      "Social Media"
+    ],
+    "url": "https://www.pippit.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 112,
+    "name": "CoTester",
+    "description": "Automated AI tests: Generates, adapts to UI changes, runs in browsers, and provides enterprise control.",
+    "iconUrl": "",
+    "tags": [
+      "Ai Testing",
+      "Web Automation",
+      "No-Code"
+    ],
+    "url": "https://testgrid.io/cotester?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 113,
+    "name": "User Evaluation",
+    "description": "Boost research! This AI tool empowers market researchers and customer teams to gain deeper consumer insights.",
+    "iconUrl": "https://userevaluation.cello.so/favicon.ico",
+    "tags": [
+      "Ai Research",
+      "Content Analysis",
+      "Customer Insights"
+    ],
+    "url": "https://userevaluation.cello.so/pK2sMZE6nZm?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 114,
+    "name": "MakeUGC",
+    "description": "Create quick, engaging ad videos with AI avatars, scripts, and voiceovers. Scale up your brand's UGC-style ads easily.",
+    "iconUrl": "https://cdn.prod.website-files.com/674b4b796e378b632448767e/684081026974efca0ad9b21e_make_favicon.png",
+    "tags": [
+      "Ai Video Editing",
+      "Content Creation",
+      "Video Ads"
+    ],
+    "url": "https://www.makeugc.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 115,
+    "name": "Submagic",
+    "description": "Effortlessly transcribe, caption, and customize your videos in 48 languages for global impact.",
+    "iconUrl": "https://spread.name/favicon.ico",
+    "tags": [
+      "Ai Video Editing",
+      "Video Creation",
+      "Ai Translations"
+    ],
+    "url": "https://link.aitoolsdirectory.com/submagic?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 116,
+    "name": "BeFreed",
+    "description": "Learn faster! This AI app transforms summaries & research into audio lessons, flashcards, and personalized plans.",
+    "iconUrl": "https://www.befreed.ai/icons/icon-192x192.png",
+    "tags": [
+      "Ai Learning",
+      "Audio Creation",
+      "Productivity"
+    ],
+    "url": "https://www.befreed.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 117,
+    "name": "Brand Butler",
+    "description": "AI-powered platform: Builds brands, creates visuals, and manages marketing campaigns with persistent memory.",
+    "iconUrl": "https://brandbutler.ai/wp-content/uploads/2024/06/bb-favicon-1.png",
+    "tags": [
+      "Ai Design",
+      "Content Creation",
+      "Marketing Ai"
+    ],
+    "url": "https://brandbutler.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 118,
+    "name": "Clickup",
+    "description": "ClickUp AI: Your smart work assistant. Simplifies tasks, writes content, and structures documents effortlessly.",
+    "iconUrl": "",
+    "tags": [
+      "Task Management",
+      "Ai Writing",
+      "Productivity"
+    ],
+    "url": "https://try.web.clickup.com/aitools?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 119,
+    "name": "Akool AI",
+    "description": "Create engaging AI-powered videos, translations, and animations with AKOOL for marketing and more.",
+    "iconUrl": "https://akool.com/favicon.ico",
+    "tags": [
+      "Ai Video Editing",
+      "Ai Translations",
+      "Marketing Videos"
+    ],
+    "url": "https://akool.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 120,
+    "name": "Luma AI",
+    "description": "Create stunning, realistic images and videos with Dream Machine, powered by Luma's AI and editing tools.",
+    "iconUrl": "",
+    "tags": [
+      "Image Generation",
+      "Video Creation",
+      "Ai Design"
+    ],
+    "url": "https://lumalabsai.partnerlinks.io/h8mcbw5tetsz?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 121,
+    "name": "Presenti",
+    "description": "**Presenti AI: Transforms your content into stunning presentation slides, quickly and easily.**",
+    "iconUrl": "https://presenti.ai/assets/favicon.ico",
+    "tags": [
+      "Ai Presentations",
+      "Content To Slides",
+      "Presentation Ai"
+    ],
+    "url": "https://presenti.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 122,
+    "name": "TicNote Cloud",
+    "description": "Effortlessly record, transcribe, summarize meetings; get action items & mind maps from hours of calls.",
+    "iconUrl": "https://ticnote.com/favicon.ico",
+    "tags": [
+      "Meeting Assistant",
+      "Ai Summarization",
+      "Task Management"
+    ],
+    "url": "https://ticnote.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 123,
+    "name": "Munch",
+    "description": "Munch creates short, shareable video clips from long content, optimized with AI for engagement and trends.",
+    "iconUrl": "https://cdn.prod.website-files.com/63ba8e823d3d7a927e5c2971/63fc866d1e536612a97a25e4_Group%2035812%20(2).png",
+    "tags": [
+      "Ai Video Editing",
+      "Video Clips",
+      "Content Creation"
+    ],
+    "url": "https://www.getmunch.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 124,
+    "name": "Filmora",
+    "description": "Filmora: AI-powered video editing for fast, professional content creation without the editing hassle.",
+    "iconUrl": "https://filmora.wondershare.com/favicon.ico",
+    "tags": [
+      "Ai Video Editing",
+      "Video Creation",
+      "Video Clips"
+    ],
+    "url": "https://filmora.wondershare.com/ai-video-editing.html?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 125,
+    "name": "Decktopus",
+    "description": "Create stunning presentations instantly! AI personalizes slides, simplifies layouts, and enhances content.",
+    "iconUrl": "https://cdn.prod.website-files.com/622217130a9cad1a33ea9b0a/6225e7f6ebda710d65459b7c_decktopus_symbol_2.png",
+    "tags": [
+      "Ai Presentations",
+      "Content To Slides",
+      "Instant Feedback"
+    ],
+    "url": "https://www.decktopus.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 126,
+    "name": "n8n",
+    "description": "Visually connect apps & services with n8n. Automate tasks & build intelligent workflows using AI.",
+    "iconUrl": "",
+    "tags": [
+      "Web Automation",
+      "Ai Workflows",
+      "No-Code"
+    ],
+    "url": "https://n8n.partnerlinks.io/aitools?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 127,
+    "name": "Higgsfield",
+    "description": "AI filmmaking tool: Craft cinematic videos with precise camera control. Unlimited generations, including Sora 2.",
+    "iconUrl": "https://higgsfield.ai/favicon.ico",
+    "tags": [
+      "Filmmaking Ai",
+      "Video Creation",
+      "Image Generation"
+    ],
+    "url": "https://higgsfield.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 128,
+    "name": "Bubble AI",
+    "description": "Build websites and apps quickly with Bubble's AI. No code needed, making development accessible to all.",
+    "iconUrl": "https://meta-q.cdn.bubble.io/cdn-cgi/image/w=128,h=,f=auto,dpr=1,fit=contain/f1530294839424x143528842134401200/Icon-no-clearspace.png",
+    "tags": [
+      "No-Code",
+      "Web Design",
+      "Ai Platform"
+    ],
+    "url": "https://bubble.io/ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 129,
+    "name": "Groas",
+    "description": "AI-powered tool optimizing search ads. Manages bids, copy, and targeting for e-commerce, SaaS, and service businesses.",
+    "iconUrl": "https://cdn.prod.website-files.com/6821efca072e48f6f495a47e/6834a89814b250ebab29b6ec_Icon%2032x32.png",
+    "tags": [
+      "Ai Marketing",
+      "Ad Optimization",
+      "E-Commerce Ai"
+    ],
+    "url": "https://groas.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 130,
+    "name": "ScrapeTheMap",
+    "description": "Unleash business data: ScrapeTheMap extracts, validates, and helps you reach out using maps, without monthly costs.",
+    "iconUrl": "https://www.scrapethemap.com/favicon.ico",
+    "tags": [
+      "Web Automation",
+      "Data Extraction",
+      "Marketing Ai"
+    ],
+    "url": "https://www.scrapethemap.com/en?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 131,
+    "name": "Blackbox AI",
+    "description": "AI coder: Instant autocomplete, video-to-code, full apps. Web/desktop/VS Code/API access, 300+ models.",
+    "iconUrl": "",
+    "tags": [
+      "Ai Coding",
+      "Code Generation",
+      "No-Code"
+    ],
+    "url": "https://blackboxai.partnerlinks.io/gez20imvg9ov?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 132,
+    "name": "Gatsbi",
+    "description": "Writes research papers, patents, and reviews, complete with citations, figures, and equations.",
+    "iconUrl": "https://www.gatsbi.com/images/logo-192x192.png",
+    "tags": [
+      "Ai Research",
+      "Ai Writing",
+      "Content Creation"
+    ],
+    "url": "https://www.gatsbi.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 133,
+    "name": "Vista Social",
+    "description": "Vista Social's AI assistant crafts engaging posts, paraphrases content, and automates social media interactions.",
+    "iconUrl": "",
+    "tags": [
+      "Social Media",
+      "Ai Writing",
+      "Content Creation"
+    ],
+    "url": "https://vistasocial.com/ai-assistant?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 134,
+    "name": "Alphana",
+    "description": "Alphana: Turns videos & podcasts into summaries, articles & social posts with ease. Automates transcription & marketing.",
+    "iconUrl": "https://framerusercontent.com/images/9N24aRYd9iXoBUxPAms1vtC4.svg",
+    "tags": [
+      "Ai Summarization",
+      "Content Creation",
+      "Social Media"
+    ],
+    "url": "https://www.alphana.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 135,
+    "name": "Divi AI",
+    "description": "Divi AI: Design websites faster with AI-powered content, images, and smart suggestions for easy building.",
+    "iconUrl": "https://www.elegantthemes.com/images/favicon/favicon-et-32.png",
+    "tags": [
+      "Ai Design",
+      "Web Design",
+      "Content Creation"
+    ],
+    "url": "https://www.elegantthemes.com/affiliates/idevaffiliate.php?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 136,
+    "name": "aiApply",
+    "description": "AI-powered: Creates resumes, applies for jobs, and practices interviews to help you get hired faster.",
+    "iconUrl": "https://storage.googleapis.com/assets-aiapply/favicon.png",
+    "tags": [
+      "Job Search",
+      "Ai Writing",
+      "Productivity"
+    ],
+    "url": "https://aiapply.co?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 137,
+    "name": "Prospero.ai",
+    "description": "Prospero.ai: Get data-driven stock picks for retail investors, cutting out the noise and guesswork.",
+    "iconUrl": "https://cdn.prod.website-files.com/656d3ccfb9b0c10251c32fa6/656e79d9fe677dadde827727_Prospero%20Favicon.png",
+    "tags": [
+      "Stock Picks",
+      "Financial Data",
+      "Ai Research"
+    ],
+    "url": "https://www.prospero.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 138,
+    "name": "WebWave",
+    "description": "AI-powered drag-and-drop website builder. Design, optimize, and write content effortlessly.",
+    "iconUrl": "https://cdn.webwave.me/files/dynamicContent/sites/hue725/images/favicon/lionn3yo.ico",
+    "tags": [
+      "Web Design",
+      "No-Code",
+      "Content Creation"
+    ],
+    "url": "https://webwave.me?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 139,
+    "name": "Hexomatic",
+    "description": "Automate tasks: scrape websites, find leads, track Amazon products, and create screenshots.",
+    "iconUrl": "https://hexomatic.com/apple-touch-icon.png",
+    "tags": [
+      "Web Automation",
+      "Data Extraction",
+      "Productivity"
+    ],
+    "url": "https://hexomatic.com/pricing_promo?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 140,
+    "name": "Speechify",
+    "description": "Create lifelike audio and video in 60+ languages with natural AI voices and cloning, perfect for everyone.",
+    "iconUrl": "https://speechify.com/favicon.ico",
+    "tags": [
+      "Ai Voices",
+      "Audio Creation",
+      "Video Creation"
+    ],
+    "url": "https://speechify.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 141,
+    "name": "Walter Writes",
+    "description": "Walter Writes: Humanizes AI text, undetectable by AI detectors, and always plagiarism-free.",
+    "iconUrl": "",
+    "tags": [
+      "Ai Writing",
+      "Ai Humanization",
+      "Undetectable Ai"
+    ],
+    "url": "https://walterwrites.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 142,
+    "name": "Weavely",
+    "description": "Create smart forms instantly! Transforms prompts, voice, or files into styled, logic-driven forms for data workflows.",
+    "iconUrl": "https://cdn.prod.website-files.com/67e329da04590e10a74e5deb/67e406af05acd6cbb067951f_weavely-fav-32.png",
+    "tags": [
+      "No-Code",
+      "Web Automation",
+      "Task Management"
+    ],
+    "url": "https://www.weavely.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 143,
+    "name": "Reelio",
+    "description": "Create faceless social media videos effortlessly with Reelio's AI: script, visuals, and voiceover included!",
+    "iconUrl": "https://reelio.ai/favicon.ico",
+    "tags": [
+      "Video Creation",
+      "Ai Content",
+      "Social Media"
+    ],
+    "url": "https://reelio.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 144,
+    "name": "Logo AI",
+    "description": "AI creates logos, brand identities, and social media content to help small businesses look professional.",
+    "iconUrl": "https://www.logoai.com/img/logo-icons/logoai.svg",
+    "tags": [
+      "Ai Design",
+      "Social Media",
+      "Brand Identity"
+    ],
+    "url": "https://www.logoai.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 145,
+    "name": "Sysarchitect",
+    "description": "Describe your web app in plain English. Sysarchitect creates code, mockups, and deploys—no coding required!",
+    "iconUrl": "",
+    "tags": [
+      "No-Code",
+      "Web Design",
+      "Code Generation"
+    ],
+    "url": "https://www.sysarchitect.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 146,
+    "name": "Phrasly",
+    "description": "**Phrasly: Humanizes AI text, making it undetectable and original, while boosting your writing efficiency.**",
+    "iconUrl": "https://phrasly.ai/favicon.ico",
+    "tags": [
+      "Ai Humanization",
+      "Ai Writing",
+      "Undetectable Ai"
+    ],
+    "url": "https://phrasly.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 147,
+    "name": "ContentStudio AI",
+    "description": "AI Writer: Automates social media content. Generates captions, corrects grammar, schedules posts, and creates images.",
+    "iconUrl": "https://contentstudio.io/favicons/apple-touch-icon-57x57.png",
+    "tags": [
+      "Social Media",
+      "Content Creation",
+      "Ai Writing"
+    ],
+    "url": "https://contentstudio.io/ai-assistant?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 148,
+    "name": "RepublicLabs",
+    "description": "Create AI images and videos, test different models, and generate pro-quality business visuals.",
+    "iconUrl": "https://republiclabs.ai/icon.ico?52ce41a7e9750aa0",
+    "tags": [
+      "Image Generation",
+      "Video Creation",
+      "Ai Design"
+    ],
+    "url": "https://republiclabs.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 149,
+    "name": "Watermelon",
+    "description": "Watermelon creates chatbots that instantly answer customer questions using your website's information.",
+    "iconUrl": "https://watermelon.ai/favicons/apple-touch-icon.png",
+    "tags": [
+      "Customer Support",
+      "Ai Conversations",
+      "No-Code"
+    ],
+    "url": "https://watermelon.ai/product/pulse?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 150,
+    "name": "text.ai",
+    "description": "Get instant help planning events and answering questions directly in your SMS, WhatsApp, and Telegram chats.",
+    "iconUrl": "https://framerusercontent.com/images/S3gXNPSB4DdiXbFLeYoN0ubG9PU.png",
+    "tags": [
+      "Ai Conversations",
+      "Customer Support",
+      "Task Management"
+    ],
+    "url": "https://www.text.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 151,
+    "name": "InLinks",
+    "description": "Boost your SEO with InLinks: Entity-driven optimization, smart linking, advanced research, and AI content assistance.",
+    "iconUrl": "https://inlinks.com/wp-content/uploads/2020/05/inLinks.ico",
+    "tags": [
+      "Seo Tools",
+      "Ai Writing",
+      "Content Creation"
+    ],
+    "url": "https://inlinks.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 152,
+    "name": "AnimeGenius",
+    "description": "Create stunning anime art effortlessly! Turns text/photos into beautiful anime images, fast and easy.",
+    "iconUrl": "https://art-animegenius.live3d.io/assets/favicon.ico",
+    "tags": [
+      "Anime Art",
+      "Image Generation",
+      "Ai Design"
+    ],
+    "url": "https://animegenius.live3d.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 153,
+    "name": "Tripo AI",
+    "description": "Instantly generate 3D models from text or images. Tripo AI offers fast, stylized results with developer tools.",
+    "iconUrl": "https://www.tripo3d.ai/logo.png",
+    "tags": [
+      "3D Modeling",
+      "Image Generation",
+      "No-Code"
+    ],
+    "url": "https://www.tripo3d.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 154,
+    "name": "Entrevista App",
+    "description": "Screen candidates anytime with AI interviews: custom questions, automated scoring, and sentiment analysis.",
+    "iconUrl": "",
+    "tags": [
+      "Ai Interviews",
+      "Automated Scoring",
+      "Sentiment Analysis"
+    ],
+    "url": "https://entrevista.app?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 155,
+    "name": "PPSPY",
+    "description": "AI-powered PPSPY: Boost your Shopify store! Find winning products, analyze competitors, and track sales data.",
+    "iconUrl": "https://www.ppspy.com/favicon.ico",
+    "tags": [
+      "E-Commerce Ai",
+      "Product Research",
+      "Marketing Ai"
+    ],
+    "url": "https://www.ppspy.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 156,
+    "name": "Vidalgo",
+    "description": "AI-powered TikTok tool: Automates video creation, boosts engagement, optimizes titles, and tests content.",
+    "iconUrl": "https://www.vidalgo.tech/favicon.ico",
+    "tags": [
+      "Video Creation",
+      "Social Media",
+      "Marketing Ai"
+    ],
+    "url": "https://www.vidalgo.tech?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 157,
+    "name": "KIVA",
+    "description": "KIVA: AI-powered SEO tool. Automates keyword research, content briefs, and tracks performance with Google Search Console data.",
+    "iconUrl": "https://wellows.com/wp-content/themes/wellows/template/media/favicons/favicon.ico",
+    "tags": [
+      "Seo Tools",
+      "Content Creation",
+      "Ai Research"
+    ],
+    "url": "https://wellows.com/kiva?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 158,
+    "name": "Snoooz",
+    "description": "Snoooz: Smartly manages your inbox with personalized replies, sentiment analysis, and automated organization.",
+    "iconUrl": "https://statics.myclickfunnels.com/workspace/jWlmAW/image/5444354/file/c4f17c76bbc7465b079a60a059284dec.png",
+    "tags": [
+      "Customer Support",
+      "Sentiment Analysis",
+      "Productivity"
+    ],
+    "url": "https://deals.snoooz.ai/ltd?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 159,
+    "name": "AutoShorts",
+    "description": "AutoShorts: AI creates custom, faceless videos for TikTok & YouTube. Manage all your series easily.",
+    "iconUrl": "https://autoshorts.ai/images/favicon.ico",
+    "tags": [
+      "Video Creation",
+      "Social Media",
+      "Ai Video Editing"
+    ],
+    "url": "https://autoshorts.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 160,
+    "name": "Adobe Firefly",
+    "description": "Create stunning visuals with Adobe Firefly: Generate images, vectors, and textures from text or sketches.",
+    "iconUrl": "https://firefly.adobe.com/fi_favicon.ico",
+    "tags": [
+      "Image Generation",
+      "Ai Design",
+      "Content Creation"
+    ],
+    "url": "https://firefly.adobe.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 161,
+    "name": "Adobe Podcast",
+    "description": "Easily create professional podcasts: enhance audio, edit online, transcribe, record remotely, and add music.",
+    "iconUrl": "https://podcast.adobe.com/adobe-podcast-favicon.svg",
+    "tags": [
+      "Audio Creation",
+      "Podcast Editing",
+      "Ai Voices"
+    ],
+    "url": "https://podcast.adobe.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 162,
+    "name": "HEIGHTS AI",
+    "description": "Create courses effortlessly! Instantly draft content, brainstorm titles, and optimize with AI guidance.",
+    "iconUrl": "https://cdn.heightsplatform.com/assets/favicon-a937eeab3d5e2de9f8b2a072c110114c07c2ba5bd06aba0aa29392aba45beee5.ico",
+    "tags": [
+      "Content Creation",
+      "Ai Presentations",
+      "Productivity"
+    ],
+    "url": "https://www.heightsplatform.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 163,
+    "name": "Dzine",
+    "description": "Generate stunning visuals: AI creates images, automates workflows, and sparks creativity with filters & prompts.",
+    "iconUrl": "https://static.dzine.ai/g-favicon-d.ico",
+    "tags": [
+      "Ai Design",
+      "Image Generation",
+      "Web Design"
+    ],
+    "url": "https://www.dzine.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 164,
+    "name": "DET Practice",
+    "description": "AI-powered DET prep: Instant feedback, vast question bank, adaptive testing to pinpoint your weaknesses.",
+    "iconUrl": "https://www.detpractice.com/favicon.ico",
+    "tags": [
+      "Ai Learning",
+      "Instant Feedback",
+      "Test Prep"
+    ],
+    "url": "https://www.detpractice.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 165,
+    "name": "OutGrow",
+    "description": "Transform boring text into engaging quizzes & calculators with AI. Boost leads through personalized, interactive content.",
+    "iconUrl": "",
+    "tags": [
+      "Content Creation",
+      "Ai Workflows",
+      "Leads Generation"
+    ],
+    "url": "https://share.outgrow.biz/aitools?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 166,
+    "name": "JoggAI",
+    "description": "Create video ads instantly from URLs/images. AI avatars, templates, and scriptwriting, for budget-conscious creators.",
+    "iconUrl": "https://www.jogg.ai/favicon.ico",
+    "tags": [
+      "Video Creation",
+      "Video Ads",
+      "Ai Writing"
+    ],
+    "url": "https://www.jogg.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 167,
+    "name": "Syllaby",
+    "description": "Create engaging videos quickly & affordably. Syllaby uses AI avatars, voice cloning, and trending scripts for easy marketing.",
+    "iconUrl": "https://syllaby.io/wp-content/uploads/2023/07/logo.svg",
+    "tags": [
+      "Video Creation",
+      "Ai Marketing",
+      "Ai Video Editing"
+    ],
+    "url": "https://syllaby.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 168,
+    "name": "Harpa AI",
+    "description": "Get instant summaries, draft emails, and automate web tasks directly in your browser with HARPA AI.",
+    "iconUrl": "https://harpa.ai/safari-pinned-tab.svg",
+    "tags": [
+      "Web Automation",
+      "Ai Summarization",
+      "Productivity"
+    ],
+    "url": "https://harpa.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 169,
+    "name": "Eagle",
+    "description": "Manage your creative assets with Eagle. AI tools, smart organization, and collaboration features streamline your workflow.",
+    "iconUrl": "https://www.eagle.cool/images/favicon.png",
+    "tags": [
+      "Asset Management",
+      "Ai Workflows",
+      "Collaboration"
+    ],
+    "url": "https://www.eagle.cool?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 170,
+    "name": "Qodex",
+    "description": "Automated API testing, documentation, and monitoring with AI. Efficient for developers and teams.",
+    "iconUrl": "https://framerusercontent.com/images/k4yDky9zA58ceImgoOwPjGV26ow.png",
+    "tags": [
+      "Api Testing",
+      "Ai Workflows",
+      "Automated Testing"
+    ],
+    "url": "https://qodex.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 171,
+    "name": "VideoIdeas.ai",
+    "description": "Generate engaging YouTube scripts and video ideas tailored to your channel's voice.",
+    "iconUrl": "https://www.videoideas.ai/favicon.ico",
+    "tags": [
+      "Video Ideas",
+      "Youtube Scripts",
+      "Ai Video Creation"
+    ],
+    "url": "https://www.videoideas.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 172,
+    "name": "Liner",
+    "description": "Get cited answers fast! Liner uses AI to research, filter sources, and power your projects.",
+    "iconUrl": "https://app.liner.com/favicon.ico?v=20250605",
+    "tags": [
+      "Ai Research",
+      "Content Creation",
+      "Summarization"
+    ],
+    "url": "https://app.liner.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 173,
+    "name": "Tweet Hunter",
+    "description": "AI-powered X assistant: analyzes, rewrites, schedules tweets, finds leads, and offers viral content.",
+    "iconUrl": "https://cdn.prod.website-files.com/64ad1f808f894585c5c47c11/64ad1f808f894585c5c47ca4_favicon%20tweet%20hunter.png",
+    "tags": [
+      "Social Media",
+      "Ai Writing",
+      "Content Creation"
+    ],
+    "url": "https://tweethunter.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 174,
+    "name": "Fellow",
+    "description": "Effortlessly take notes, transcribe, summarize meetings, and sync with CRM. Perfect for teams and entrepreneurs.",
+    "iconUrl": "https://framerusercontent.com/images/sW6iuXCfty7TX304Vot3LKcI8.png",
+    "tags": [
+      "Meeting Assistant",
+      "Ai Summarization",
+      "Productivity"
+    ],
+    "url": "https://fellow.app?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 175,
+    "name": "Hubspot AI",
+    "description": "HubSpot's AI tools: Powerful content creation, lead discovery, and marketing automation for peak efficiency.",
+    "iconUrl": "https://spread.name/favicon.ico",
+    "tags": [
+      "Ai Marketing",
+      "Content Creation",
+      "Customer Support"
+    ],
+    "url": "https://link.aitoolsdirectory.com/hubspot-ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 176,
+    "name": "Super",
+    "description": "Turn your Notion pages into beautiful, fast websites, easily! No code needed.",
+    "iconUrl": "https://assets.super.so/186f4256-f467-4f79-8d6f-40defe12b9b4/uploads/favicon/54a7f247-1005-4b2b-a424-8669cdda7a7f.png",
+    "tags": [
+      "No-Code",
+      "Web Design",
+      "Productivity"
+    ],
+    "url": "https://super.so?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 177,
+    "name": "BatchTable",
+    "description": "Automate image metadata (keywords, titles, descriptions) at scale using AI. Perfect for stock and marketing.",
+    "iconUrl": "https://www.batchtable.com/icon.png",
+    "tags": [
+      "Image Metadata",
+      "Batch Processing",
+      "Seo Automation"
+    ],
+    "url": "https://www.batchtable.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 178,
+    "name": "Chance AI",
+    "description": "Explore the world visually! Chance AI uses AI to instantly identify objects and unlock interactive knowledge.",
+    "iconUrl": "https://static.wixstatic.com/media/f8f4c3_092498e2e5f347ad907960a1ed7761a0%7Emv2.jpg/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/f8f4c3_092498e2e5f347ad907960a1ed7761a0%7Emv2.jpg",
+    "tags": [
+      "Image Generation",
+      "Object Recognition",
+      "Instant Feedback"
+    ],
+    "url": "https://www.chance.vision?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 179,
+    "name": "Synthesia",
+    "description": "Transform documents into videos effortlessly! Includes avatars, 130 languages, and templates for captivating content.",
+    "iconUrl": "https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d710/664f0f482fa5a4d527d892bc_Favicon-Web-Security%201.png",
+    "tags": [
+      "Video Creation",
+      "Ai Presentations",
+      "Content Creation"
+    ],
+    "url": "https://www.synthesia.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 180,
+    "name": "Hiver",
+    "description": "AI-powered email assistant: Summarizes, drafts replies, and automates closures for agent efficiency.",
+    "iconUrl": "https://hiver.referralrock.com/plugins/member-portal/favicon.jpg",
+    "tags": [
+      "Ai Summarization",
+      "Customer Support",
+      "Email Automation"
+    ],
+    "url": "https://hiver.referralrock.com/l/1KEITH57?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 181,
+    "name": "LensGo",
+    "description": "Transform your videos into epic content effortlessly. LensGo: AI-powered video styling, no editing needed!",
+    "iconUrl": "",
+    "tags": [
+      "Video Creation",
+      "Ai Styling",
+      "No Editing"
+    ],
+    "url": "https://lensgo.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 182,
+    "name": "SEOmatic",
+    "description": "SEOmatic: Generate SEO-optimized content at scale, effortlessly, for niche sites and businesses.",
+    "iconUrl": "https://seomatic.ai/metadata/favicon.ico",
+    "tags": [
+      "Seo Tools",
+      "Content Creation",
+      "Ai Writing"
+    ],
+    "url": "https://seomatic.ai?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 183,
+    "name": "BetterPic",
+    "description": "Get professional 4K AI headshots in an hour! Choose from 150+ styles, with easy customization.",
+    "iconUrl": "https://www.betterpic.io/favicon.png",
+    "tags": [
+      "Image Generation",
+      "Ai Design",
+      "Headshot"
+    ],
+    "url": "https://www.betterpic.io?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 184,
+    "name": "Biread",
+    "description": "BiRead: AI-driven language learning. Get personalized insights, grasp key phrases, and improve comprehension.",
+    "iconUrl": "https://www.biread.com/favicon.ico",
+    "tags": [
+      "Language Learning",
+      "Ai Learning",
+      "Summarization"
+    ],
+    "url": "https://www.biread.com?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
+  },
+  {
+    "id": 185,
+    "name": "Magai",
+    "description": "Centralized AI tool for small businesses and creators: multiple AI models, document & YouTube integration.",
+    "iconUrl": "https://magai.co/wp-content/uploads/2023/03/magai-icon-color-isolated.png",
+    "tags": [
+      "All-In-One Ai",
+      "Ai Workflows",
+      "Productivity"
+    ],
+    "url": "https://magai.co?utm_source=aitools4you&utm_medium=referral&utm_campaign=aitools4you.ai"
   }
 ]
