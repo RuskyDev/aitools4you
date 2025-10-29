@@ -29,11 +29,9 @@ export default function Footer() {
     fafacebook: FaFacebook,
     fadiscord: FaDiscord,
     fax: FaXTwitter,
-    farediit: FaReddit,
+    fareddit: FaReddit,
     fayoutube: FaYoutube,
   };
-
-  const Icon = iconMap[icon?.toLowerCase()];
 
   const groupedFooterItems = footerItems.reduce((acc, item) => {
     if (!acc[item.category]) acc[item.category] = [];
