@@ -13,7 +13,7 @@ import {
 const getItemsPerPage = () => {
   if (typeof window === "undefined") return 9;
   const width = window.innerWidth;
-  if (width < 640) return 1;
+  if (width < 640) return 9;
   if (width < 1024) return 10;
   return 9;
 };
@@ -140,7 +140,7 @@ export default function Page() {
             Featured AI Tools
           </h2>
 
-          {/* PAId Featured AI Tools */}
+          {/* Paid Featured AI Tools */}
           <div className="relative overflow-hidden mb-12">
             <motion.div
               className="flex gap-6"
