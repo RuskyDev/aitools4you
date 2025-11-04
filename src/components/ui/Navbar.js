@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   FaLinkedin,
   FaInstagram,
@@ -12,30 +14,29 @@ import {
   FaReddit,
   FaYoutube,
 } from "react-icons/fa6";
-import Link from "next/link";
-import Image from "next/image";
 import siteConfig from "@/config/site.config";
-
-const iconMap = {
-  FaLinkedin,
-  FaInstagram,
-  FaFacebook,
-  FaDiscord,
-  FaXTwitter,
-  FaReddit,
-  FaYoutube
-};
 
 export default function Navbar({ navItems }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   if (pathname.startsWith("/admin")) return null;
 
-  const siteName = siteConfig.name || "Website";
+  const siteName = siteConfig.name;
+  const { socialMediaLinks = [] } = siteConfig;
+
+  const iconMap = {
+    falinkedin: FaLinkedin,
+    fainstagram: FaInstagram,
+    fafacebook: FaFacebook,
+    fadiscord: FaDiscord,
+    fax: FaXTwitter,
+    fareddit: FaReddit,
+    fayoutube: FaYoutube,
+  };
+
   const validItems = (navItems || siteConfig.navigationBarItems || []).filter(
-    (i) => i?.label && i?.href
+    (i) => i?.label && i?.href && i.showOn?.includes("navbar")
   );
-  const socialLinks = siteConfig.socialMediaLinks || [];
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -52,11 +53,8 @@ export default function Navbar({ navItems }) {
 
   return (
     <>
-      <nav
-        className="w-full h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
-        aria-label="Main Navigation"
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-full">
+      <nav className="w-full h-16 sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border flex items-center">
+        <div className="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/ai-tools-4-you-logo.svg"
@@ -70,20 +68,27 @@ export default function Navbar({ navItems }) {
             </span>
           </Link>
 
-          <ul className="hidden md:flex gap-10 text-muted-foreground">
-            {validItems.map(({ label, href }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className="hover:text-primary transition cursor-pointer"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+          <ul className="hidden md:flex items-center gap-10 text-muted-foreground absolute left-1/2 transform -translate-x-1/2 h-full">
+            {validItems.map(({ label, href }) => {
+              const isActive = pathname === href;
+              return (
+                <li key={label} className="flex items-center h-full">
+                  <Link
+                    href={href}
+                    className={`transition cursor-pointer flex items-center h-full ${
+                      isActive
+                        ? "text-primary"
+                        : "hover:text-primary text-muted-foreground"
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 ml-auto">
             {pathname === "/" && (
               <motion.button
                 onClick={handleSearchClick}
@@ -95,27 +100,6 @@ export default function Navbar({ navItems }) {
                 <Search size={22} />
               </motion.button>
             )}
-
-            <div className="hidden md:flex gap-5">
-              {socialLinks.map(({ label, href, icon }) => {
-                const Icon = iconMap[icon];
-                return (
-                  Icon && (
-                    <Link
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Visit our ${label} page`}
-                      className="text-muted-foreground hover:text-primary transition"
-                    >
-                      <Icon size={20} />
-                    </Link>
-                  )
-                );
-              })}
-            </div>
-
             <motion.button
               onClick={() => setMenuOpen(true)}
               className="md:hidden w-8 h-8 flex items-center justify-center"
@@ -136,7 +120,7 @@ export default function Navbar({ navItems }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed inset-0 bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 bg-background/95 backdrop-blur-md z-50 flex flex-col items-center justify-between py-12"
             aria-modal="true"
             role="dialog"
           >
@@ -150,46 +134,73 @@ export default function Navbar({ navItems }) {
               <X size={32} />
             </motion.button>
 
-            {validItems.map(({ label, href }, i) => (
-              <motion.div
-                key={label}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  href={href}
-                  className="text-2xl font-semibold text-foreground hover:text-primary transition"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {label}
-                </Link>
-              </motion.div>
-            ))}
+            <div className="flex flex-col items-center gap-4 w-full flex-1 justify-center">
+              <div className="absolute top-10 left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <div className="flex flex-col sm:flex-row items-center gap-3">
+                  <Image
+                    src="/ai-tools-4-you-logo.svg"
+                    alt={`${siteConfig.name} Logo`}
+                    width={60}
+                    height={60}
+                    className="object-contain"
+                  />
+                  <span className="text-3xl whitespace-nowrap font-bold text-primary text-center sm:text-left">
+                    {siteConfig.name}
+                    <span className="block text-lg font-medium mt-2 text-white leading-none">
+                      Think Smarter. Work Easy.
+                    </span>
+                  </span>
+                </div>
+              </div>
 
-            <div className="flex gap-6 mt-6">
-              {socialLinks.map(({ label, href, icon }, i) => {
-                const Icon = iconMap[icon];
+              {validItems.map(({ label, href }, i) => {
+                const isActive = pathname === href;
                 return (
-                  Icon && (
-                    <motion.div
-                      key={label}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
+                  <motion.div
+                    key={label}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: i * 0.1 }}
+                  >
+                    <Link
+                      href={href}
+                      className={`text-2xl font-semibold transition text-center ${
+                        isActive
+                          ? "text-primary"
+                          : "text-foreground hover:text-primary"
+                      }`}
+                      onClick={() => setMenuOpen(false)}
                     >
-                      <Link
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`Visit our ${label} page`}
-                        className="text-muted-foreground hover:text-primary transition"
-                        onClick={() => setMenuOpen(false)}
-                      >
-                        <Icon size={28} />
-                      </Link>
-                    </motion.div>
-                  )
+                      {label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <div className="flex gap-4 mt-8">
+              {siteConfig.socialMediaLinks?.map(({ label, href, icon }) => {
+                const iconMap = {
+                  falinkedin: FaLinkedin,
+                  fainstagram: FaInstagram,
+                  fafacebook: FaFacebook,
+                  fadiscord: FaDiscord,
+                  fax: FaXTwitter,
+                  fareddit: FaReddit,
+                  fayoutube: FaYoutube,
+                };
+                const Icon = iconMap[icon?.toLowerCase()];
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-colors"
+                  >
+                    <Icon size={22} className="text-muted-foreground" />
+                  </a>
                 );
               })}
             </div>

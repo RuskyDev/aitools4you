@@ -1,39 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
+import { FaCircleExclamation } from "react-icons/fa6";
 import Script from "next/script";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import VerticalAdComponent from "@/components/VerticalAdComponent";
 import siteConfig from "@/config/site.config";
-import { FaCircleExclamation } from "react-icons/fa6";
-
-const VerticalAdComponent = dynamic(
-  () => import("@/components/VerticalAdComponent"),
-  { ssr: false }
-);
-
-const ADS = [
-  {
-    position: "left",
-    src: "https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Python-in-Action-Project-Based-Programming-Left-And-Right-Side-Ad-15-10-2025-_1_.webm",
-    redirectTo:
-      "https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814",
-  },
-  {
-    position: "right",
-    src: "https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Python-in-Action-Project-Based-Programming-Left-And-Right-Side-Ad-15-10-2025-_1_.webm",
-    redirectTo:
-      "https://www.amazon.com/Python-Action-Project-Based-Introduction-Applications/dp/B0DJJQR814",
-  },
-];
 
 function AnalyticsScript() {
   const id = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
   if (!id || process.env.NODE_ENV !== "production") return null;
   return (
     <>
-      <Script src={`https://www.googletagmanager.com/gtag/js?id=${id}`} strategy="afterInteractive" />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${id}`}
+        strategy="afterInteractive"
+      />
       <Script id="google-analytics" strategy="afterInteractive">
         {`window.dataLayer=window.dataLayer||[];
           function gtag(){dataLayer.push(arguments);}
@@ -70,23 +53,6 @@ function GTMScript() {
 }
 
 function StructuredData() {
-  // const organizationSchema = {
-  //   "@context": "https://schema.org",
-  //   "@type": "Organization",
-  //   name: "AI Tools 4 You",
-  //   url: "https://www.aitools4you.ai",
-  //   logo: "https://www.aitools4you.ai/logo.png",
-  //   sameAs: [
-  //     "https://www.linkedin.com/company/ai-tools-4-you",
-  //     "https://instagram.com/aitools4you.official",
-  //     "https://www.facebook.com/aitools4you",
-  //     "https://x.com/aitools4youai",
-  //     "https://reddit.com/r/aitools4you",
-  //     "https://discord.gg/5wyRWYByFU",
-  //     "https://www.youtube.com/@aitools4youofficial"
-  //   ]
-  // };
-
   const breadcrumbSchema = {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
@@ -95,36 +61,29 @@ function StructuredData() {
         "@type": "ListItem",
         position: 1,
         name: "AI Tools 4 You | Home",
-        item: "https://aitools4you.ai/"
+        item: "https://aitools4you.ai/",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "AI Tools 4 You | About",
-        item: "https://aitools4you.ai/about-us"
+        item: "https://aitools4you.ai/about-us",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "AI Tools 4 You | Blog",
-        item: "https://aitools4you.ai/blog"
-      }
-    ]
+        item: "https://aitools4you.ai/blog",
+      },
+    ],
   };
 
   return (
-    <>
-      {/* <Script
-        id="organization-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      /> */}
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-    </>
+    <Script
+      id="breadcrumb-schema"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+    />
   );
 }
 
@@ -199,12 +158,8 @@ export default function RootLayoutClient({ children }) {
       <AnalyticsScript />
       <Navbar navItems={siteConfig.navigationBarItems} />
       <StructuredData />
-      <main>
-        {ADS.map((ad) => (
-          <VerticalAdComponent key={ad.position} {...ad} />
-        ))}
-        {children}
-      </main>
+      <VerticalAdComponent />
+      <main>{children}</main>
       <Footer />
       {showPopup && <Popup onClose={handleClose} />}
     </>

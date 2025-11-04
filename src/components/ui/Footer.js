@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import {
   FaLinkedin,
   FaInstagram,
@@ -8,11 +9,61 @@ import {
   FaXTwitter,
   FaReddit,
   FaYoutube,
+  FaMoon,
+  FaSun,
 } from "react-icons/fa6";
 import siteConfig from "@/config/site.config";
 
 export default function Footer() {
   const pathname = usePathname();
+  const [isDark, setIsDark] = useState(false);
+  const [userPreferences, setUserPreferences] = useState({ theme: "light" });
+
+  useEffect(() => {
+    const body = document.body;
+    const savedPrefs = localStorage.getItem("Preferences");
+    if (savedPrefs) {
+      const prefs = JSON.parse(savedPrefs);
+      setUserPreferences(prefs);
+      if (prefs.theme === "dark") {
+        body.classList.add("dark");
+        body.classList.remove("light");
+        setIsDark(true);
+      } else {
+        body.classList.add("light");
+        body.classList.remove("dark");
+        setIsDark(false);
+      }
+    } else {
+      setIsDark(body.classList.contains("dark"));
+    }
+  }, []);
+
+  const changeUserPreferences = (prefs) => {
+    setUserPreferences((prev) => {
+      const updated = { ...prev, ...prefs };
+      localStorage.setItem("Preferences", JSON.stringify(updated));
+      return updated;
+    });
+
+    if (prefs.theme) {
+      const body = document.body;
+      if (prefs.theme === "dark") {
+        body.classList.add("dark");
+        body.classList.remove("light");
+        setIsDark(true);
+      } else {
+        body.classList.add("light");
+        body.classList.remove("dark");
+        setIsDark(false);
+      }
+    }
+  };
+
+  const toggleTheme = () => {
+    changeUserPreferences({ theme: isDark ? "light" : "dark" });
+  };
+
   if (pathname.startsWith("/admin")) return null;
 
   const year = new Date().getFullYear();
@@ -48,7 +99,7 @@ export default function Footer() {
             <p className="text-muted-foreground mb-6 max-w-md">
               {siteConfig.description}
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               {socialMediaLinks.map(({ label, href, icon }) => {
                 const Icon = iconMap[icon?.toLowerCase()];
                 if (!Icon) return null;
@@ -64,6 +115,31 @@ export default function Footer() {
                   </a>
                 );
               })}
+
+              <button
+                onClick={toggleTheme}
+                className="p-2 bg-muted hover:bg-muted/80 rounded-lg transition-all duration-300 relative overflow-hidden group"
+                aria-label="Toggle theme"
+              >
+                <div className="relative w-5 h-5">
+                  <FaSun
+                    size={20}
+                    className={`absolute inset-0 text-muted-foreground transition-all duration-500 ${
+                      isDark
+                        ? "rotate-90 scale-0 opacity-0"
+                        : "rotate-0 scale-100 opacity-100"
+                    }`}
+                  />
+                  <FaMoon
+                    size={20}
+                    className={`absolute inset-0 text-muted-foreground transition-all duration-500 ${
+                      isDark
+                        ? "rotate-0 scale-100 opacity-100"
+                        : "-rotate-90 scale-0 opacity-0"
+                    }`}
+                  />
+                </div>
+              </button>
             </div>
           </div>
 
@@ -72,16 +148,20 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2">
-              {navigationBarItems.map(({ label, href }) => (
-                <li key={label}>
-                  <a
-                    href={href}
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    {label}
-                  </a>
-                </li>
-              ))}
+              {navigationBarItems
+                .filter(
+                  (i) => i?.label && i?.href && i.showOn?.includes("footer")
+                )
+                .map(({ label, href }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
             </ul>
           </div>
 

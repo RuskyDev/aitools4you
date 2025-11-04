@@ -1,13 +1,14 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Search,
   SlidersHorizontal,
   ExternalLink,
   ChevronLeft,
   ChevronRight,
+  Mic,
 } from "lucide-react";
 
 const getItemsPerPage = () => {
@@ -113,10 +114,7 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-background/80 relative">
-      <HorizontalAdComponent
-        src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top-Side-Ad-15-10-2025.webm"
-        redirectTo={"https://astrad.io/"}
-      />
+      <HorizontalAdComponent />
 
       <div className="max-w-[1200px] mx-auto px-4 py-8">
         <div className="flex flex-col items-center justify-start text-center">
@@ -208,8 +206,24 @@ export default function Page() {
                   placeholder="Search AI tools..."
                   value={search}
                   onChange={(e) => handleSearch(e.target.value)}
-                  className="w-full pl-10 pr-5 py-3 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
+                  className="w-full pl-10 pr-12 py-3 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
                 />
+                <button
+                  className="absolute right-3 top-1/2 -translate-y-1/2 transition"
+                >
+                  <motion.div
+                    key="off"
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                      color: "var(--muted-foreground)",
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Mic size={20} />
+                  </motion.div>
+                </button>
               </div>
 
               <div className="relative w-full sm:w-48">
@@ -292,10 +306,7 @@ export default function Page() {
 
                     {index === 2 && (
                       <div className="block sm:hidden">
-                        <HorizontalAdComponent
-                          src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top-Side-Ad-15-10-2025.webm"
-                          redirectTo="https://astrad.io/"
-                        />
+                        <HorizontalAdComponent />
                       </div>
                     )}
                   </React.Fragment>
@@ -338,10 +349,7 @@ export default function Page() {
           )}
 
           <div className="block sm:hidden">
-            <HorizontalAdComponent
-              src="https://qmxubuxchxlzzzhxvvcc.supabase.co/storage/v1/object/public/Ad%20Banner%20Designs/Top-Side-Ad-15-10-2025.webm"
-              redirectTo="https://astrad.io/"
-            />
+            <HorizontalAdComponent />
           </div>
         </div>
       </div>

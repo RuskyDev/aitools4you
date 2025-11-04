@@ -3,6 +3,7 @@ import { Calendar, Clock, User, Search } from "lucide-react";
 import Link from "next/link";
 import { supabase } from "@/utils/supabase/client";
 import { compileMDX } from "next-mdx-remote/rsc";
+import HorizontalAdComponent from "@/components/HorizontalAdComponent";
 
 export const revalidate = 60;
 
@@ -71,6 +72,7 @@ export default async function Blogs({ searchParams: maybeSearchParams }) {
 
   return (
     <div className="min-h-screen bg-linear-to-b from-background to-background/80 px-6 py-16">
+      <HorizontalAdComponent />
       <div className="text-center mb-12">
         <h1 className="text-5xl sm:text-6xl font-extrabold text-foreground mb-6 leading-tight">
           Read Our <br />
@@ -97,7 +99,9 @@ export default async function Blogs({ searchParams: maybeSearchParams }) {
       </div>
 
       <div className="w-full my-12">
-        <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
+        <div className="max-w-[1200px] mx-auto px-4">
+          <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent"></div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">

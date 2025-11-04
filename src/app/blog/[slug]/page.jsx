@@ -35,16 +35,21 @@ export async function generateMetadata({ params: maybeParams }) {
     updatedAt,
   } = frontmatter;
 
+  const canonicalUrl = `https://${siteConfig.domain}/blog/${slug}`;
+
   return {
     title,
     description,
     keywords: Array.isArray(keywords) ? keywords.join(", ") : keywords,
     authors: [{ name: author }],
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
       title,
       description,
       type: "article",
-      url: `https://${siteConfig.domain}/blog/${slug}`,
+      url: canonicalUrl,
       images: [{ url: image, width: 1200, height: 630, alt: title }],
       publishedTime: publishedAt,
       modifiedTime: updatedAt,
@@ -62,9 +67,7 @@ export default async function BlogPage({ params: maybeParams }) {
   const params = await maybeParams;
   const { slug } = params;
   const filePath = `posts/${slug}.mdx`;
-  const { data, error } = await supabase.storage
-    .from("Blogs")
-    .download(filePath);
+  const { data, error } = await supabase.storage.from("Blogs").download(filePath);
   if (error || !data)
     return (
       <div className="min-h-screen flex items-center justify-center">

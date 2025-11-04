@@ -44,9 +44,30 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}>
+    <html suppressHydrationWarning lang="en">
+      <body
+        suppressHydrationWarning
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         <RootLayoutClient>{children}</RootLayoutClient>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const prefs = JSON.parse(localStorage.getItem('Preferences') || '{}');
+                  if (prefs.theme === 'dark') {
+                    document.body.classList.add('dark');
+                    document.body.classList.remove('light');
+                  } else {
+                    document.body.classList.add('light');
+                    document.body.classList.remove('dark');
+                  }
+                } catch(e) {}
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );

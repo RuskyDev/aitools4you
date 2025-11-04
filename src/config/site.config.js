@@ -14,10 +14,11 @@ const siteConfig = {
   ],
 
   navigationBarItems: [
-    { label: "Home", href: "/" },
-    { label: "Blog", href: "/blog" },
-    { label: "About Us", href: "/about-us" },
-    { label: "Contact", href: "/contact" },
+    { label: "Home", href: "/", showOn: ["footer", "navbar"] },
+    { label: "Prompts", href: "/prompts", showOn: ["footer", "navbar"] },
+    { label: "Blog", href: "/blog", showOn: ["footer"] },
+    { label: "About Us", href: "/about-us", showOn: ["footer"] },
+    { label: "Contact", href: "/contact", showOn: ["footer"] },
   ],
   footerItems: [
     { category: "For Advertisers", label: "Advertise With Us", href: "/ads" },

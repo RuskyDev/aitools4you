@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Wrench, Tag, FileText, Home } from "lucide-react";
+import { Wrench, Tag, FileText, Home, SquareChartGantt } from "lucide-react";
 import siteConfig from "@/config/site.config";
 
 export default function Sidebar() {
@@ -15,6 +15,7 @@ export default function Sidebar() {
     { icon: Home, label: "Dashboard", href: "/admin/dashboard" },
     { icon: Tag, label: "Tags", href: "/admin/dashboard/tags" },
     { icon: Wrench, label: "Tools", href: "/admin/dashboard/tools" },
+    { icon: SquareChartGantt, label: "Prompts", href: "/admin/dashboard/prompts" },
     { icon: FileText, label: "Blogs", href: "/admin/dashboard/blogs" },
   ];
 
