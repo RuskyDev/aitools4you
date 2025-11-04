@@ -79,7 +79,7 @@ export default function Footer() {
     fainstagram: FaInstagram,
     fafacebook: FaFacebook,
     fadiscord: FaDiscord,
-    fax: FaXTwitter,
+    faxtwitter: FaXTwitter,
     fareddit: FaReddit,
     fayoutube: FaYoutube,
   };
