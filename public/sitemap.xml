@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
   <url>
     <loc>https://aitools4you.ai/</loc>
     <lastmod>2025-10-20</lastmod>
@@ -55,7 +56,7 @@
     <priority>0.3</priority>
   </url>
 
-  <!-- Blog Articles -->
+  <!-- Blog Articles (All Canonical and 200 OK URLs) -->
   <url>
     <loc>https://aitools4you.ai/blog/chatgpt-atlas-review-the-future-of-browsing-starts-here</loc>
     <lastmod>2025-10-23</lastmod>
@@ -101,6 +102,60 @@
   <url>
     <loc>https://aitools4you.ai/blog/ai-music-tools-revolutionizing-music-creation-with-artificial-intelligence</loc>
     <lastmod>2025-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/adobe-adds-new-ai-tools-to-simplify-creative-work</loc>
+    <lastmod>2025-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/figma-acquires-weavy-a-bold-step-toward-ai-powered-design-innovation</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/experts-warn-ai-powered-browsers-could-become-the-next-cybersecurity-time-bomb</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/canva-launches-its-own-ai-design-model-revolutionizing-creativity-with-advanced-features</loc>
+    <lastmod>2025-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/how-openi-chatbot-is-powering-the-future-of-artificial-intelligence-tools</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/character-ai-ends-its-chatbot-experience-for-kids</loc>
+    <lastmod>2025-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/top-ai-study-tools-for-students-learn-smarter</loc>
+    <lastmod>2025-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/question-ai-the-ai-chatbot-and-math-solver-that-explains-every-step</loc>
+    <lastmod>2025-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aitools4you.ai/blog/tinder-new-ai-feature-scans-camera-roll-to-improve-matches</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
