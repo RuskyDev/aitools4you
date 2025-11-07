@@ -14,9 +14,9 @@ export default function Sidebar() {
   const menuItems = [
     { icon: Home, label: "Dashboard", href: "/admin/dashboard" },
     { icon: Tag, label: "Tags", href: "/admin/dashboard/tags" },
-    { icon: Wrench, label: "Tools", href: "/admin/dashboard/tools" },
+    // { icon: Wrench, label: "Tools", href: "/admin/dashboard/tools" },
     { icon: SquareChartGantt, label: "Prompts", href: "/admin/dashboard/prompts" },
-    { icon: FileText, label: "Blogs", href: "/admin/dashboard/blogs" },
+    // { icon: FileText, label: "Blogs", href: "/admin/dashboard/blogs" },
   ];
 
   return (
