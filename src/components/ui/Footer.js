@@ -16,26 +16,25 @@ import siteConfig from "@/config/site.config";
 
 export default function Footer() {
   const pathname = usePathname();
-  const [isDark, setIsDark] = useState(false);
-  const [userPreferences, setUserPreferences] = useState({ theme: "light" });
+  const [isDark, setIsDark] = useState(true);
+  const [userPreferences, setUserPreferences] = useState({ theme: "dark" });
 
   useEffect(() => {
-    const body = document.body;
+    const html = document.documentElement;
     const savedPrefs = localStorage.getItem("Preferences");
     if (savedPrefs) {
       const prefs = JSON.parse(savedPrefs);
       setUserPreferences(prefs);
-      if (prefs.theme === "dark") {
-        body.classList.add("dark");
-        body.classList.remove("light");
-        setIsDark(true);
-      } else {
-        body.classList.add("light");
-        body.classList.remove("dark");
+      if (prefs.theme === "light") {
+        html.classList.add("light");
         setIsDark(false);
+      } else {
+        html.classList.remove("light");
+        setIsDark(true);
       }
     } else {
-      setIsDark(body.classList.contains("dark"));
+      html.classList.remove("light");
+      setIsDark(true);
     }
   }, []);
 
@@ -47,15 +46,13 @@ export default function Footer() {
     });
 
     if (prefs.theme) {
-      const body = document.body;
-      if (prefs.theme === "dark") {
-        body.classList.add("dark");
-        body.classList.remove("light");
-        setIsDark(true);
-      } else {
-        body.classList.add("light");
-        body.classList.remove("dark");
+      const html = document.documentElement;
+      if (prefs.theme === "light") {
+        html.classList.add("light");
         setIsDark(false);
+      } else {
+        html.classList.remove("light");
+        setIsDark(true);
       }
     }
   };

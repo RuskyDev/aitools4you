@@ -16,19 +16,18 @@ export default function LoginPage() {
     setErrorMsg("");
     setLoading(true);
 
-    const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
 
-    if (authError) {
-      setErrorMsg(authError.message);
-      console.error("Login error:", authError);
+    if (error) {
+      setErrorMsg(error.message);
       setLoading(false);
       return;
     }
 
-    const userId = authData.user.id;
+    const userId = data.user.id;
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("role")
@@ -38,10 +37,12 @@ export default function LoginPage() {
     setLoading(false);
 
     if (profileError || profile?.role !== "admin") {
+      await supabase.auth.signOut();
       setErrorMsg("Access denied. You are not an admin.");
       return;
     }
 
+    // Redirect to dashboard; Supabase stores session in browser automatically
     window.location.href = "/admin/dashboard";
   };
 

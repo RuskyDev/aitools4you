@@ -15,7 +15,7 @@ export async function GET(req) {
 
     const { data: prompts, error: promptError } = await supabase
       .from("Prompts")
-      .select("id, title, description, content, tags, created_at")
+      .select("id, title, description, content, tags, image_url, created_at")
       .order("created_at", { ascending: false });
 
     if (promptError) throw promptError;
@@ -43,9 +43,11 @@ export async function GET(req) {
 
       return {
         id: slugify(p.title || "untitled"),
+        db_id: p.id,
         title: p.title,
         description: p.description,
         content: p.content,
+        image_url: p.image_url || null,
         tags: tagNames,
         created_at: p.created_at,
       };

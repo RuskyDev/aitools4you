@@ -3,11 +3,15 @@ import { Geist, Geist_Mono } from "next/font/google";
 import RootLayoutClient from "./LayoutClient";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: "AI Tools 4 You",
-  description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
+  description:
+    "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
   keywords: ["ai tools", "new ai tools", "list of ai tools", "top ai tools"],
   authors: [{ name: "AI Tools 4 You" }],
   creator: "AI Tools 4 Yous",
@@ -18,13 +22,15 @@ export const metadata = {
     type: "website",
     url: "https://aitools4you.ai",
     title: "AI Tools 4 You",
-    description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
+    description:
+      "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
     images: ["/og-image.jpg"],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Tools 4 You",
-    description: "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
+    description:
+      "Discover top AI tools for developers, designers, and creators to boost productivity, automate tasks, and enhance creativity effortlessly.",
     images: ["/og-image.jpg"],
   },
   icons: {
@@ -50,24 +56,6 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <RootLayoutClient>{children}</RootLayoutClient>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const prefs = JSON.parse(localStorage.getItem('Preferences') || '{}');
-                  if (prefs.theme === 'dark') {
-                    document.body.classList.add('dark');
-                    document.body.classList.remove('light');
-                  } else {
-                    document.body.classList.add('light');
-                    document.body.classList.remove('dark');
-                  }
-                } catch(e) {}
-              })();
-            `,
-          }}
-        />
       </body>
     </html>
   );

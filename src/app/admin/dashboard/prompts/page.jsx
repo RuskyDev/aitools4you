@@ -1,137 +1,119 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 import Pagination from "../../components/Pagination";
 import PopupModal from "../../components/PopupModal";
 import Spinner from "../../components/Spinner";
+import AddPrompt from "./components/addPrompt";
+import EditPrompt from "./components/editPrompt";
+import { supabase } from "@/utils/supabase/client";
+import { checkSession, getAuthHeaders } from "../../utils/auth";
 
-export default function PromptsPage() {
+export default function Page() {
   const [prompts, setPrompts] = useState([]);
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState("add");
-  const [selectedPrompt, setSelectedPrompt] = useState(null);
+  const [promptToEdit, setPromptToEdit] = useState(null);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [selectedTags, setSelectedTags] = useState([]);
   const [promptText, setPromptText] = useState("");
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [imageFile, setImageFile] = useState(null);
   const [promptToDelete, setPromptToDelete] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const pageSize = 10;
+  const paginatedPrompts = prompts.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
+  const totalPages = Math.ceil(prompts.length / pageSize);
 
   const fetchPrompts = async () => {
-    setLoading(true);
     try {
-      const res = await fetch("/api/admin/prompts");
+      const session = await checkSession();
+      const headers = getAuthHeaders(session);
+      const res = await fetch("/api/admin/prompts", { headers });
       const data = await res.json();
       setPrompts(data || []);
-    } catch (err) {
-      console.error("Error fetching prompts:", err);
-    }
-    setLoading(false);
-  };
-
-  const fetchTags = async () => {
-    try {
-      const res = await fetch("/api/admin/tags");
-      const data = await res.json();
-      setTags(data || []);
-    } catch (err) {
-      console.error("Error fetching tags:", err);
+    } catch (error) {
+      console.error("Error fetching prompts:", error);
+      setPrompts([]);
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchPrompts();
+    async function fetchTags() {
+      const session = await checkSession();
+      const headers = getAuthHeaders(session);
+      try {
+        const res = await fetch("/api/admin/tags", { headers });
+        const data = await res.json();
+        setTags(data || []);
+      } catch {
+        setTags([]);
+      }
+    }
+
     fetchTags();
+    fetchPrompts();
   }, []);
 
   const openAddModal = () => {
     setModalMode("add");
     setTitle("");
     setDescription("");
-    setPromptText("");
     setSelectedTags([]);
-    setSelectedPrompt(null);
+    setPromptText("");
+    setImageFile(null);
     setShowModal(true);
   };
 
   const openEditModal = (prompt) => {
     setModalMode("edit");
-    setTitle(prompt.title);
-    setDescription(prompt.description);
-    setPromptText(prompt.content);
-    setSelectedTags(prompt.tags || []);
-    setSelectedPrompt(prompt);
+    setPromptToEdit(prompt);
     setShowModal(true);
   };
 
-  const handleTagChange = (e) => {
-    const value = e.target.value;
-    setSelectedTags((prev) =>
-      prev.includes(value)
-        ? prev.filter((v) => v !== value)
-        : prev.length < 3
-        ? [...prev, value]
-        : prev
-    );
+  const handlePromptCreated = async () => {
+    setShowModal(false);
+    setLoading(true);
+    await fetchPrompts();
   };
 
-  const handleConfirmModal = async () => {
-    if (!title.trim() || !promptText.trim() || selectedTags.length === 0) return;
-
-    const body = {
-      title: title.trim(),
-      description: description.trim(),
-      content: promptText.trim(),
-      tags: selectedTags,
-    };
-
-    try {
-      if (modalMode === "add") {
-        await fetch("/api/admin/prompts", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
-      } else if (modalMode === "edit" && selectedPrompt) {
-        await fetch(`/api/admin/prompts/${selectedPrompt.id}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(body),
-        });
-      }
-    } catch (err) {
-      console.error(err);
-    }
-
-    await fetchPrompts();
+  const handlePromptUpdated = async () => {
     setShowModal(false);
-    setSelectedPrompt(null);
+    setLoading(true);
+    await fetchPrompts();
   };
 
   const handleDeleteConfirmed = async () => {
     if (!promptToDelete) return;
     try {
-      await fetch(`/api/admin/prompts/${promptToDelete.id}`, { method: "DELETE" });
+      const session = await checkSession();
+      const headers = getAuthHeaders(session);
+      const res = await fetch(`/api/admin/prompts/${promptToDelete.id}`, {
+        method: "DELETE",
+        headers,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setPrompts((prev) => prev.filter((p) => p.id !== promptToDelete.id));
+      } else {
+        console.error("Delete failed:", data.error);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("Error deleting prompt:", err);
+    } finally {
+      setShowDeleteModal(false);
     }
-    await fetchPrompts();
-    setPromptToDelete(null);
-    setShowDeleteModal(false);
-    if ((currentPage - 1) * pageSize >= prompts.length - 1)
-      setCurrentPage(Math.max(currentPage - 1, 1));
   };
-
-  const totalPages = Math.ceil(prompts.length / pageSize);
-  const paginatedPrompts = prompts.slice(
-    (currentPage - 1) * pageSize,
-    currentPage * pageSize
-  );
 
   return (
     <div className="max-w-7xl mx-auto flex-1 pt-8">
@@ -177,9 +159,14 @@ export default function PromptsPage() {
                         .filter(Boolean)
                         .join(", ")}
                     </td>
-                    <td className="px-4 py-2 truncate max-w-xs">{prompt.content}</td>
+                    <td className="px-4 py-2 truncate max-w-xs">
+                      {prompt.content}
+                    </td>
                     <td className="px-4 py-2 flex justify-center gap-2">
-                      <button onClick={() => openEditModal(prompt)} className="hover:text-primary">
+                      <button
+                        onClick={() => openEditModal(prompt)}
+                        className="hover:text-primary"
+                      >
                         <Pencil className="w-4 h-4" />
                       </button>
                       <button
@@ -207,60 +194,40 @@ export default function PromptsPage() {
         </>
       )}
 
-      <PopupModal
-        title={modalMode === "add" ? "Add New Prompt" : "Edit Prompt"}
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        onConfirm={handleConfirmModal}
-        confirmText={modalMode === "add" ? "Create" : "Save"}
-      >
-        <input
-          type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Title"
-          className="w-full px-3 py-2 border border-border rounded mb-2 focus:outline-none focus:ring focus:ring-primary"
+      {modalMode === "add" && (
+        <AddPrompt
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          onPromptCreated={handlePromptCreated}
+          title={title}
+          setTitle={setTitle}
+          description={description}
+          setDescription={setDescription}
+          selectedTags={selectedTags}
+          setSelectedTags={setSelectedTags}
+          promptText={promptText}
+          setPromptText={setPromptText}
+          imageFile={imageFile}
+          setImageFile={setImageFile}
         />
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Description"
-          className="w-full px-3 py-2 border border-border rounded mb-2 focus:outline-none focus:ring focus:ring-primary"
-        />
+      )}
 
-        <div className="w-full px-3 py-2 border border-border rounded mb-2 bg-background">
-          <label className="block text-sm text-muted-foreground mb-1">
-            Select up to 3 tags
-          </label>
-          <div className="flex flex-wrap gap-2">
-            {tags.map((t) => (
-              <label key={t.id} className="flex items-center gap-1 text-sm">
-                <input
-                  type="checkbox"
-                  value={t.id}
-                  checked={selectedTags.includes(t.id)}
-                  onChange={handleTagChange}
-                  className="accent-primary"
-                />
-                {t.name}
-              </label>
-            ))}
-          </div>
-        </div>
-
-        <textarea
-          rows="4"
-          value={promptText}
-          onChange={(e) => setPromptText(e.target.value)}
-          placeholder="Prompt"
-          className="w-full px-3 py-2 border border-border rounded focus:outline-none focus:ring focus:ring-primary"
+      {modalMode === "edit" && promptToEdit && (
+        <EditPrompt
+          isOpen={showModal}
+          onClose={() => setShowModal(false)}
+          promptData={promptToEdit}
+          onPromptUpdated={handlePromptUpdated}
         />
-      </PopupModal>
+      )}
 
       <PopupModal
         title="Delete Prompt"
-        message={promptToDelete ? `Are you sure you want to delete "${promptToDelete.title}"?` : ""}
+        message={
+          promptToDelete
+            ? `Are you sure you want to delete "${promptToDelete.title}"?`
+            : ""
+        }
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
         onConfirm={handleDeleteConfirmed}

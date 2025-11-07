@@ -34,8 +34,13 @@ export default function Page() {
         setLoading(true);
         const res = await fetch("/api/prompts");
         const data = await res.json();
-        if (Array.isArray(data)) setPrompts(data);
-        else setPrompts([]);
+        if (Array.isArray(data)) {
+          const withImages = data.map((p) => ({
+            ...p,
+            image_url: p.image_url || "/default-prompt.webp",
+          }));
+          setPrompts(withImages);
+        } else setPrompts([]);
       } catch {
         setPrompts([]);
       } finally {

@@ -1,29 +1,46 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 import { Pencil, Trash2 } from "lucide-react";
 import Pagination from "../../components/Pagination";
 import PopupModal from "../../components/PopupModal";
 import Spinner from "../../components/Spinner";
+import { supabase } from "@/utils/supabase/client";
 
 export default function TagsPage() {
   const [tags, setTags] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [showModal, setShowModal] = useState(false);
   const [modalMode, setModalMode] = useState("add");
   const [selectedTag, setSelectedTag] = useState(null);
   const [tagInput, setTagInput] = useState("");
+  const [tagTypes, setTagTypes] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [tagToDelete, setTagToDelete] = useState(null);
+  const [session, setSession] = useState(null);
 
   const pageSize = 10;
+
+  useEffect(() => {
+    const getSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setSession(session);
+    };
+    getSession();
+  }, []);
+
+  const getAuthHeaders = () => {
+    if (!session) return {};
+    return { Authorization: `Bearer ${session.access_token}` };
+  };
 
   const fetchTags = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/tags");
+      const res = await fetch("/api/admin/tags", {
+        headers: getAuthHeaders(),
+      });
       const data = await res.json();
       setTags(data || []);
     } catch (err) {
@@ -33,12 +50,13 @@ export default function TagsPage() {
   };
 
   useEffect(() => {
-    fetchTags();
-  }, []);
+    if (session) fetchTags();
+  }, [session]);
 
   const openAddModal = () => {
     setModalMode("add");
     setTagInput("");
+    setTagTypes([]);
     setSelectedTag(null);
     setShowModal(true);
   };
@@ -46,46 +64,57 @@ export default function TagsPage() {
   const openEditModal = (tag) => {
     setModalMode("edit");
     setTagInput(tag.name);
+    setTagTypes(Array.isArray(tag.type) ? tag.type : []);
     setSelectedTag(tag);
     setShowModal(true);
+  };
+
+  const handleTypeChange = (value) => {
+    setTagTypes((prev) =>
+      prev.includes(value)
+        ? prev.filter((v) => v !== value)
+        : [...prev, value]
+    );
   };
 
   const handleConfirmModal = async () => {
     if (!tagInput.trim()) return;
 
+    const payload = {
+      id: selectedTag?.id,
+      name: tagInput.trim(),
+      type: tagTypes,
+    };
+
     try {
-      if (modalMode === "add") {
-        await fetch("/api/admin/tags", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: tagInput.trim() }),
-        });
-      } else if (modalMode === "edit" && selectedTag) {
-        await fetch(`/api/admin/tags/${selectedTag.id}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: tagInput.trim() }),
-        });
-      }
+      await fetch("/api/admin/tags", {
+        method: modalMode === "add" ? "POST" : "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          ...getAuthHeaders(),
+        },
+        body: JSON.stringify(payload),
+      });
     } catch (err) {
-      console.error(err);
+      console.error("Error saving tag:", err);
     }
 
     await fetchTags();
     setShowModal(false);
     setTagInput("");
+    setTagTypes([]);
     setSelectedTag(null);
   };
 
   const handleDeleteConfirmed = async () => {
     if (!tagToDelete) return;
-
     try {
-      await fetch(`/api/admin/tags/${tagToDelete.id}`, {
+      await fetch(`/api/admin/tags?id=${tagToDelete.id}`, {
         method: "DELETE",
+        headers: getAuthHeaders(),
       });
     } catch (err) {
-      console.error(err);
+      console.error("Error deleting tag:", err);
     }
 
     await fetchTags();
@@ -98,7 +127,10 @@ export default function TagsPage() {
   };
 
   const totalPages = Math.ceil(tags.length / pageSize);
-  const paginatedTags = tags.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  const paginatedTags = tags.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize
+  );
 
   return (
     <div className="max-w-7xl mx-auto flex-1 pt-8">
@@ -127,7 +159,7 @@ export default function TagsPage() {
               <thead className="bg-muted text-muted-foreground">
                 <tr>
                   <th className="px-4 py-2 text-left">Tag Name</th>
-                  <th className="px-4 py-2 text-left">Used By (# of Tools)</th>
+                  <th className="px-4 py-2 text-left">Type(s)</th>
                   <th className="px-4 py-2 text-center">Actions</th>
                 </tr>
               </thead>
@@ -135,9 +167,16 @@ export default function TagsPage() {
                 {paginatedTags.map((tag) => (
                   <tr key={tag.id} className="border-t border-border">
                     <td className="px-4 py-2">{tag.name}</td>
-                    <td className="px-4 py-2">{tag.count || 0}</td>
+                    <td className="px-4 py-2">
+                      {Array.isArray(tag.type)
+                        ? tag.type.join(", ")
+                        : tag.type || "—"}
+                    </td>
                     <td className="px-4 py-2 flex justify-center gap-2">
-                      <button onClick={() => openEditModal(tag)} className="hover:text-primary">
+                      <button
+                        onClick={() => openEditModal(tag)}
+                        className="hover:text-primary"
+                      >
                         <Pencil className="w-4 h-4" />
                       </button>
                       <button
@@ -165,7 +204,6 @@ export default function TagsPage() {
         </>
       )}
 
-      {/* Add/Edit Tag Modal */}
       <PopupModal
         title={modalMode === "add" ? "Add New Tag" : "Edit Tag"}
         isOpen={showModal}
@@ -173,20 +211,44 @@ export default function TagsPage() {
         onConfirm={handleConfirmModal}
         confirmText={modalMode === "add" ? "Create" : "Save"}
       >
+        <label className="block mb-1 font-medium text-sm">
+          Enter tag name (max 32 characters)
+        </label>
         <input
           type="text"
-          maxLength={14}
+          maxLength={32}
           value={tagInput}
           onChange={(e) => setTagInput(e.target.value)}
-          placeholder="Tag name (max 14 chars)"
-          className="w-full px-3 py-2 border border-border rounded mb-2 focus:outline-none focus:ring focus:ring-primary"
+          placeholder="Tag name"
+          className="w-full px-3 py-2 border border-border rounded mb-3 focus:outline-none focus:ring focus:ring-primary"
         />
+
+        <label className="block mb-1 font-medium text-sm">
+          Select applicable tag types
+        </label>
+        <div className="flex gap-4 mb-3">
+          {["Tool", "Prompt"].map((type) => (
+            <label key={type} className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                value={type}
+                checked={tagTypes.includes(type)}
+                onChange={() => handleTypeChange(type)}
+                className="accent-primary"
+              />
+              {type}
+            </label>
+          ))}
+        </div>
       </PopupModal>
 
-      {/* Delete Confirmation Modal */}
       <PopupModal
         title="Delete Tag"
-        message={tagToDelete ? `Are you sure you want to delete "${tagToDelete.name}"?` : ""}
+        message={
+          tagToDelete
+            ? `Are you sure you want to delete "${tagToDelete.name}"?`
+            : ""
+        }
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
         onConfirm={handleDeleteConfirmed}

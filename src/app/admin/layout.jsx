@@ -20,6 +20,7 @@ export default function Layout({ children }) {
       label: "Logout",
       onClick: async () => {
         await supabase.auth.signOut();
+        setSession(null);
         router.replace("/admin/auth/login");
       },
     },
@@ -30,20 +31,19 @@ export default function Layout({ children }) {
       const { data: { session } } = await supabase.auth.getSession();
       setSession(session);
 
-      // Logged-in users should not access /admin/auth/*
+      // Redirect logged-in users away from login page
       if (pathname.startsWith("/admin/auth") && session) {
         router.replace("/admin/dashboard");
         return;
       }
 
-      // Protect /admin/dashboard/* pages
+      // Protect admin dashboard
       if (pathname.startsWith("/admin/dashboard")) {
         if (!session) {
           router.replace("/admin/auth/login");
           return;
         }
 
-        // Check if user is admin
         const { data: profile, error } = await supabase
           .from("profiles")
           .select("role")
@@ -51,6 +51,7 @@ export default function Layout({ children }) {
           .single();
 
         if (error || profile?.role !== "admin") {
+          await supabase.auth.signOut();
           router.replace("/admin/auth/login");
           return;
         }
@@ -59,7 +60,16 @@ export default function Layout({ children }) {
       setCheckingAuth(false);
     };
 
+    // Listen for session changes
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
     checkAuth();
+
+    return () => {
+      listener.subscription.unsubscribe();
+    };
   }, [pathname, router]);
 
   if (checkingAuth) return null;
@@ -68,10 +78,10 @@ export default function Layout({ children }) {
     <div className="flex min-h-screen bg-background">
       {showAdminUI && <Sidebar />}
       <div className={`${showAdminUI ? "ml-[280px]" : "ml-0"} flex-1 flex flex-col relative`}>
-        {showAdminUI && (
+        {showAdminUI && session && (
           <div className="absolute top-4 right-4 z-10">
             <Dropdown
-              label={<ProfileIcon name={session?.user?.email || "John Doe"} />}
+              label={<ProfileIcon name={session.user.email} />}
               items={profileItems}
             />
           </div>
