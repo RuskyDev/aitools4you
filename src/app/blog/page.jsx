@@ -84,7 +84,7 @@ export default async function Blogs({ searchParams: maybeSearchParams }) {
         </p>
       </div>
 
-      <div className="flex justify-center mb-12">
+      {/* <div className="flex justify-center mb-12">
         <div className="relative w-full max-w-md">
           <input
             type="text"
@@ -96,7 +96,7 @@ export default async function Blogs({ searchParams: maybeSearchParams }) {
             className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground"
           />
         </div>
-      </div>
+      </div> */}
 
       <div className="w-full my-12">
         <div className="max-w-[1200px] mx-auto px-4">
