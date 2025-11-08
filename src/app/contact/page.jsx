@@ -81,7 +81,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background/80">
+    <div className="min-h-screen bg-linear-to-b from-background to-background/80">
       <div className="flex flex-col items-center justify-start px-6 py-16 text-center">
         <h1 className="text-5xl sm:text-6xl font-extrabold mb-6 text-foreground leading-tight">
           Get in <span className="text-primary">Touch</span>
@@ -92,7 +92,7 @@ export default function ContactForm() {
       </div>
 
       <div className="w-full px-6">
-        <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-primary/50 to-transparent" />
       </div>
 
       <div className="px-6 py-16">

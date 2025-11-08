@@ -37,7 +37,7 @@ export default function PaymentSuccessPage() {
   if (!verified) return null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-background/80 flex items-center justify-center">
+    <div className="min-h-screen bg-linear-to-b from-background to-background/80 flex items-center justify-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
