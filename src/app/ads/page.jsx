@@ -10,7 +10,8 @@ export default function AdsPage() {
   const advertisingSections = [
     {
       title: "Featured Tool",
-      description: "Premium placement at the top of key pages for maximum visibility and engagement. Perfect for brand awareness campaigns and featured product launches.",
+      description:
+        "Premium placement at the top of key pages for maximum visibility and engagement. Perfect for brand awareness campaigns and featured product launches.",
       image: "/ads/Featured_Advertising_Banner.jpg",
     },
     {
@@ -21,7 +22,7 @@ export default function AdsPage() {
     },
     {
       title: "Top Center Banner",
-      description:  
+      description:
         "Central positioning above main content for optimal focus. Best for time-sensitive offers and high-conversion marketing objectives.",
       image: "/ads/Top_Center_Advertising_Banner.jpg",
     },
@@ -150,8 +151,7 @@ export default function AdsPage() {
                 <td className="px-4 py-2 border">1 Week</td>
                 <td className="px-4 py-2 border font-bold">$80</td>
                 <td className="px-4 py-2 border">
-                  Exclusive — limited availability. Contact us at
-                  contact@aitools4you.ai
+                  Shared visibility with other advertisers
                 </td>
               </tr>
               <tr>
