@@ -208,7 +208,7 @@ export default function Page() {
                   onChange={(e) => handleSearch(e.target.value)}
                   className="w-full pl-10 pr-12 py-3 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
                 />
-                <button
+                {/* <button
                   className="absolute right-3 top-1/2 -translate-y-1/2 transition"
                 >
                   <motion.div
@@ -223,7 +223,7 @@ export default function Page() {
                   >
                     <Mic size={20} />
                   </motion.div>
-                </button>
+                </button> */}
               </div>
 
               <div className="relative w-full sm:w-48">

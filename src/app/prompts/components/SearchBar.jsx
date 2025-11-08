@@ -24,7 +24,7 @@ export default function Searchbar({ onSearchChange }) {
         onChange={(e) => handleSearch(e.target.value)}
         className="w-full pl-10 pr-12 py-3 rounded-xl border border-border bg-input text-foreground placeholder:text-muted-foreground shadow-md focus:outline-none focus:ring-2 focus:ring-ring transition"
       />
-      <button className="absolute right-3 top-1/2 -translate-y-1/2 transition">
+      {/* <button className="absolute right-3 top-1/2 -translate-y-1/2 transition">
         <motion.div
           key="off"
           initial={{ scale: 0.8, opacity: 0 }}
@@ -37,7 +37,7 @@ export default function Searchbar({ onSearchChange }) {
         >
           <Mic size={20} />
         </motion.div>
-      </button>
+      </button> */}
     </div>
   );
 }

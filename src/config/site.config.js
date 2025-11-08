@@ -14,8 +14,8 @@ const siteConfig = {
   ],
 
   navigationBarItems: [
-    { label: "Home", href: "/", showOn: ["footer", "navbar"] },
-    { label: "Prompts", href: "/prompts", showOn: ["footer", "navbar"] },
+    { label: "Home", href: "/", showOn: ["navbar"] },
+    { label: "Prompts", href: "/prompts", showOn: ["navbar"] },
     { label: "Blog", href: "/blog", showOn: ["footer"] },
     { label: "About Us", href: "/about-us", showOn: ["footer"] },
     { label: "Contact", href: "/contact", showOn: ["footer"] },
